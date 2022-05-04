@@ -1,0 +1,19 @@
+=============== HISTORICO DE VERSÕES ===============
+
+>>> 2.1 <<<<
+
+  > 03/05/2022, 20:28, Gabriel
+  > Mudanças:
+    > Criado o verlog.txt;
+    > Removidas as imagens (/img) rel. a bickraft:
+    > Removidos os arquivos css (/css) com classes inutilizadas;
+    > Subiu em 1 a hierarquia da pasta (removidas subpastas desnecessárias);
+    > Removida a subpasta rel. a bickraft;
+    > O arquivo 'contato.css' agora é 'cadastro.css';
+    > Correção das refs. a 'contato.css' no html;
+    > Remoção de refs. inutilizadas no html;
+    > Padronização de espaços;
+
+>>> 1.0 <<<<
+
+>>> 2.0 <<<<

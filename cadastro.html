@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8">
+		<title>Estoqueasy - cadastro</title>
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/grid.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/cadastro.css">
+		<script>document.documentElement.classList.add("js");</script>
+	</head>
+	<body>
+		<header class="header">
+			<div class="container">
+				<a href="index.html" class="grid-4">
+					<img src="img/controle-de-estoque.png" alt="Estoqueasy" width="50%">
+				</a>
+				<nav class="grid-12 header_menu">
+					<ul>
+						<li><a href="producao.html">produção</a></li>
+						<li><a href="relatorios.html">relatorio</a></li>
+						<li><a href="cadastro.html" class="menu_ativo">Cadastro</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<section class="cadastro container">
+			<form id="form_produto" class="cadastro_form grid-12">
+				<label for="nome">Nome do produto</label>
+				<input type="text" id="nome">
+				<label for="qtd">Quantidade</label>
+				<input type="text" id="number">
+				<label for="custo">custo</label>
+				<input type="text" id="number">
+				<label for="valor">valor</label>
+				<input type="text" id="number">
+				<label for="tipo">tipo</label>
+				<input type="text" id="text">
+				<label for="materia-prima">materia-prima 1</label>
+				<input type="text" id="text">
+				<label for="materia-prima">materia-prima 2</label>
+				<input type="text" id="text">
+				<label for="materia-prima">materia-prima 3</label>
+				<input type="text" id="text">
+				<button type="menu" class="btn btn-preto">adicionar materia-prima</button>
+				<button type="submit" class="btn btn-preto">criar</button>
+			</form>
+		</section>
+	</body>
+</html>

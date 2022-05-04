@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8">
+		<title>Estoqueasy - relatorios</title>
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/grid.css">
+		<link rel="stylesheet" href="css/style.css">
+		<script>document.documentElement.classList.add("js");</script>
+	</head>
+	<body>
+		<header class="header">
+			<div class="container">
+				<a href="index.html" class="grid-4">
+					<img src="img/controle-de-estoque.png" alt="Estoqueasy" width="50%">
+				</a>
+				<nav class="grid-12 header_menu">
+					<ul>
+						<li><a href="producao.html">produção</a></li>
+						<li><a href="relatorios.html" class="menu_ativo">relatorio</a></li>
+						<li><a href="cadastro.html">cadastro</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<section class="introducao">
+			<div class="container">
+				<h1 class="preto">Mais vendidos</h1>
+				<head>
+					<style>
+					table {
+						font-family: arial, sans-serif;
+						border-collapse: collapse;
+						width: 100%;
+					}
+					
+					td, th {
+  						border: 1px solid #dddddd;
+  						text-align: left;
+  						padding: 9px;
+					}
+					tr {
+  						color: #0e0101;
+						background-color: #FFFFFF;
+					}
+					</style>
+				</head>
+				<table class="padding">
+  					<tr>
+    					<th>Nome do produto</th>
+    					<th >Produzidos</th>
+    					<th >Vendidos</th>
+  					</tr>
+  					<tr>
+    					<td>brinco</td>
+    					<td >20</td>
+    					<td >15</td>
+  					</tr>
+				</table>
+			</div>
+		</section>
+
+		<!-- js -->
+		<script src="./js/simple-anime.js"></script>
+		<script src="./js/script.js"></script>
+		
+	</body>
+</html>
