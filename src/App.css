@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
 
 body{
@@ -66,7 +65,7 @@ main {
 .produtos {
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 90%;
+    width: 70%;
     margin-bottom: 60px;
     margin-left: auto;
     margin-right: auto;
@@ -74,7 +73,7 @@ main {
 
 .produtos td, th {
       border: 1px solid #dddddd;
-      text-align: left;
+      text-align: center;
       padding: 9px;
 }
 .produtos tr {
@@ -173,15 +172,15 @@ main {
 .producao{
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 90%;
-  margin-bottom: 60px;
-  margin-left: 30px;
+  width: 20%;
+  margin-bottom: 20px;
+  margin-left: auto;
   margin-right: auto;
 }
 
 .producao td, th {
   border: 1px solid #dddddd;
-  text-align: left;
+  text-align: center;
   padding: 9px;
   
 }
@@ -228,26 +227,24 @@ background-color: #FFFFFF;
   margin-bottom: 45px;
 }
 
-.mais-vendidos{
-  display: flex;
-  flex: 0 1 40vw;
-  height: 50vh;
-  justify-content: center;
-  align-items: center;
+.mais-vendidos {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 28%;
+    margin-bottom: 60px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .mais-vendidos td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 9px;
-  
+      border: 1px solid #dddddd;
+      text-align: center;
+      padding: 9px;
 }
-
 .mais-vendidos tr {
-  color: #0e0101;
-  background-color: #FFFFFF;
+      color: #0e0101;
+    background-color: #FFFFFF;
 }
-
 
 
 
