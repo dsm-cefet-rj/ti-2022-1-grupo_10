@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import './App.css'
-import Relatorio from './Components/Relatorio'
-import Cadastro from './Components/Cadastro'
+import './App.css';
+import RelatorioProduzidos from "./Components/RelatorioProduzidos";
+import RelatorioMateriaPrima from "./Components/RelatorioMateriaPrima";
+import Cadastro from './Components/Cadastro';
 import Home from "./Components/Home";
 import Producao from "./Components/producao";
 
@@ -49,7 +50,9 @@ const App = () => {
 
       </div>
   
-        <Relatorio />
+      <RelatorioProduzidos tableData={tableData}/>
+
+      <RelatorioMateriaPrima/>
   
   
       </main>
