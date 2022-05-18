@@ -1,65 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import './App.css'
-import Relatorio from './Components/Relatorio'
+import RelatorioProduzidos from "./Components/RelatorioProduzidos";
+import Cadastro from './Components/Cadastro'
+import Home from "./Components/Home";
 
 
 
 const App = () => {
   
+  const [tableData, setTableData] = useState([])
+  const [formInputData, setformInputData] = useState(
+      {
+      nomeProduto:'',
+      qtdProduto:'',
+      custoProduto:'',
+      valorProduto:'',
+      }
+  );
+ 
+  const handleChange=(evnt)=>{  
+      const newInput = (data)=>({...data, [evnt.target.name]:evnt.target.value})
+      setformInputData(newInput)
+  }
+  
+  const handleSubmit= (evnt) =>{
+      evnt.preventDefault();
+      const checkEmptyInput = !Object.values(formInputData).every(res=>res==="")
+      if(checkEmptyInput)
+      {
+        const newData = (data)=>([...data, formInputData])
+        setTableData(newData);
+        const emptyInput= {nomeProduto:'', qtdProduto:'', custoProduto:'', valorProduto:''}
+        setformInputData(emptyInput)
+      }
+  }
+  
   return(
   <>
      <main>
+
+        <Home tableData={tableData} />
       
-      <div class ="home">
-          <div id="home-texto">
-              <div id="home-texto_2">
-                  <h1>Estoqueasy</h1>
-                  <h2>Seu negócio</h2>
-          <table class="produtos">
-              <tr>
-                <th>Nome do produto</th>
-                <th >Custo</th>
-                <th >Valor</th>
-              </tr>
-              <tr>
-                <td>brinco</td>
-                <td >$30</td>
-                <td >$40</td>
-              </tr>
-          </table>
-                  <a href="#cadastro" class="btn" id="ir-cadastro">adicionar</a>
-                  <a href="#produzir" class="btn" id="ir-produzir">produzir</a>
-                  <a href="#relatorio" class="btn" id="ir-relatorio">relatórios</a>
-              </div>
-          </div>
-      </div>
-      <div id="cadastro">
-          <div id="header">
-              <h2>Cadastro de produtos</h2>
-            </div>
-          <form id="form_produto" class="cadastro_form">
-              <label for="nome">Nome do produto</label>
-              <input type="text" id="nome" />
-              <label for="qtd">Quantidade</label>
-              <input type="text" id="number" />
-              <label for="custo">Custo</label>
-              <input type="text" id="number" />
-              <label for="valor">Valor</label>
-              <input type="text" id="number" />
-              <label for="tipo">Tipo</label>
-              <input type="text" id="text" />
-              <label for="materia-prima">Matéria-prima 1</label>
-              <input type="text" id="text" />
-              <label for="materia-prima">Matéria-prima 2</label>
-              <input type="text" id="text" />
-              <label for="materia-prima">Matéria-prima 3</label>
-              <input type="text" id="text" />
-              <button type="menu" class="btn">adicionar matéria-prima</button>
-              <button type="submit" class="btn">criar</button>
-          </form>
+        <Cadastro handleChange={handleChange} formInputData={formInputData} handleSubmit={handleSubmit}/>
   
-  
-      </div>
   
   
       <div id="produzir">
@@ -75,10 +58,10 @@ const App = () => {
                 <td>brinco</td>              
               </tr>            
         </table>
-        <button type="menu" onclick="alert('Pouca materia-prima')" class="btn_2">produzir</button>
+        <button type="menu" onClick="alert('Pouca materia-prima')" class="btn_2">produzir</button>
       </div>
   
-        <Relatorio />
+        <RelatorioProduzidos tableData={tableData}/>
   
   
       </main>
