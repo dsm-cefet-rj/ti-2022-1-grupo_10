@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import './App.css'
-import RelatorioProduzidos from "./Components/RelatorioProduzidos";
+import Relatorio from './Components/Relatorio'
 import Cadastro from './Components/Cadastro'
 import Home from "./Components/Home";
+import Producao from "./Components/producao";
 
 
 
@@ -12,9 +13,7 @@ const App = () => {
   const [formInputData, setformInputData] = useState(
       {
       nomeProduto:'',
-      qtdProduto:'',
-      custoProduto:'',
-      valorProduto:'',
+      qtdProduto:''
       }
   );
  
@@ -30,7 +29,7 @@ const App = () => {
       {
         const newData = (data)=>([...data, formInputData])
         setTableData(newData);
-        const emptyInput= {nomeProduto:'', qtdProduto:'', custoProduto:'', valorProduto:''}
+        const emptyInput= {nomeProduto:'', qtdProduto:''}
         setformInputData(emptyInput)
       }
   }
@@ -46,22 +45,11 @@ const App = () => {
   
   
       <div id="produzir">
-          <div id="header">
-              <h2>Produção</h2>
-            </div>
-            <h1>Clique produzir para salvar no Estoqueasy</h1>
-          <table class="producao">
-              <tr>
-                <th>Nome do produto</th>
-              </tr>
-              <tr>
-                <td>brinco</td>              
-              </tr>            
-        </table>
-        <button type="menu" onClick="alert('Pouca materia-prima')" class="btn_2">produzir</button>
+          <Producao tableData={tableData} setTableData={setTableData} />
+
       </div>
   
-        <RelatorioProduzidos tableData={tableData}/>
+        <Relatorio />
   
   
       </main>
