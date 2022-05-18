@@ -1,5 +1,6 @@
 
 import React from "react";
+//
 
 const useSortableData = (items, config = null) => {
   const [sortConfig, setSortConfig] = React.useState(config);
@@ -39,44 +40,61 @@ const useSortableData = (items, config = null) => {
 
 
 
-const RelatorioProduzidos = ({colunas, produtos}) => {
-    const { items, requestSort, sortConfig } = useSortableData(produtos);
+const RelatorioProduzidos = ({tableData}) => {
+    const { items, requestSort, sortConfig } = useSortableData(tableData);
     const getClassNamesFor = (name) => {
         if (!sortConfig) {
         return;
         }
         return sortConfig.key === name ? sortConfig.direction : undefined;
     };
-    const TopoTabela = ({ item }) => 
-    <th>
-        <button
-            type="button"
-            onClick={() => requestSort(item.value)}
-            className={getClassNamesFor(item.value)}
-            >{item.heading}
-        </button>
-    </th>
-const LinhaTabela = ({ item, colunas }) => (
-    <tr>
-        {colunas.map((ColunaItem, index) => {
-            return <td>{item[`${ColunaItem.value}`]}</td>
-        })}
-    </tr>
-)
+  
+
     
     
     return (
-        <>
-            <h1>Mais Produzidos</h1>
+        
+      <div id="relatorio">
+        <div id="header">
+          <h2>Relatórios</h2>
+        </div>
+          <h1>Mais Produzidos</h1>
             <table class="mais-vendidos">
+              <thead> 
                 <tr>
-                    {colunas.map((item, index) => <TopoTabela item={item}/>)}
+                  <th>
+                    <button
+                      type="button"
+                      onClick={() => requestSort('nomeProduto')}
+                      className={getClassNamesFor('nomeProduto')}
+                    >
+                    Nome do Produto
+                    </button>
+                  </th>
+                  <th>
+                    <button
+                      type="button"
+                      onClick={() => requestSort('qtdProduto')}
+                      className={getClassNamesFor('qtdProduto')}
+                    >
+                    Quantidade
+                    </button>
+                  </th>
                 </tr>
-                <tbody>
-                    {items.map((item,index) => <LinhaTabela item ={item} colunas={colunas}/>)}
-                </tbody>
+              </thead>
+              <tbody>
+                {items.map((items,index) => {
+                  return (
+                      <tr key={index}>
+                        <td>{items.nomeProduto}</td>
+                        <td>{items.qtdProduto}</td>
+                      </tr>
+                  )
+                })}
+              </tbody>
             </table>
-        </>    
+      </div>
+         
     );
 
 };
