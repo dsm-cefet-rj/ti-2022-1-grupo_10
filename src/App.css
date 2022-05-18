@@ -221,9 +221,10 @@ background-color: #FFFFFF;
 	text-align: center;
 
 }
+
 #relatorio h1{
   text-align: center;
-  margin-top: 20px;
+  margin-top: 0px;
   margin-bottom: 45px;
 }
 
@@ -274,4 +275,41 @@ background-color: #FFFFFF;
   .btn_2{
     padding: 1rem 3rem;
   }
+}
+
+.container-report{
+  background-color: #eee;
+  max-width: 500px;
+  margin: 30px auto;
+  overflow: auto;
+  min-height: 500px;
+  border: 2px solid black;
+  padding: 30px;
+}
+
+.container-feedstock{
+  margin: 20px;
+  max-width: 450px;
+  min-height: 20px;
+  border: 2px solid black;
+  padding: 2px;
+}
+
+.feedstock-cell{
+  margin: 2px;
+  width: 500px;
+  min-height: 20px;
+  border: 2px solid black;
+}
+
+.feedstock-cell tr{
+  margin: 2px;
+  width: 170px;
+  text-align: left;
+}
+
+.feedstock-cell tr td{
+  margin: 2px;
+  width: 50px;
+  text-align: center;
 }
