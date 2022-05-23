@@ -55,6 +55,7 @@ const Home = ({tableData, tableMaterial}) => {
                     <a href="#cadastro" class="btn" id="ir-cadastro">adicionar</a>
                     <a href="#produzir" class="btn" id="ir-produzir">produzir</a>
                     <a href="#relatorio" class="btn" id="ir-relatorio">relatórios</a>
+                    <a href="#venda" class="btn" id="ir-venda">venda</a>
                 </div>
             </div>
         </div> 
