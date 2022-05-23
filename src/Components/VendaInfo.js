@@ -1,7 +1,7 @@
 import React from "react";
 
 const VendaInfo = () =>{
-    reuturn(
+    return(
         <>
             <p>placeholder</p>
         </>
