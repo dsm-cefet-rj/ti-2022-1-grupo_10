@@ -5,6 +5,7 @@ import RelatorioMateriaPrima from "./Components/RelatorioMateriaPrima";
 import Cadastro from './Components/Cadastro';
 import Home from "./Components/Home";
 import Producao from "./Components/producao";
+import Venda from "./Components/Venda";
 import CadastroMateriaPrima from './Components/CadastroMateriaPrima';
 
 
@@ -83,6 +84,8 @@ const App = () => {
           <Producao tableData={tableData} setTableData={setTableData} />
 
       </div>
+
+      <Venda tableData={tableData} setTableData={setTableData} />
   
       <RelatorioProduzidos tableData={tableData}/>
 
