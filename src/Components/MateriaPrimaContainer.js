@@ -1,5 +1,5 @@
 import React from "react";
-import MateriaPrima from "./MateriaPrima";
+import MateriaPrimaInfo from "./MateriaPrimaInfo";
 
 const MateriaPrimaContainer = ({materiaPrima}) => {
     return(
@@ -18,7 +18,7 @@ const MateriaPrimaContainer = ({materiaPrima}) => {
                 </tr>
             </table>
             {materiaPrima.map((materiaPrima)=>(
-                <MateriaPrima materiaPrima = {materiaPrima}/>
+                <MateriaPrimaInfo materiaPrima = {materiaPrima}/>
             ))}
         </>
     )
