@@ -6,7 +6,7 @@ const RelatorioVenda = () =>{
         <>
             <div id="relatorio">
                 <h1>VENDAS</h1>
-                <div className="container0-report">
+                <div className="container-report">
                     <VendaContainer/>
                 </div>
             </div>

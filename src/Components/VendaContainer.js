@@ -1,6 +1,7 @@
 import React from "react";
+import VendaInfo from "./VendaInfo";
 
-const VendaContainer = ({props}) =>{
+const VendaContainer = () =>{
     return(
         <>
             <p>placeholder</p>

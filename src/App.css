@@ -331,3 +331,30 @@ background-color: #FFFFFF;
   width: 50px;
   text-align: center;
 }
+
+.container-venda{
+  margin: 20px;
+  max-width: 450px;
+  min-height: 20px;
+  border: 2px solid black;
+  padding: 2px;
+}
+
+.venda-cell{
+  margin: 2px;
+  width: 500px;
+  min-height: 20px;
+  border: 2px solid black;
+}
+
+.venda-cell tr{
+  margin: 2px;
+  width: 170px;
+  text-align: left;
+}
+
+.venda-cell tr td{
+  margin: 2px;
+  width: 50px;
+  text-align: center;
+}
