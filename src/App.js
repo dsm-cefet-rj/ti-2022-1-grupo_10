@@ -7,6 +7,7 @@ import Home from "./Components/Home";
 import Producao from "./Components/producao";
 import Venda from "./Components/Venda";
 import CadastroMateriaPrima from './Components/CadastroMateriaPrima';
+import RelatorioVenda from "./Components/RelatorioVenda";
 
 
 
@@ -90,6 +91,8 @@ const App = () => {
       <RelatorioProduzidos tableData={tableData}/>
 
       <RelatorioMateriaPrima/>
+
+      <RelatorioVenda/>
   
   
       </main>
