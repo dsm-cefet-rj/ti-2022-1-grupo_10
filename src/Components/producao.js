@@ -37,15 +37,14 @@ let navigate = useNavigate();
               <h1>Clique produzir para salvar no Estoqueasy</h1>
             <table class="producao">
                 <tr>
-                  <th>Nome do produto</th>
-                  
-                </tr>
-                <tr>
-                  <input type="text"onChange={(e)=>setTasks(e.target.value)}></input>              
-                </tr>            
+                  <th>Produto</th>
+
+                <input type="text"onChange={(e)=>setTasks(e.target.value)}></input>                              
+                <button type="menu" onClick={handleproduce} class="btn_3">produzir</button>
+                
+                </tr>     
               </table>
-          <button type="menu" onClick={handleproduce} class="btn_2">produzir</button>
-          <button onClick={() => {navigate("/relatorioproduzidos");}} class="btn" id="ir-relatorioproduzidos">relatorio</button>
+          <button onClick={() => {navigate("/relatorioproduzidos");}} class="btn_2" id="ir-relatorioproduzidos">relatorio</button>          
           <button onClick={() => {navigate("/");}} class="btn_2" id="ir-home">Home</button>
 
       </div>

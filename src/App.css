@@ -193,17 +193,39 @@ main {
 .producao{
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 20%;
+  width: 10%;
   margin-bottom: 50px;
   margin-left: auto;
   margin-right: auto;
+  
+
 }
-#produzir button{
+
+#produzir .btn_2{
   margin-right: 30px;
-  border:0px
+  border:1px solid #533d09;
+}
+
+.btn_3{
+  padding: 0.5rem 2rem;
+  border: 1px solid #533d09;
+  padding: 10px 30px;
+  color: #533d09;
+  font-size: 14px;
+  line-height: 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: .1em;
+  transition: background 300ms ease;
+  text-align: center;
+}
+
+.btn_3:hover {
+  background: #f4f4f4;
 }
 .producao td, th {
-  border: 1px solid #dddddd;
+  
   text-align: center;
   padding: 9px;
   
@@ -212,6 +234,7 @@ main {
 .producao tr {
   color: #0e0101;
 background-color: #FFFFFF;
+width: 10%;
 }
 
 
@@ -294,6 +317,9 @@ background-color: #FFFFFF;
   }
 
   .btn_2{
+    padding: 1rem 3rem;
+  }
+  .btn_3{
     padding: 1rem 3rem;
   }
 }
