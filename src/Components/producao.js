@@ -1,14 +1,11 @@
 import React,{useState} from "react";
-
+import { useNavigate } from "react-router-dom";
  
 const Producao = ({tableData,setTableData}) => {
   const [tasks,setTasks]=useState([
     {
       nome:"nome produto"
-    },
-    {
-      nome:"brinco"
-    },
+    },    
   ]);
 
   
@@ -27,7 +24,7 @@ const handleproduce = ()=>{
   })
   setTableData(newtabledata)
 }
-
+let navigate = useNavigate();
 
   console.log(tableData)
  
@@ -41,12 +38,16 @@ const handleproduce = ()=>{
             <table class="producao">
                 <tr>
                   <th>Nome do produto</th>
+                  
                 </tr>
                 <tr>
                   <input type="text"onChange={(e)=>setTasks(e.target.value)}></input>              
                 </tr>            
               </table>
           <button type="menu" onClick={handleproduce} class="btn_2">produzir</button>
+          <button onClick={() => {navigate("/relatorioproduzidos");}} class="btn" id="ir-relatorioproduzidos">relatorio</button>
+          <button onClick={() => {navigate("/");}} class="btn_2" id="ir-home">Home</button>
+
       </div>
     </div>  
   )

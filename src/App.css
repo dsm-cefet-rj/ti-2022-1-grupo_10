@@ -172,7 +172,7 @@ main {
 }
 
 #produzir h1{
-  height: 40vh;
+  height: 25vh;
   margin-top: 20px;
 }
 
@@ -194,11 +194,14 @@ main {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 20%;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
   margin-left: auto;
   margin-right: auto;
 }
-
+#produzir button{
+  margin-right: 30px;
+  border:0px
+}
 .producao td, th {
   border: 1px solid #dddddd;
   text-align: center;
