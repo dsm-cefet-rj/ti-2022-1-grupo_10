@@ -1,7 +1,8 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
 
 const Home = ({tableData, tableMaterial}) => {
+    let navigate = useNavigate();
     return ( 
         <div class ="home">
             <div id="home-texto">
@@ -52,10 +53,12 @@ const Home = ({tableData, tableMaterial}) => {
                     </tbody>
                     </table>
 
-                    <a href="#cadastro" class="btn" id="ir-cadastro">adicionar</a>
-                    <a href="#produzir" class="btn" id="ir-produzir">produzir</a>
-                    <a href="#relatorio" class="btn" id="ir-relatorio">relatórios</a>
-                    <a href="#venda" class="btn" id="ir-venda">venda</a>
+                    <button onClick={() => {navigate("/cadastro");}} class="btn" id="ir-cadastro">adicionar</button>
+                    <button onClick={() => {navigate("/cadastroMP");}} class="btn" id="ir-cadastroMP">adicionarMP</button>
+                    <button onClick={() => {navigate("/producao");}} class="btn" id="ir-producao">produzir</button>
+                    <button onClick={() => {navigate("/venda");}} class="btn" id="ir-venda">vender</button>
+                    <button onClick={() => {navigate("/relatorioproduzidos");}} class="btn" id="ir-relatorioproduzidos">relatorio</button>
+                    <button onClick={() => {navigate("/relatorioMP");}} class="btn" id="ir-relatorioMP">relatorioMP</button>
                 </div>
             </div>
         </div> 
