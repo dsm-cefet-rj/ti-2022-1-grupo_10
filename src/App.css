@@ -305,14 +305,6 @@ background-color: #FFFFFF;
   padding: 30px;
 }
 
-.container-feedstock{
-  margin: 20px;
-  max-width: 450px;
-  min-height: 20px;
-  border: 2px solid black;
-  padding: 2px;
-}
-
 .feedstock-cell{
   margin: 2px;
   width: 500px;
