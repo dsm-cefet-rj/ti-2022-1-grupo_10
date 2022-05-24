@@ -1,25 +1,26 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 
-function vazio(x){
-    alert ("Produto esgotado.")    // Alerta para caso haja tentativa de venda com quantidade do produto zerada
+function limite(x){
+    alert ("Quantidade de produtos a ser vendida maior do que a presente no estoque.")    
     return x
 }
 
 const Venda = ({tableData,setTableData}) => {
   let navigate = useNavigate();
-  const [tasks,setTasks]=useState("");
+  const [Produto,setProduto]=useState("");
+  const [Qtd,setQtd]=useState("");
 
 
-const handleproduce = ()=>{
-  const dataselected = tableData.find(item=>item.nomeProduto.includes(tasks))      // identifica o conjunto de dados do array que possui o nomeProduto igual ao input
+const handleproduce = (e)=>{
+  const dataselected = tableData.find(item=>item.nomeProduto.includes(Produto))      
   const newtabledata = tableData.map((item)=>{
     if (item===dataselected){
-        if(item.qtdProduto > 0)
+        if(item.qtdProduto >= Qtd)
             return {
-                ...item,qtdProduto:parseInt(item.qtdProduto)-1       // toda vez que percorrendo os dados for encontrado o valor igual ao inputado, decrementa uma unidade do produto
-            }                                                        // Caso a quantidade do produto seja igual a zero e haja tentiva de venda, um alerta é emitido
-            return vazio(item)                                           
+                ...item,qtdProduto:parseInt(item.qtdProduto)-parseInt(Qtd)       
+            }                                                        
+            return limite(item)                                           
     }
     return item
   }) 
@@ -41,8 +42,14 @@ const handleproduce = ()=>{
                   <th>Nome do produto</th>
                 </tr>
                 <tr>
-                  <input type="text"onChange={(e)=>setTasks(e.target.value)}></input>              
-                </tr>            
+                  <input type="text"onChange={(e)=>setProduto(e.target.value)}></input>              
+                </tr>
+                <tr>
+                  <th>Quantidade</th>
+                </tr>
+                <tr>
+                  <input type="number"onChange={(e)=>setQtd(e.target.value)}></input>              
+                </tr>             
               </table>
           <button onClick={handleproduce} class="btn_2" id ="vender">Vender</button>
           <button onClick={() => {navigate("/home");}} class="btn_2" id="ir-home">Home</button>
