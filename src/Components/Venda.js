@@ -52,7 +52,7 @@ const handleproduce = (e)=>{
                 </tr>             
               </table>
           <button onClick={handleproduce} class="btn_2" id ="vender">Vender</button>
-          <button onClick={() => {navigate("/home");}} class="btn_2" id="ir-home">Home</button>
+          <button onClick={() => {navigate("/");}} class="btn_2" id="ir-home">Home</button>
       </div>
     </div>  
   )
