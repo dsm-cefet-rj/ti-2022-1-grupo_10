@@ -30,24 +30,24 @@ const handleproduce = ()=>{
 
 
   console.log(tableData)
+ 
   return (
-    <div id="producao">
-        <div id="header">
-              <h2>Produção</h2>
-            </div>
-            <h1>Clique produzir para salvar no Estoqueasy</h1>
-          <table class="producao">
-              <tr>
-                <th>Nome do produto</th>
-              </tr>
-              <tr>
-                <input type="text"onChange={(e)=>setTasks(e.target.value)}></input>              
-              </tr>            
-        </table>
-  
-        <button type="menu" onClick={handleproduce} class="btn_2">produzir</button>
-
-        
+    <div id="produzir">
+      <div id="producao">
+          <div id="header">
+                <h2>Produção</h2>
+              </div>
+              <h1>Clique produzir para salvar no Estoqueasy</h1>
+            <table class="producao">
+                <tr>
+                  <th>Nome do produto</th>
+                </tr>
+                <tr>
+                  <input type="text"onChange={(e)=>setTasks(e.target.value)}></input>              
+                </tr>            
+              </table>
+          <button type="menu" onClick={handleproduce} class="btn_2">produzir</button>
+      </div>
     </div>  
   )
 }
