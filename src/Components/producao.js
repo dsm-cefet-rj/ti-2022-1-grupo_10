@@ -17,7 +17,7 @@ const handleproduce = ()=>{
   const newtabledata = tableData.map((item,index)=>{
     if (item===dataselected){
       return {
-        ...item,qtdProduto:parseInt(item.qtdProduto)+1
+        ...item,qtdProduto:parseInt(item.qtdProduto)+parseInt(Qtd)
       }
     }
     return item
@@ -25,6 +25,7 @@ const handleproduce = ()=>{
   setTableData(newtabledata)
 }
 let navigate = useNavigate();
+const [Qtd,setQtd]=useState("");
 
   console.log(tableData)
  
@@ -37,15 +38,28 @@ let navigate = useNavigate();
               <h1>Clique produzir para salvar no Estoqueasy</h1>
             <table class="producao">
                 <tr>
-                  <th>Produto</th>
-
-                <input type="text"onChange={(e)=>setTasks(e.target.value)}></input>                              
-                <button type="menu" onClick={handleproduce} class="btn_3">produzir</button>
+                <th>Nome do produto</th>
+                <th>Quantidade</th>  
+                </tr>
+                <tbody>
+                <tr>
+                <th><input type="text"onChange={(e)=>setTasks(e.target.value)}></input></th>
+                <th><input type="number"onChange={(e)=>setQtd(e.target.value)}></input></th>    
+                </tr>
+                </tbody>
+                  <tr>
                 
-                </tr>     
+                
+                  </tr>
+                  <tr>
+                                
+                  </tr>  
+                       
               </table>
-          <button onClick={() => {navigate("/relatorioproduzidos");}} class="btn_2" id="ir-relatorioproduzidos">relatorio</button>          
-          <button onClick={() => {navigate("/");}} class="btn_2" id="ir-home">Home</button>
+          
+         
+          <button type="menu" onClick={handleproduce} class="btn_3">produzir</button>       
+ 
 
       </div>
     </div>  
