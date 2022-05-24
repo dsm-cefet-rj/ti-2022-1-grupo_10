@@ -79,7 +79,7 @@ const App = () => {
        <Router>
            <Navbar/>        
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home tableData={tableData} tableMaterial={tableMaterial}/>} />
             <Route path="/home" element={<Home tableData={tableData} tableMaterial={tableMaterial} />} />
             <Route path="/cadastro" element={<Cadastro handleChange={handleChange} formInputData={formInputData} handleSubmit={handleSubmit}/>} />
             <Route path="/cadastroMP" element={<CadastroMateriaPrima onChange={onChange} formInput={formInput} onSubmit={onSubmit}/>} />
