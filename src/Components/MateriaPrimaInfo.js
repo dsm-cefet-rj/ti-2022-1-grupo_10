@@ -5,13 +5,13 @@ const MateriaPrimaInfo = ({materiaPrima}) => {
         <table className="feedstock-cell">
             <tr>
                 <td>
-                    <p>{materiaPrima.name}</p>
+                    <p>{materiaPrima.nomeMateriaPrima}</p>
                 </td>
                 <td>
-                    <p>{materiaPrima.count}</p>
+                    <p>{materiaPrima.qtdMateriaPrima}</p>
                 </td>
                 <td>
-                    <p>{materiaPrima.price}</p>
+                    <p>{materiaPrima.valorMateriaPrima}</p>
                 </td>
             </tr>
         </table>

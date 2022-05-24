@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import MateriaPrimaContainer from "./MateriaPrimaContainer";
 
-const RelatorioMateriaPrima = () => {
-    const [materiaPrima, setMateriaPrima] = useState([
+const RelatorioMateriaPrima = ({materiaPrima}) => {
+    /*const [materiaPrima, setMateriaPrima] = useState([
         {
             id: 1,
             name: "Corda",
@@ -15,7 +15,7 @@ const RelatorioMateriaPrima = () => {
             count: 5,
             price: 15.00
         },
-    ]);
+    ]);*/
 
     return(
         <>
