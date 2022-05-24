@@ -1,3 +1,4 @@
+import React from "react";
 import MateriaPrimaContainer from "./MateriaPrimaContainer";
 
 const RelatorioMateriaPrima = ({materiaPrima}) => {

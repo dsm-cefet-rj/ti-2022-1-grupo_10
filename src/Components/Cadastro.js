@@ -2,13 +2,13 @@ import React from "react";
 
 
 const Cadastro = ({handleChange, formInputData, handleSubmit}) => {
-  
+    
     
     return (
         
         <>
             
-
+            
             <div id="cadastro">
                 <div id="header">
                     <h2>Cadastro de produtos</h2>
