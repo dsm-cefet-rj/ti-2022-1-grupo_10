@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import { useNavigate } from "react-router-dom";
+
  
 const Producao = ({tableData,setTableData}) => {
   const [tasks,setTasks]=useState([
@@ -24,7 +24,7 @@ const handleproduce = ()=>{
   })
   setTableData(newtabledata)
 }
-let navigate = useNavigate();
+
 
   console.log(tableData)
  
@@ -44,8 +44,6 @@ let navigate = useNavigate();
                 
                 </tr>     
               </table>
-          <button onClick={() => {navigate("/relatorioproduzidos");}} class="btn_2" id="ir-relatorioproduzidos">relatorio</button>          
-          <button onClick={() => {navigate("/");}} class="btn_2" id="ir-home">Home</button>
 
       </div>
     </div>  
@@ -53,4 +51,3 @@ let navigate = useNavigate();
 }
 
 export default Producao;
-
