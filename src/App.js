@@ -79,22 +79,16 @@ const App = () => {
       
         <Cadastro handleChange={handleChange} formInputData={formInputData} handleSubmit={handleSubmit}/>
   
-  
-  
-      <div id="produzir">
-          <Producao tableData={tableData} setTableData={setTableData} />
+        <Producao tableData={tableData} setTableData={setTableData} />
 
-      </div>
-
-      <Venda tableData={tableData} setTableData={setTableData} />
+        <Venda tableData={tableData} setTableData={setTableData} />
   
-      <RelatorioProduzidos tableData={tableData}/>
+        <RelatorioProduzidos tableData={tableData}/>
 
-      <RelatorioMateriaPrima/>
+        <RelatorioMateriaPrima/>
 
-      <RelatorioVenda/>
-  
-  
+        <RelatorioVenda/>
+          
       </main>
   </>  
    
