@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { useNavigate } from "react-router-dom";
 
 function vazio(x){
     alert ("Produto esgotado.")    // Alerta para caso haja tentativa de venda com quantidade do produto zerada
@@ -6,6 +7,7 @@ function vazio(x){
 }
 
 const Venda = ({tableData,setTableData}) => {
+  let navigate = useNavigate();
   const [tasks,setTasks]=useState("");
 
 
@@ -24,7 +26,7 @@ const handleproduce = ()=>{
   setTableData(newtabledata)
 }
 
-  console.log(tableData)
+  // console.log(tableData)
 
   return (
     <div id="venda">
@@ -42,7 +44,8 @@ const handleproduce = ()=>{
                   <input type="text"onChange={(e)=>setTasks(e.target.value)}></input>              
                 </tr>            
               </table>
-          <button type="menu" onClick={handleproduce} class="btn_2">Vender</button>
+          <button onClick={handleproduce} class="btn_2" id ="vender">Vender</button>
+          <button onClick={() => {navigate("/home");}} class="btn_2" id="ir-home">Home</button>
       </div>
     </div>  
   )
