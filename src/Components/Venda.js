@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { useNavigate } from "react-router-dom";
+
 
 function limite(x){
     alert ("Quantidade de produtos a ser vendida maior do que a presente no estoque.")    
@@ -7,7 +7,7 @@ function limite(x){
 }
 
 const Venda = ({tableData,setTableData}) => {
-  let navigate = useNavigate();
+  
   const [Produto,setProduto]=useState("");
   const [Qtd,setQtd]=useState("");
 
@@ -52,11 +52,10 @@ const handleproduce = (e)=>{
                 </tr>             
               </table>
           <button onClick={handleproduce} class="btn_2" id ="vender">Vender</button>
-          <button onClick={() => {navigate("/");}} class="btn_2" id="ir-home">Home</button>
+          
       </div>
     </div>  
   )
 }
 
 export default Venda;
-
