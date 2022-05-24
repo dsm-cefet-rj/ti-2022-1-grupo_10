@@ -24,7 +24,7 @@ const handleproduce = ()=>{
   })
   setTableData(newtabledata)
 }
-let navigate = useNavigate();
+
 const [Qtd,setQtd]=useState("");
 
   console.log(tableData)
