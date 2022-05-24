@@ -111,9 +111,9 @@ const App = () => {
   
       <RelatorioProduzidos tableData={tableData}/>
 
-      <RelatorioMateriaPrima/>
+      
 
-      <RelatorioVenda tableData={tableData}/>
+     
           
       </main>
   </>  

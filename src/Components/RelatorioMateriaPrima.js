@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import MateriaPrimaContainer from "./MateriaPrimaContainer";
 
 const RelatorioMateriaPrima = ({materiaPrima}) => {
