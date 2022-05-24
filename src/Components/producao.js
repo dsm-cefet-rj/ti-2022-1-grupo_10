@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import { useNavigate } from "react-router-dom";
+
  
 const Producao = ({tableData,setTableData}) => {
   const [tasks,setTasks]=useState([
@@ -67,4 +67,3 @@ const [Qtd,setQtd]=useState("");
 }
 
 export default Producao;
-
