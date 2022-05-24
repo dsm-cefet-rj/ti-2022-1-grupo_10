@@ -1,10 +1,12 @@
 import React from "react";
 import VendaInfo from "./VendaInfo";
 
-const VendaContainer = () =>{
+const VendaContainer = ({tableData}) =>{
     return(
         <>
-            <p>placeholder</p>
+            {tableData.map((tableData) =>(
+                <VendaInfo tableData={tableData}/>
+            ))}
         </>
     )
 }

@@ -92,7 +92,7 @@ const App = () => {
 
       <RelatorioMateriaPrima/>
 
-      <RelatorioVenda/>
+      <RelatorioVenda tableData={tableData}/>
   
   
       </main>
