@@ -33,6 +33,14 @@
   
   .navigation-menu li a {
     text-decoration: none;
+    color: gray;
+    display: block;
+    width: 100%;
+  }
+
+  .navigation-menu li a.active {
+    text-decoration: none;
+    color:rgb(175, 13, 13);
     display: block;
     width: 100%;
   }
