@@ -1,7 +1,7 @@
 import React from "react";
 import MateriaPrimaInfo from "./MateriaPrimaInfo";
 
-const MateriaPrimaContainer = ({materiaPrima}) => {
+const MateriaPrimaContainer = ({tableMaterial}) => {
     return(
         <>
             <table className="feedstock-cell">
@@ -17,8 +17,8 @@ const MateriaPrimaContainer = ({materiaPrima}) => {
                     </td>
                 </tr>
             </table>
-            {materiaPrima.map((materiaPrima)=>(
-                <MateriaPrimaInfo materiaPrima = {materiaPrima}/>
+            {tableMaterial.map((tableMaterial)=>(
+                <MateriaPrimaInfo tableMaterial = {tableMaterial}/>
             ))}
         </>
     )

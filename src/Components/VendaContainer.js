@@ -4,7 +4,7 @@ import VendaInfo from "./VendaInfo";
 const VendaContainer = ({tableData}) =>{
     return(
         <>
-            <table className="feedstock-cell">
+            <table className="venda-cell">
                 <tr>
                     <td>
                         <p>Nome</p>
