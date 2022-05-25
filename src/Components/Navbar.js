@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import "../styles/navbar.css";
 
 export default function Navbar() {
@@ -7,7 +7,7 @@ export default function Navbar() {
 
   return (
     <nav className="navigation">
-      <Link to="/home" className="brand-name"> Estoqueasy </Link>
+      <NavLink to="/home" className="brand-name"> Estoqueasy </NavLink>
       <button
         className="hamburger"
         onClick={() => {
@@ -35,25 +35,25 @@ export default function Navbar() {
       >
         <ul>
           <li>
-            <Link to="/cadastro"> Produto </Link>
+            <NavLink to="/cadastro"> Produto </NavLink>
           </li>
           <li>
-            <Link to="/cadastroMP"> Insumo </Link>
+            <NavLink to="/cadastroMP"> Insumo </NavLink>
           </li>
           <li>
-            <Link to="/producao"> Produção </Link>
+            <NavLink to="/producao"> Produção </NavLink>
           </li>
           <li>
-            <Link to="/venda"> Venda </Link>
+            <NavLink to="/venda"> Venda </NavLink>
           </li>
           <li>
-            <Link to="/relatorioproduzidos"> Mais Produzidos </Link>
+            <NavLink to="/relatorioproduzidos"> Mais Produzidos </NavLink>
           </li>
           <li>
-            <Link to="/relatorioMP"> Mais Utilizados </Link>
+            <NavLink to="/relatorioMP"> Mais Utilizados </NavLink>
           </li>
           <li>
-            <Link to="/relatorioVenda"> Mais Vendidos </Link>
+            <NavLink to="/relatorioVenda"> Mais Vendidos </NavLink>
           </li>
         </ul>
       </div>
