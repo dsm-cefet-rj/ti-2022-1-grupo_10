@@ -44,7 +44,7 @@ const App = () => {
     }
   }
 
-  //Formulário da Matéria-prima
+  // formulario de MP
   const [formInput, setformInput] = useState(
     {
       nomeMateriaPrima:'',
@@ -71,14 +71,11 @@ const App = () => {
       }
   }
   
-  
   return(
-  <>
-     <main>
-
-
-       <Router>
-           <Navbar/>        
+    <>
+      <main>
+        <Router>
+          <Navbar/>        
           <Routes>
             <Route path="/" element={<Home tableMaterial={tableMaterial}/>} />
             <Route path="/home" element={<Home tableMaterial={tableMaterial} />} />
@@ -90,15 +87,10 @@ const App = () => {
             <Route path="/relatorioMP" element={<RelatorioMateriaPrima tableMaterial = {tableMaterial}/>} />
             <Route path="/relatorioVenda" element={<RelatorioVenda />} />
           </Routes>
-       </Router>
-
-
-          
+        </Router>
       </main>
-  </>  
-   
-  ) 
-
+    </>
+  )
 }
 
 export default App;
