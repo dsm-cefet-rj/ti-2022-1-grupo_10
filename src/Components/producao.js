@@ -1,7 +1,12 @@
 import React,{useState} from "react";
+import { useDispatch } from "react-redux";
+import { Produzir } from "../app/produtosSlice";
 
  
-const Producao = ({tableData,setTableData}) => {
+const Producao = () => {
+
+  const dispatch = useDispatch();
+
   const [tasks,setTasks]=useState([
     {
       nome:"nome produto"
@@ -13,21 +18,23 @@ const Producao = ({tableData,setTableData}) => {
 
 
 const handleproduce = ()=>{
-  const dataselected = tableData.find((item)=>item.nomeProduto.includes(tasks))
-  const newtabledata = tableData.map((item,index)=>{
-    if (item===dataselected){
-      return {
-        ...item,qtdProduto:parseInt(item.qtdProduto)+parseInt(Qtd)
-      }
-    }
-    return item
-  })
-  setTableData(newtabledata)
+  let payload = {nome:tasks,qtd:Qtd}
+  dispatch(Produzir(payload))
+  // const dataselected = tableData.find((item)=>item.nomeProduto.includes(tasks))
+  // const newtabledata = tableData.map((item,index)=>{
+  //   if (item===dataselected){
+  //     return {
+  //       ...item,qtdProduto:parseInt(item.qtdProduto)+parseInt(Qtd)
+  //     }
+  //   }
+  //   return item
+  // })
+  // setTableData(newtabledata)
 }
 
 const [Qtd,setQtd]=useState("");
 
-  console.log(tableData)
+  
  
   return (
     <div id="produzir">

@@ -1,18 +1,19 @@
 import React from "react";
 
-const VendaInfo = ({tableData}) =>{
+
+const VendaInfo = ({produto}) =>{
     return(
         <>
             <table className="venda-cell">
                 <tr>
                     <td>
-                        <p>{tableData.nomeProduto}</p>
+                        <p>{produto.nomeProduto}</p>
                     </td>
                     <td>
-                        <p>{tableData.qtdProduto}</p>
+                        <p>{produto.Vendidos}</p>
                     </td>
                     <td>
-                        <p>{tableData.valorProduto}</p>
+                        <p>{produto.qtdProduto}</p>
                     </td>
                 </tr>
             </table>

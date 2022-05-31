@@ -13,6 +13,7 @@ import Navbar from "./Components/Navbar";
 
 
 
+
 const App = () => {
   
   const [tableData, setTableData] = useState([])
@@ -79,15 +80,15 @@ const App = () => {
        <Router>
            <Navbar/>        
           <Routes>
-            <Route path="/" element={<Home tableData={tableData} tableMaterial={tableMaterial}/>} />
-            <Route path="/home" element={<Home tableData={tableData} tableMaterial={tableMaterial} />} />
-            <Route path="/cadastro" element={<Cadastro handleChange={handleChange} formInputData={formInputData} handleSubmit={handleSubmit}/>} />
+            <Route path="/" element={<Home tableMaterial={tableMaterial}/>} />
+            <Route path="/home" element={<Home tableMaterial={tableMaterial} />} />
+            <Route path="/cadastro" element={<Cadastro />} />
             <Route path="/cadastroMP" element={<CadastroMateriaPrima onChange={onChange} formInput={formInput} onSubmit={onSubmit}/>} />
-            <Route path="/producao" element={<Producao tableData={tableData} setTableData={setTableData} />} />
-            <Route path="/venda" element={<Venda tableData={tableData} setTableData={setTableData} />} />
-            <Route path="/relatorioproduzidos" element={<RelatorioProduzidos tableData={tableData}/>} />
+            <Route path="/producao" element={<Producao />} />
+            <Route path="/venda" element={<Venda />} />
+            <Route path="/relatorioproduzidos" element={<RelatorioProduzidos />} />
             <Route path="/relatorioMP" element={<RelatorioMateriaPrima tableMaterial = {tableMaterial}/>} />
-            <Route path="/relatorioVenda" element={<RelatorioVenda tableData={tableData}/>} />
+            <Route path="/relatorioVenda" element={<RelatorioVenda />} />
           </Routes>
        </Router>
 

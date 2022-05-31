@@ -1,7 +1,7 @@
 import React from "react";
 import VendaInfo from "./VendaInfo";
 
-const VendaContainer = ({tableData}) =>{
+const VendaContainer = ({produtos}) =>{
     return(
         <>
             <table className="venda-cell">
@@ -10,15 +10,15 @@ const VendaContainer = ({tableData}) =>{
                         <p>Nome</p>
                     </td>
                     <td>
-                        <p>Quantidade Produto</p>
+                        <p>Vendas</p>
                     </td>
                     <td>
-                        <p>Preco</p>
+                        <p>Estoque</p>
                     </td>
                 </tr>
             </table>
-            {tableData.map((tableData) =>(
-                <VendaInfo tableData={tableData}/>
+            {produtos.map((produto) =>(
+                <VendaInfo produto={produto}/>
             ))}
         </>
     )

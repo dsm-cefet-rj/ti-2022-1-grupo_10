@@ -1,8 +1,11 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 
 
-const Home = ({tableData, tableMaterial}) => {
+const Home = ({tableMaterial}) => {
+
+    const produtos=useSelector(state=>state.produtos);
     
     return (
         <>
@@ -19,18 +22,7 @@ const Home = ({tableData, tableMaterial}) => {
                             <th>Custo</th>
                             <th>Preço</th>
                         </tr>
-                        <tbody>
-                            {tableData.map((data,index) => {
-                                return (
-                                    <tr key={index}>
-                                        <td>{index+1}</td>
-                                        <td>{data.nomeProduto}</td>
-                                        <td>{data.custoProduto}</td>
-                                        <td>{data.valorProduto}</td>
-                                    </tr>
-                                )
-                            })}
-                        </tbody>
+                        <TabelaProdutos produtos={produtos} />
                         </table>
 
                         <table class="produtos"> {/* mudar nome */}
@@ -61,6 +53,25 @@ const Home = ({tableData, tableMaterial}) => {
             </div> 
         </>
         
+    );
+}
+
+const LinhaProdutos = (props) => {
+    return(
+        <tr>
+            <td>{props.produto.id}</td>
+            <td>{props.produto.nomeProduto}</td>
+            <td>{props.produto.custoProduto}</td>
+            <td>{props.produto.valorProduto}</td>
+        </tr>
+    );
+}
+
+function TabelaProdutos(props){
+    return(
+        <tbody>
+            {props.produtos.map((produto) => <LinhaProdutos key={produto.id} produto={produto} />)}
+        </tbody>
     );
 }
 

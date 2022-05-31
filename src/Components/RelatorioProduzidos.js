@@ -1,6 +1,6 @@
 
 import React from "react";
-//
+import { useSelector } from "react-redux";
 
 const useSortableData = (items, config = null) => {
   const [sortConfig, setSortConfig] = React.useState(config);
@@ -40,8 +40,11 @@ const useSortableData = (items, config = null) => {
 
 
 
-const RelatorioProduzidos = ({tableData}) => {
-    const { items, requestSort, sortConfig } = useSortableData(tableData);
+const RelatorioProduzidos = () => {
+
+    const produtos=useSelector(state=>state.produtos);
+
+    const { items, requestSort, sortConfig } = useSortableData(produtos);
     const getClassNamesFor = (name) => {
         if (!sortConfig) {
         return;
@@ -74,6 +77,15 @@ const RelatorioProduzidos = ({tableData}) => {
                   <th>
                     <button
                       type="button"
+                      onClick={() => requestSort('Produzidos')}
+                      className={getClassNamesFor('Produzidos')}
+                    >
+                    Produzidos
+                    </button>
+                  </th>
+                  <th>
+                    <button
+                      type="button"
                       onClick={() => requestSort('qtdProduto')}
                       className={getClassNamesFor('qtdProduto')}
                     >
@@ -87,6 +99,7 @@ const RelatorioProduzidos = ({tableData}) => {
                   return (
                       <tr key={index}>
                         <td>{items.nomeProduto}</td>
+                        <td>{items.Produzidos}</td>
                         <td>{items.qtdProduto}</td>
                       </tr>
                   )

@@ -1,4 +1,6 @@
 import React, {useState} from "react";
+import { useDispatch } from "react-redux";
+import { Vender } from "../app/produtosSlice";
 
 
 function limite(x){
@@ -6,25 +8,30 @@ function limite(x){
     return x
 }
 
-const Venda = ({tableData,setTableData}) => {
+const Venda = () => {
+
+  const dispatch = useDispatch();
+
   
   const [Produto,setProduto]=useState("");
   const [Qtd,setQtd]=useState("");
 
 
 const handleproduce = (e)=>{
-  const dataselected = tableData.find(item=>item.nomeProduto.includes(Produto))      
-  const newtabledata = tableData.map((item)=>{
-    if (item===dataselected){
-        if(item.qtdProduto >= Qtd)
-            return {
-                ...item,qtdProduto:parseInt(item.qtdProduto)-parseInt(Qtd)       
-            }                                                        
-            return limite(item)                                           
-    }
-    return item
-  }) 
-  setTableData(newtabledata)
+  let payload = {nome:Produto,qtd:Qtd}
+  dispatch(Vender(payload))
+  // const dataselected = tableData.find(item=>item.nomeProduto.includes(Produto))      
+  // const newtabledata = tableData.map((item)=>{
+  //   if (item===dataselected){
+  //       if(item.qtdProduto >= Qtd)
+  //           return {
+  //               ...item,qtdProduto:parseInt(item.qtdProduto)-parseInt(Qtd)       
+  //           }                                                        
+  //           return limite(item)                                           
+  //   }
+  //   return item
+  // }) 
+  // setTableData(newtabledata)
 }
 
   // console.log(tableData)
