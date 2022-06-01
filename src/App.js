@@ -31,16 +31,6 @@ const App = () => {
       valorMateriaPrima: 2
     }
   ]);
-
-  // Formulario de MP
-  const [formInput, setformInput] = useState(
-    {
-      nomeMateriaPrima:'',
-      qtdMateriaPrima:'',
-      fornecedor:'',
-      valorMateriaPrima:'',
-    }
-    );
   
   return(
     <>
