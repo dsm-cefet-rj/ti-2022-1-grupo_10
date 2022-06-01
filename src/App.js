@@ -50,11 +50,11 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home tableMaterial={tableMaterial}/>} />
             <Route path="/home" element={<Home tableMaterial={tableMaterial} />} />
-            <Route path="/cadastro" element={<CadastroProduto tableMaterial={tableMaterial}/>} />
+            <Route path="/cadastroProduto" element={<CadastroProduto tableMaterial={tableMaterial}/>} />
             <Route path="/cadastroMP" element={<CadastroMateriaPrima />} />
             <Route path="/producao" element={<Producao />} />
             <Route path="/venda" element={<Venda />} />
-            <Route path="/RelatorioProduto" element={<RelatorioProduto />} />
+            <Route path="/relatorioProduto" element={<RelatorioProduto />} />
             <Route path="/relatorioMP" element={<RelatorioMateriaPrima tableMaterial = {tableMaterial}/>} />
             <Route path="/relatorioVenda" element={<RelatorioVenda />} />
           </Routes>

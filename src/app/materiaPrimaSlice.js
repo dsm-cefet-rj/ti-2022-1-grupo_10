@@ -6,3 +6,6 @@ const initialMateriaPrima = [
     new MateriaPrima('Gancho',1,'GanchosExpress',2)
 ];
 
+function addMateriaPrimaReducer(){
+    
+}
