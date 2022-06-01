@@ -1,7 +1,7 @@
 import React from "react";
 import MateriaPrimaInfo from "./MateriaPrimaInfo";
 
-const MateriaPrimaContainer = ({tableMaterial}) => {
+const ContainerMateriaPrima = ({tableMaterial}) => {
     return(
         <>
             <table className="feedstock-cell">
@@ -24,4 +24,4 @@ const MateriaPrimaContainer = ({tableMaterial}) => {
     )
 }
 
-export default MateriaPrimaContainer;
+export default ContainerMateriaPrima;

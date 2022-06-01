@@ -1,7 +1,7 @@
 import React from "react";
 import VendaInfo from "./VendaInfo";
 
-const VendaContainer = ({produtos}) =>{
+const ContainerVenda = ({produtos}) =>{
     return(
         <>
             <table className="venda-cell">
@@ -24,4 +24,4 @@ const VendaContainer = ({produtos}) =>{
     )
 }
 
-export default VendaContainer;
+export default ContainerVenda;

@@ -1,5 +1,5 @@
 import React from "react";
-import MateriaPrimaContainer from "./MateriaPrimaContainer";
+import ContainerMateriaPrima from "./ContainerMateriaPrima";
 
 const RelatorioMateriaPrima = ({tableMaterial}) => {
     return(
@@ -7,7 +7,7 @@ const RelatorioMateriaPrima = ({tableMaterial}) => {
             <div id="relatorio">
                 <h1>MATERIA PRIMA</h1>
                 <div className="container-report">
-                    <MateriaPrimaContainer tableMaterial={tableMaterial}/>
+                    <ContainerMateriaPrima tableMaterial={tableMaterial}/>
                 </div>
             </div>
         </>
