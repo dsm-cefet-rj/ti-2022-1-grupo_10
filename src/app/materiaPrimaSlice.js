@@ -6,6 +6,7 @@ const initialMateriaPrima = [
     new MateriaPrima('Gancho',1,'GanchosExpress',2)
 ];
 
-function addMateriaPrimaReducer(){
-    
+function addMateriaPrimaReducer(mps,mp){
+    let proxId = 1 + mps.map(p => mps.id).reduce((maxId,currId) => Math.max(maxId,currId));
+
 }
