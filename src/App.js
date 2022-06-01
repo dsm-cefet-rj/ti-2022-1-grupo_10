@@ -16,33 +16,20 @@ import Navbar from "./Components/Navbar";
 
 const App = () => {
   
-  const [tableData, setTableData] = useState([])
-  const [tableMaterial, setTableMaterial] = useState([])
-  const [formInputData, setformInputData] = useState(
-      {
-      nomeProduto:'',
-      qtdProduto:'',
-      custoProduto:'',
-      valorProduto:'',
-      }
-  );
- 
-  const handleChange=(evnt)=>{  
-    const newInput = (data)=>({...data, [evnt.target.name]:evnt.target.value})
-    setformInputData(newInput)
-  }
-  
-  const handleSubmit= (evnt) =>{
-    evnt.preventDefault();
-    const checkEmptyInput = !Object.values(formInputData).every(res=>res==="")
-    if(checkEmptyInput)
+  const [tableMaterial, setTableMaterial] = useState([
     {
-      const newData = (data)=>([...data, formInputData])
-      setTableData(newData);
-      const emptyInput= {nomeProduto:'', qtdProduto:'', custoProduto:'', valorProduto:''}
-      setformInputData(emptyInput)
+      nomeMateriaPrima: "Fecho",
+      qtdMateriaPrima: 1,
+      fornecedor: "FechosExpress",
+      valorMateriaPrima: 1
+    },
+    {
+      nomeMateriaPrima: "Gancho",
+      qtdMateriaPrima: 1,
+      fornecedor: "GanchosExpress",
+      valorMateriaPrima: 2
     }
-  }
+  ]);
 
   // formulario de MP
   const [formInput, setformInput] = useState(
@@ -79,7 +66,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home tableMaterial={tableMaterial}/>} />
             <Route path="/home" element={<Home tableMaterial={tableMaterial} />} />
-            <Route path="/cadastro" element={<Cadastro />} />
+            <Route path="/cadastro" element={<Cadastro tableMaterial={tableMaterial}/>} />
             <Route path="/cadastroMP" element={<CadastroMateriaPrima onChange={onChange} formInput={formInput} onSubmit={onSubmit}/>} />
             <Route path="/producao" element={<Producao />} />
             <Route path="/venda" element={<Venda />} />

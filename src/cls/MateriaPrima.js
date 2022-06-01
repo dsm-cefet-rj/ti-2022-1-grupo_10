@@ -5,5 +5,6 @@ class MateriaPrima{
         this.qtd = qtd;
         this.custo = custo;
         this.qtdUsos = 0;
+        this.qtdUsada = 0;
     }
 }

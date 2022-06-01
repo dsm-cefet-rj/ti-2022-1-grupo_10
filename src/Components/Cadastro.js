@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addProduto } from "../app/produtosSlice";
+import DropdownMenu from "./DropdownMenu";
 
 
-const Cadastro = () => {
+const Cadastro = ({tableMaterial}) => {
 
     const dispatch = useDispatch();
 
@@ -34,10 +35,7 @@ const Cadastro = () => {
     
     
     return (
-        
-        <>
-            
-            
+        <>  
             <div id="cadastro">
                 <div id="header">
                     <h2>Cadastro de produtos</h2>
@@ -45,8 +43,7 @@ const Cadastro = () => {
                 <form id="form_produto" class="cadastro_form">
                     <label>Nome do produto</label>
                     <input 
-                        type="text" 
-                        onChange={handleChange} value={formInputData.nomeProduto} name="nomeProduto" className="form-control"  placeholder="Nome"
+                        type="text" onChange={handleChange} value={formInputData.nomeProduto} name="nomeProduto" className="form-control"  placeholder="Nome"
                     />
                     <label>Quantidade</label>
                     <input 
@@ -60,10 +57,10 @@ const Cadastro = () => {
                     <input 
                         type="number" onChange={handleChange} value={formInputData.valorProduto} name="valorProduto" className="form-control" placeholder="Valor"
                     />
+                    <label>Materias-prima</label>
+                    <DropdownMenu arr={tableMaterial}/>
                     <input type="submit" onClick={handleSubmit} class="btn" />
                 </form>
-
-
             </div>
         </>
     );
