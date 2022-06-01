@@ -1,5 +1,5 @@
 import React from "react";
-import VendaInfo from "./VendaInfo";
+import InfoVenda from "./InfoVenda";
 
 const ContainerVenda = ({produtos}) =>{
     return(
@@ -18,7 +18,7 @@ const ContainerVenda = ({produtos}) =>{
                 </tr>
             </table>
             {produtos.map((produto) =>(
-                <VendaInfo produto={produto}/>
+                <InfoVenda produto={produto}/>
             ))}
         </>
     )
