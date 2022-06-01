@@ -8,3 +8,5 @@ class MateriaPrima{
         this.qtdUsada = 0;
     }
 }
+
+export default MateriaPrima;

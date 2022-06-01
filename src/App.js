@@ -32,7 +32,7 @@ const App = () => {
     }
   ]);
 
-  // formulario de MP
+  // Formulario de MP
   const [formInput, setformInput] = useState(
     {
       nomeMateriaPrima:'',
@@ -41,23 +41,6 @@ const App = () => {
       valorMateriaPrima:'',
     }
     );
-
-    const onChange=(event)=>{  
-      const newInput = (data)=>({...data, [event.target.name]:event.target.value})
-      setformInput(newInput)
-    }
-
-    const onSubmit= (event) =>{
-      event.preventDefault();
-      const checkEmptyInput = !Object.values(formInput).every(res=>res==="")
-      if(checkEmptyInput)
-      {
-        const newData = (data)=>([...data, formInput])
-        setTableMaterial(newData);
-        const emptyInput= {nomeMateriaPrima:'', qtdMateriaPrima:'', fornecedor:'', valorMateriaPrima:''}
-        setformInput(emptyInput)
-      }
-  }
   
   return(
     <>
@@ -68,7 +51,7 @@ const App = () => {
             <Route path="/" element={<Home tableMaterial={tableMaterial}/>} />
             <Route path="/home" element={<Home tableMaterial={tableMaterial} />} />
             <Route path="/cadastro" element={<CadastroProduto tableMaterial={tableMaterial}/>} />
-            <Route path="/cadastroMP" element={<CadastroMateriaPrima onChange={onChange} formInput={formInput} onSubmit={onSubmit}/>} />
+            <Route path="/cadastroMP" element={<CadastroMateriaPrima />} />
             <Route path="/producao" element={<Producao />} />
             <Route path="/venda" element={<Venda />} />
             <Route path="/RelatorioProduto" element={<RelatorioProduto />} />
