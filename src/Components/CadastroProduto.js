@@ -18,19 +18,18 @@ const CadastroProduto = ({tableMaterial}) => {
     );
    
     const handleChange=(evnt)=>{  
-      const newInput = (data)=>({...data, [evnt.target.name]:evnt.target.value})
-      setformInputData(newInput)
+        const newInput = (data)=>({...data, [evnt.target.name]:evnt.target.value})
+         setformInputData(newInput)
     }
     
     const handleSubmit= (evnt) =>{
-      evnt.preventDefault();
-      const checkEmptyInput = !Object.values(formInputData).every(res=>res==="")
-      if(checkEmptyInput)
-      {
-        dispatch(addProduto(formInputData))
-        const emptyInput= {nomeProduto:'', qtdProduto:'', custoProduto:'', valorProduto:''}
-        setformInputData(emptyInput)
-      }
+        evnt.preventDefault();
+        const checkEmptyInput = !Object.values(formInputData).every(res=>res==="")
+        if(checkEmptyInput){
+            dispatch(addProduto(formInputData))
+            const emptyInput= {nomeProduto:'', qtdProduto:'', custoProduto:'', valorProduto:''}
+            setformInputData(emptyInput)
+        }
     }
 
     return (
