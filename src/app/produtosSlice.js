@@ -11,7 +11,7 @@ const initialProduto = [{
 }]
 
 function addProdutoReducer(produtos, produto){
-    let proxId = 1 + produtos.map(p => p.id).reduce((x,y) => Math.max(x,y));
+    let proxId = 1 + produtos.map(produtos => produtos.id).reduce((maxId,currId) => Math.max(maxId,currId));
     return produtos.concat([{...produto, id: proxId, Produzidos:0, Vendidos: 0}]);
 }
 
@@ -25,8 +25,8 @@ function produzirReducer (produtos, {nome,qtd}){
             ...produto,qtdProduto:parseInt(produto.qtdProduto)+parseInt(qtd),Produzidos:parseInt(produto.Produzidos)+parseInt(qtd)
         }
     })
-
 }
+
 function venderReducer (produtos, {nome,qtd}){
     
     return produtos.map((produto) => {
@@ -38,7 +38,6 @@ function venderReducer (produtos, {nome,qtd}){
         }
     })
 }
-
 
 export const produtosSlice = createSlice(
     {

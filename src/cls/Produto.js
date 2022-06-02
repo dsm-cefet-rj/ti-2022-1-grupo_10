@@ -29,3 +29,5 @@ class Produto {
         this.qtdVendas = 0;
     }
 }
+
+export default Produto;

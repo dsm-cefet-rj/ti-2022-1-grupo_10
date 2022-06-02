@@ -1,7 +1,7 @@
 import React from "react";
-import VendaInfo from "./VendaInfo";
+import InfoVenda from "./InfoVenda";
 
-const VendaContainer = ({produtos}) =>{
+const ContainerVenda = ({produtos}) =>{
     return(
         <>
             <table className="venda-cell">
@@ -18,10 +18,10 @@ const VendaContainer = ({produtos}) =>{
                 </tr>
             </table>
             {produtos.map((produto) =>(
-                <VendaInfo produto={produto}/>
+                <InfoVenda produto={produto}/>
             ))}
         </>
     )
 }
 
-export default VendaContainer;
+export default ContainerVenda;

@@ -12,11 +12,7 @@ const Producao = () => {
       nome:"nome produto"
     },    
   ]);
-
   
-
-
-
 const handleproduce = ()=>{
   let payload = {nome:tasks,qtd:Qtd}
   dispatch(Produzir(payload))
@@ -32,44 +28,30 @@ const handleproduce = ()=>{
   // setTableData(newtabledata)
 }
 
-const [Qtd,setQtd]=useState("");
+  const [Qtd,setQtd]=useState("");
 
-  
- 
   return (
     <div id="produzir">
       <div id="producao">
-          <div id="header">
-                <h2>Produção</h2>
-              </div>
-              <h1>Clique produzir para salvar no Estoqueasy</h1>
-            <table class="producao">
-                <tr>
-                <th>Nome do produto</th>
-                <th>Quantidade</th>  
-                </tr>
-                <tbody>
-                <tr>
-                <th><input type="text"onChange={(e)=>setTasks(e.target.value)}></input></th>
-                <th><input type="number"onChange={(e)=>setQtd(e.target.value)}></input></th>    
-                </tr>
-                </tbody>
-                  <tr>
-                
-                
-                  </tr>
-                  <tr>
-                                
-                  </tr>  
-                       
-              </table>
-          
-         
-          <button type="menu" onClick={handleproduce} class="btn_3">produzir</button>       
- 
-
+        <div id="header">
+          <h2>Produção</h2>
+        </div>
+        <h1>Clique produzir para salvar no Estoqueasy</h1>
+        <table class="producao">
+          <tr>
+            <th>Nome do produto</th>
+            <th>Quantidade</th>
+          </tr>
+          <tbody>
+            <tr>
+              <th><input type="text"onChange={(e)=>setTasks(e.target.value)}></input></th>
+              <th><input type="number"onChange={(e)=>setQtd(e.target.value)}></input></th>
+            </tr>
+          </tbody>
+        </table>
+        <button type="menu" onClick={handleproduce} class="btn_3">produzir</button>
       </div>
-    </div>  
+    </div>
   )
 }
 

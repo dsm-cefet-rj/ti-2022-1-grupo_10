@@ -35,7 +35,7 @@ export default function Navbar() {
       >
         <ul>
           <li>
-            <NavLink to="/cadastro"> Produto </NavLink>
+            <NavLink to="/cadastroProduto"> Produto </NavLink>
           </li>
           <li>
             <NavLink to="/cadastroMP"> Insumo </NavLink>
@@ -47,7 +47,7 @@ export default function Navbar() {
             <NavLink to="/venda"> Venda </NavLink>
           </li>
           <li>
-            <NavLink to="/relatorioproduzidos"> Mais Produzidos </NavLink>
+            <NavLink to="/relatorioProduto"> Mais Produzidos </NavLink>
           </li>
           <li>
             <NavLink to="/relatorioMP"> Mais Utilizados </NavLink>

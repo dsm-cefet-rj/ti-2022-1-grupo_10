@@ -1,5 +1,5 @@
 import React from "react";
-import VendaContainer from "./VendaContainer";
+import ContainerVenda from "./ContainerVenda";
 import { useSelector } from "react-redux";
 
 const RelatorioVenda = () =>{
@@ -10,7 +10,7 @@ const RelatorioVenda = () =>{
             <div id="relatorio">
                 <h1>VENDAS</h1>
                 <div className="container-report">
-                    <VendaContainer produtos = {produtos}/>
+                    <ContainerVenda produtos = {produtos}/>
                 </div>
             </div>
         </>

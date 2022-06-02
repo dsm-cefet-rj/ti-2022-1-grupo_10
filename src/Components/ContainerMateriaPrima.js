@@ -1,7 +1,7 @@
 import React from "react";
-import MateriaPrimaInfo from "./MateriaPrimaInfo";
+import InfoMateriaPrima from "./InfoMateriaPrima";
 
-const MateriaPrimaContainer = ({tableMaterial}) => {
+const ContainerMateriaPrima = ({tableMaterial}) => {
     return(
         <>
             <table className="feedstock-cell">
@@ -18,10 +18,10 @@ const MateriaPrimaContainer = ({tableMaterial}) => {
                 </tr>
             </table>
             {tableMaterial.map((tableMaterial)=>(
-                <MateriaPrimaInfo tableMaterial = {tableMaterial}/>
+                <InfoMateriaPrima tableMaterial = {tableMaterial}/>
             ))}
         </>
     )
 }
 
-export default MateriaPrimaContainer;
+export default ContainerMateriaPrima;
