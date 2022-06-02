@@ -25,8 +25,8 @@ function produzirReducer (produtos, {nome,qtd}){
             ...produto,qtdProduto:parseInt(produto.qtdProduto)+parseInt(qtd),Produzidos:parseInt(produto.Produzidos)+parseInt(qtd)
         }
     })
-
 }
+
 function venderReducer (produtos, {nome,qtd}){
     
     return produtos.map((produto) => {
@@ -38,7 +38,6 @@ function venderReducer (produtos, {nome,qtd}){
         }
     })
 }
-
 
 export const produtosSlice = createSlice(
     {

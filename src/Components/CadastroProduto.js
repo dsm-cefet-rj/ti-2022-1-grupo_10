@@ -17,13 +17,13 @@ const CadastroProduto = ({tableMaterial}) => {
         }
     );
    
-    const handleChange=(evnt)=>{  
-        const newInput = (data)=>({...data, [evnt.target.name]:evnt.target.value})
+    const handleChange=(evt)=>{  
+        const newInput = (data)=>({...data, [evt.target.name]:evt.target.value})
          setformInputData(newInput)
     }
     
-    const handleSubmit= (evnt) =>{
-        evnt.preventDefault();
+    const handleSubmit= (evt) =>{
+        evt.preventDefault();
         const checkEmptyInput = !Object.values(formInputData).every(res=>res==="")
         if(checkEmptyInput){
             dispatch(addProduto(formInputData))

@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 
 
 const CadastroMateriaPrima = () => {
+    const dispatch = useDispatch();
+
     const [formInput, setformInput] = useState([
         {
           nomeMateriaPrima:'',
@@ -12,13 +14,13 @@ const CadastroMateriaPrima = () => {
         }
     ]);
 
-    const handleChange=(event)=>{  
-        const newInput = (data)=>({...data, [event.target.name]:event.target.value})
+    const handleChange=(evt)=>{  
+        const newInput = (data)=>({...data, [evt.target.name]:evt.target.value})
         setformInput(newInput)
     }
 
-    const handleSubmit= (event) =>{
-        event.preventDefault();
+    const handleSubmit= (evt) =>{
+        evt.preventDefault();
         const checkEmptyInput = !Object.values(formInput).every(res=>res==="")
         if(checkEmptyInput){
             const newData = (data)=>([...data, formInput])
