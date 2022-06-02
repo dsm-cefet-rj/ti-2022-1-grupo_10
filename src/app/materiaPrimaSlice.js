@@ -7,7 +7,7 @@ const initialMateriaPrima = [
 ];
 
 function addMateriaPrimaReducer(mps,mp){
-    let proxId = 1 + mps.map(p => mps.id).reduce((maxId,currId) => Math.max(maxId,currId));
+    let proxId = 1 + mps.map(mps => mps.id).reduce((maxId,currId) => Math.max(maxId,currId));
     return mps.concat([{...mp, id: proxId, qtdUsos: 0}]);
 }
 

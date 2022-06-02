@@ -21,7 +21,7 @@ const CadastroMateriaPrima = () => {
         setFormInput(newInput)
     }
 
-    const handleSubmit= (evt) =>{
+    const handleSubmit=(evt) =>{
         evt.preventDefault();
         const checkEmptyInput = !Object.values(formInput).every(fieldValue=>fieldValue==="")
         if(checkEmptyInput){
@@ -38,13 +38,13 @@ const CadastroMateriaPrima = () => {
             </div>
             <form id="form_produto" class="cadastro_form">
                 <label>Nome da matéria-prima</label>
-                <input type="text" handleChange={handleChange} value={formInput.nomeMateriaPrima} name="nomeMateriaPrima" className="form-control"  placeholder="Nome"/>
+                <input type="text" onChange={handleChange} value={formInput.tipo} name="tipo" className="form-control"  placeholder="Nome"/>
                 <label>Quantidade(kg)</label>
-                <input type="number" handleChange={handleChange} value={formInput.qtdMateriaPrima} name="qtdMateriaPrima" className="form-control" placeholder="Quantidade"/>
+                <input type="number" onChange={handleChange} value={formInput.qtd} name="qtd" className="form-control" placeholder="Quantidade"/>
                 <label>Fornecedor</label>
-                <input type="text" handleChange={handleChange} value={formInput.fornecedor} name="fornecedor" className="form-control"  placeholder="Nome"/>
+                <input type="text" onChange={handleChange} value={formInput.fornecedor} name="fornecedor" className="form-control"  placeholder="Nome"/>
                 <label>Preço</label>
-                <input type="number" handleChange={handleChange} value={formInput.valorMateriaPrima} name="valorMateriaPrima" className="form-control" placeholder="Valor"/>
+                <input type="number" onChange={handleChange} value={formInput.custo} name="custo" className="form-control" placeholder="Valor"/>
                 <input type="submit" onClick={handleSubmit} class="btn" />
             </form>
         </div>
