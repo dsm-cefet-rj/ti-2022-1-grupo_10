@@ -1,21 +1,20 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-
+import TabelaProdutos from './TabelaProdutos';
 
 const Home = ({tableMaterial}) => {
 
     const produtos=useSelector(state=>state.produtos);
+    const mps=useSelector(state=>state.mps);
     
     return (
-        <>
-
-            <div class ="home">
-                <div id="home-texto">
-                    <div id="home-texto_2">
-                        <h1>Estoqueasy</h1>
-                        <h2>Seu negócio</h2>
-                        <table class="produtos">
+        <div class ="home">
+            <div id="home-texto">
+                <div id="home-texto_2">
+                    <h1>Estoqueasy</h1>
+                    <h2>Seu negócio</h2>
+                    <table class="produtos">
                         <tr>
                             <th>N.</th>
                             <th>Nome do Produto</th>
@@ -23,9 +22,8 @@ const Home = ({tableMaterial}) => {
                             <th>Preço</th>
                         </tr>
                         <TabelaProdutos produtos={produtos} />
-                        </table>
-
-                        <table class="produtos"> {/* mudar nome */}
+                    </table>
+                    <table class="produtos"> {/* mudar nome */}
                         <tr>
                             <th>N.</th>
                             <th>Nome da Matéria-prima</th>
@@ -46,34 +44,11 @@ const Home = ({tableMaterial}) => {
                                 )
                             })}
                         </tbody>
-                        </table>
-
-                    </div>
+                    </table>
                 </div>
-            </div> 
-        </>
-        
+            </div>
+        </div> 
     );
 }
 
-const LinhaProdutos = (props) => {
-    return(
-        <tr>
-            <td>{props.produto.id}</td>
-            <td>{props.produto.nomeProduto}</td>
-            <td>{props.produto.custoProduto}</td>
-            <td>{props.produto.valorProduto}</td>
-        </tr>
-    );
-}
-
-function TabelaProdutos(props){
-    return(
-        <tbody>
-            {props.produtos.map((produto) => <LinhaProdutos key={produto.id} produto={produto} />)}
-        </tbody>
-    );
-}
-
- 
 export default Home;
