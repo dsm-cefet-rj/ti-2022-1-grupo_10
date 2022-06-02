@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import MateriaPrima from '../cls/MateriaPrima/';
+import MateriaPrima from '../cls/MateriaPrima';
 
 const initialMateriaPrima = [
     new MateriaPrima(1,'Fecho',1,'FechosExpress',1),

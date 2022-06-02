@@ -1,11 +1,13 @@
 import React, {useState} from "react";
 import { useDispatch } from "react-redux";
+import { addMateriaPrima } from "../app/materiaPrimaSlice";
 
 
 const CadastroMateriaPrima = () => {
+
     const dispatch = useDispatch();
 
-    const [formInput, setformInput] = useState([
+    const [formInput, setFormInput] = useState([
         {
           nomeMateriaPrima:'',
           qtdMateriaPrima:'',
@@ -15,18 +17,17 @@ const CadastroMateriaPrima = () => {
     ]);
 
     const handleChange=(evt)=>{  
-        const newInput = (data)=>({...data, [evt.target.name]:evt.target.value})
-        setformInput(newInput)
+        const newInput = (fieldValues)=>({...fieldValues, [evt.target.name]:evt.target.value})
+        setFormInput(newInput)
     }
 
     const handleSubmit= (evt) =>{
         evt.preventDefault();
-        const checkEmptyInput = !Object.values(formInput).every(res=>res==="")
+        const checkEmptyInput = !Object.values(formInput).every(fieldValue=>fieldValue==="")
         if(checkEmptyInput){
-            const newData = (data)=>([...data, formInput])
-            setTableMaterial(newData);
+            dispatch(addMateriaPrima(formInput))
             const emptyInput= {nomeMateriaPrima:'', qtdMateriaPrima:'', fornecedor:'', valorMateriaPrima:''}
-            setformInput(emptyInput)
+            setFormInput(emptyInput)
         }
     }
 

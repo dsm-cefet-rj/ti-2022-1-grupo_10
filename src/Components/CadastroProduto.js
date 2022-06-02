@@ -8,7 +8,7 @@ const CadastroProduto = ({tableMaterial}) => {
 
     const dispatch = useDispatch();
 
-    const [formInputData, setformInputData] = useState(
+    const [formInput, setFormInput] = useState(
         {
         nomeProduto:'',
         qtdProduto:'',
@@ -18,17 +18,17 @@ const CadastroProduto = ({tableMaterial}) => {
     );
    
     const handleChange=(evt)=>{  
-        const newInput = (data)=>({...data, [evt.target.name]:evt.target.value})
-         setformInputData(newInput)
+        const newInput = (fieldValues)=>({...fieldValues, [evt.target.name]:evt.target.value})
+        setFormInput(newInput)
     }
     
-    const handleSubmit= (evt) =>{
+    const handleSubmit=(evt) =>{
         evt.preventDefault();
-        const checkEmptyInput = !Object.values(formInputData).every(res=>res==="")
+        const checkEmptyInput = !Object.values(formInput).every(fieldValue=>fieldValue==="")
         if(checkEmptyInput){
-            dispatch(addProduto(formInputData))
+            dispatch(addProduto(formInput))
             const emptyInput= {nomeProduto:'', qtdProduto:'', custoProduto:'', valorProduto:''}
-            setformInputData(emptyInput)
+            setFormInput(emptyInput)
         }
     }
 
@@ -39,13 +39,13 @@ const CadastroProduto = ({tableMaterial}) => {
             </div>
             <form id="form_produto" class="cadastro_form">
                 <label>Nome do produto</label>
-                <input type="text" onChange={handleChange} value={formInputData.nomeProduto} name="nomeProduto" className="form-control"  placeholder="Nome"/>
+                <input type="text" onChange={handleChange} value={formInput.nomeProduto} name="nomeProduto" className="form-control"  placeholder="Nome"/>
                 <label>Quantidade</label>
-                <input type="number" onChange={handleChange} value={formInputData.qtdProduto} name="qtdProduto" className="form-control" placeholder="Quantidade"/>
+                <input type="number" onChange={handleChange} value={formInput.qtdProduto} name="qtdProduto" className="form-control" placeholder="Quantidade"/>
                 <label>Custo</label>
-                <input type="number" onChange={handleChange} value={formInputData.custoProduto} name="custoProduto" className="form-control" placeholder="Custo"/>
+                <input type="number" onChange={handleChange} value={formInput.custoProduto} name="custoProduto" className="form-control" placeholder="Custo"/>
                 <label>Preço</label>
-                <input type="number" onChange={handleChange} value={formInputData.valorProduto} name="valorProduto" className="form-control" placeholder="Valor"/>
+                <input type="number" onChange={handleChange} value={formInput.valorProduto} name="valorProduto" className="form-control" placeholder="Valor"/>
                 <label>Materias-prima</label>
                 <DropdownMenu arr={tableMaterial}/>
                 <input type="submit" onClick={handleSubmit} class="btn" />
