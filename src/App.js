@@ -15,7 +15,7 @@ import RelatorioVenda from "./Components/RelatorioVenda";
 import Venda from "./Components/Venda";
 
 
-const App = () => {  
+const App = () => {
   
   const [tableMaterial, setTableMaterial] = useState([
     {
