@@ -9,10 +9,10 @@ const CadastroMateriaPrima = () => {
 
     const [formInput, setFormInput] = useState([
         {
-          nomeMateriaPrima:'',
-          qtdMateriaPrima:'',
+          tipo:'',
+          qtd:'',
           fornecedor:'',
-          valorMateriaPrima:'',
+          custo:'',
         }
     ]);
 
@@ -26,7 +26,7 @@ const CadastroMateriaPrima = () => {
         const checkEmptyInput = !Object.values(formInput).every(fieldValue=>fieldValue==="")
         if(checkEmptyInput){
             dispatch(addMateriaPrima(formInput))
-            const emptyInput= {nomeMateriaPrima:'', qtdMateriaPrima:'', fornecedor:'', valorMateriaPrima:''}
+            const emptyInput= {tipo:'', qtd:'', fornecedor:'', custo:''}
             setFormInput(emptyInput)
         }
     }

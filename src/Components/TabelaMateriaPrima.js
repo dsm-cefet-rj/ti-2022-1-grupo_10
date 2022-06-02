@@ -1,9 +1,11 @@
-const TabelaMateriaPrima = () => {
+import LinhaMateriaPrima from './LinhaMateriaPrima';
+
+const TabelaMateriaPrima = (props) => {
     return ( 
         <tbody>
-            {props.produtos.map((produto) => <LinhaProdutos key={produto.id} produto={produto} />)}
+            {props.mps.map((mp) => <LinhaMateriaPrima key={mp.id} mp={mp} />)}
         </tbody>
-     );
+    );
 }
  
 export default TabelaMateriaPrima;

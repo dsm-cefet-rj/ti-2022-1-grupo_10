@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import TabelaProdutos from './TabelaProdutos';
+import TabelaMateriaPrima from './TabelaMateriaPrima';
 
 const Home = ({tableMaterial}) => {
 
@@ -9,41 +10,28 @@ const Home = ({tableMaterial}) => {
     const mps=useSelector(state=>state.mps);
     
     return (
-        <div class ="home">
+        <div className="home">
             <div id="home-texto">
                 <div id="home-texto_2">
                     <h1>Estoqueasy</h1>
                     <h2>Seu negócio</h2>
-                    <table class="produtos">
-                        <tr>
-                            <th>N.</th>
-                            <th>Nome do Produto</th>
-                            <th>Custo</th>
-                            <th>Preço</th>
-                        </tr>
+                    <table className="produtos">
+                        <td>N.</td>
+                        <td>Nome do Produto</td>
+                        <td>Custo</td>
+                        <td>Preço</td>
                         <TabelaProdutos produtos={produtos} />
                     </table>
-                    <table class="produtos"> {/* mudar nome */}
-                        <tr>
+                    {/* Mudar nome */}
+                    <table className="produtos">
+                        <thead>
                             <th>N.</th>
                             <th>Nome da Matéria-prima</th>
                             <th>Fornecedor</th>
                             <th>Custo</th>
                             <th>Quantidade</th>
-                        </tr>
-                        <tbody>
-                            {tableMaterial.map((data,index) => {
-                                return (
-                                    <tr key={index}>
-                                        <td>{index+1}</td>
-                                        <td>{data.nomeMateriaPrima}</td>
-                                        <td>{data.fornecedor}</td>
-                                        <td>{data.valorMateriaPrima}</td>
-                                        <td>{data.qtdMateriaPrima}</td>
-                                    </tr>
-                                )
-                            })}
-                        </tbody>
+                        </thead>
+                        <TabelaMateriaPrima mps={mps} />
                     </table>
                 </div>
             </div>

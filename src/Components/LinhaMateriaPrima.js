@@ -1,10 +1,11 @@
-const LinhaMateriaPrima = () => {
+const LinhaMateriaPrima = (mp) => {
     return ( 
         <tr>
-            <td>{produto.produto.id}</td>
-            <td>{produto.produto.nomeProduto}</td>
-            <td>{produto.produto.custoProduto}</td>
-            <td>{produto.produto.valorProduto}</td>
+            <td>{mp.mp.id}</td>
+            <td>{mp.mp.tipo}</td>
+            <td>{mp.mp.fornecedor}</td>
+            <td>{mp.mp.qtd}</td>
+            <td>{mp.mp.custo}</td>
         </tr>
      );
 }

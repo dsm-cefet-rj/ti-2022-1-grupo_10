@@ -2,8 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 import MateriaPrima from '../cls/MateriaPrima';
 
 const initialMateriaPrima = [
-    new MateriaPrima(1,'Fecho',1,'FechosExpress',1),
-    new MateriaPrima(1,'Gancho',1,'GanchosExpress',0.5)
+    new MateriaPrima(10,'Fecho',300,'FechosExpress',0.15),
+    new MateriaPrima(11,'Gancho',286,'GanchosExpress',0.10)
 ];
 
 function addMateriaPrimaReducer(mps,mp){
