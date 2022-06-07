@@ -39,6 +39,17 @@ function venderReducer (produtos, {nome,qtd}){
     })
 }
 
+function deleteProjetoReducer(produtos, id){
+    return produtos.filter((produto) => produto.id !== id);
+}
+
+
+function  updateProjetoReducer(produtos, produto){
+    let index = produtos.map(produto => produto.id).indexOf(produto.id);
+    produtos.splice(index, 1, produto);
+    return produtos;
+}
+
 export const produtosSlice = createSlice(
     {
         name: 'CadastroProduto',
@@ -47,11 +58,12 @@ export const produtosSlice = createSlice(
             addProduto: (state , action) => addProdutoReducer (state, action.payload),
             Produzir: (state, action) => produzirReducer (state, action.payload),
             Vender: (state, action) => venderReducer (state, action.payload),
+            
         }
     }
 )
 
-export const { addProduto, Produzir, Vender } = produtosSlice.actions
+export const { addProduto, Produzir, Vender} = produtosSlice.actions
 
 //useSelector((state) => state.produtos.id)
 //useSelector((state) => state.produtos.nomeProduto)
