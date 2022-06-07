@@ -58,12 +58,14 @@ export const produtosSlice = createSlice(
             addProduto: (state , action) => addProdutoReducer (state, action.payload),
             Produzir: (state, action) => produzirReducer (state, action.payload),
             Vender: (state, action) => venderReducer (state, action.payload),
-            
+            Update: (state,action)=> updateProjetoReducer(state, action.payload),
+            Delete: (state,action)=> deleteProjetoReducer(state, action.payload),
+
         }
     }
 )
 
-export const { addProduto, Produzir, Vender} = produtosSlice.actions
+export const { addProduto, Produzir, Vender,Update,Delete} = produtosSlice.actions
 
 //useSelector((state) => state.produtos.id)
 //useSelector((state) => state.produtos.nomeProduto)
