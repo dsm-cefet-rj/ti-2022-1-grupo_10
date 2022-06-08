@@ -16,6 +16,16 @@ const CadastroMateriaPrima = () => {
         }
     ]);
 
+    const createList = (form) => {
+        fetch("http://localhost:3333/posts", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(form)
+        })
+    }
+
     const handleChange=(evt)=>{  
         const newInput = (fieldValues)=>({...fieldValues, [evt.target.name]:evt.target.value})
         setFormInput(newInput)
@@ -26,6 +36,7 @@ const CadastroMateriaPrima = () => {
         const checkEmptyInput = !Object.values(formInput).every(fieldValue=>fieldValue==="")
         if(checkEmptyInput){
             dispatch(addMateriaPrima(formInput))
+            createList(formInput)
             const emptyInput= {tipo:'', qtd:'', fornecedor:'', custo:''}
             setFormInput(emptyInput)
         }
