@@ -72,10 +72,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 # Start JSON Server
 In your terminal run:
 
-### `json-server --watch db.json --port 3333`
+### `npm run json-server`
 
 Runs the server.\
-Open [http://localhost:3333/posts](http://localhost:3333/posts) to view it in your browser.
+Open [http://localhost:3333/produtos](http://localhost:3333/produtos) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any log errors in the console.
