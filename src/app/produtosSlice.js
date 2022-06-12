@@ -11,9 +11,9 @@ function addProdutoReducer(state, produto){
     state.produtos = state.produtos.concat([{...produto, id: proxId, Produzidos:0, Vendidos: 0}]);
 }
 
-function produzirReducer (produtos, {nome,qtd}){
+function produzirReducer (state, {nome,qtd}){
 
-    return produtos.map((produto) => {
+    state.produtos = state.produtos.map((produto) => {
         if (produto.nomeProduto !== nome){
             return produto
         }
@@ -23,15 +23,15 @@ function produzirReducer (produtos, {nome,qtd}){
     })
 }
 
-function venderReducer (produtos, {nome,qtd}){
+function venderReducer (state, {nome,qtd}){
     
-    return produtos.map((produto) => {
+    state.produtos = state.produtos.map((produto) => {
         if (produto.nomeProduto !== nome){
             return produto
         }
         return {
             ...produto,qtdProduto:parseInt(produto.qtdProduto)-parseInt(qtd),Vendidos:parseInt(produto.Vendidos)+parseInt(qtd)
-        }
+        };
     })
 }
 
