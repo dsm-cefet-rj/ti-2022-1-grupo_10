@@ -42,7 +42,10 @@ const useSortableData = (items, config = null) => {
 
 const RelatorioProduzidos = () => {
 
-    const produtos=useSelector(state=>state.produtos);
+    const produtosState = useSelector(state => state.produtos);
+    const produtos = produtosState.produtos;
+    const statusProdutos = produtosState.status;
+    const errorProdutos = produtosState.error;
 
     const { items, requestSort, sortConfig } = useSortableData(produtos);
     const getClassNamesFor = (name) => {
@@ -51,62 +54,69 @@ const RelatorioProduzidos = () => {
         }
         return sortConfig.key === name ? sortConfig.direction : undefined;
     };
-  
 
-    
-    
-    return (
+    let tabelaProdutos = '';
+    if(statusProdutos === 'loaded'){
+        tabelaProdutos = 
+        <table class="mais-vendidos">
+        <thead> 
+          <tr>
+            <th>
+              <button
+                type="button"
+                onClick={() => requestSort('nomeProduto')}
+                className={getClassNamesFor('nomeProduto')}
+              >
+              Nome do Produto
+              </button>
+            </th>
+            <th>
+              <button
+                type="button"
+                onClick={() => requestSort('Produzidos')}
+                className={getClassNamesFor('Produzidos')}
+              >
+              Produzidos
+              </button>
+            </th>
+            <th>
+              <button
+                type="button"
+                onClick={() => requestSort('qtdProduto')}
+                className={getClassNamesFor('qtdProduto')}
+              >
+              Quantidade
+              </button>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {items.map((items,index) => {
+            return (
+                <tr key={index}>
+                  <td>{items.nomeProduto}</td>
+                  <td>{items.Produzidos}</td>
+                  <td>{items.qtdProduto}</td>
+                </tr>
+            )
+          })}
+        </tbody>
+      </table>
+            
+      }else if(statusProdutos === 'loading'){
+        tabelaProdutos = <div>Carregando os Produtos...</div>;
+      }else if(statusProdutos === 'failed'){
+        tabelaProdutos = <div>Error: {errorProdutos}</div>;
+      }
+      
+     return (
         
       <div id="relatorio">
         <div id="header">
           <h2>Relatórios</h2>
         </div>
-          <h1>Mais Produzidos</h1>
-            <table class="mais-vendidos">
-              <thead> 
-                <tr>
-                  <th>
-                    <button
-                      type="button"
-                      onClick={() => requestSort('nomeProduto')}
-                      className={getClassNamesFor('nomeProduto')}
-                    >
-                    Nome do Produto
-                    </button>
-                  </th>
-                  <th>
-                    <button
-                      type="button"
-                      onClick={() => requestSort('Produzidos')}
-                      className={getClassNamesFor('Produzidos')}
-                    >
-                    Produzidos
-                    </button>
-                  </th>
-                  <th>
-                    <button
-                      type="button"
-                      onClick={() => requestSort('qtdProduto')}
-                      className={getClassNamesFor('qtdProduto')}
-                    >
-                    Quantidade
-                    </button>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {items.map((items,index) => {
-                  return (
-                      <tr key={index}>
-                        <td>{items.nomeProduto}</td>
-                        <td>{items.Produzidos}</td>
-                        <td>{items.qtdProduto}</td>
-                      </tr>
-                  )
-                })}
-              </tbody>
-            </table>
-      </div>
+          {tabelaProdutos}
+        </div>
          
     );
 

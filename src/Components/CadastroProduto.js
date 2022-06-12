@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addProduto } from "../app/produtosSlice";
 import DropdownMenu from "./DropdownMenu";
 
 
-const CadastroProduto = ({tableMaterial}) => {
+const CadastroProduto = () => {
+
+    const mps=useSelector(state=>state.mps.mps);
 
     const dispatch = useDispatch();
 
@@ -47,7 +49,7 @@ const CadastroProduto = ({tableMaterial}) => {
                 <label>Preço</label>
                 <input type="number" onChange={handleChange} value={formInput.valorProduto} name="valorProduto" className="form-control" placeholder="Valor"/>
                 <label>Materias-prima</label>
-                <DropdownMenu arr={tableMaterial}/>
+                <DropdownMenu arr={mps}/>
                 <input type="submit" onClick={handleSubmit} class="btn" />
             </form>
         </div>

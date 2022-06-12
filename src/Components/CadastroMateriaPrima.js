@@ -1,44 +1,32 @@
 import React, {useState} from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addMateriaPrima } from "../app/materiaPrimaSlice";
+import { useParams } from "react-router-dom";
 
 
 const CadastroMateriaPrima = () => {
 
     const dispatch = useDispatch();
+    const mps=useSelector(state=>state.mps.mps);
+    let { id } = useParams();
+    id = parseInt(id);
 
-    const [formInput, setFormInput] = useState([
-        {
-          tipo:'',
-          qtd:'',
-          fornecedor:'',
-          custo:'',
-        }
-    ]);
+    const [mp, setMp] = useState(
+        id ? mps.filter((p) => p.id === id)[0] ?? {} : {});
 
-    const createList = (form) => {
-        fetch("http://localhost:3333/posts", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(form)
-        })
-    }
 
     const handleChange=(evt)=>{  
         const newInput = (fieldValues)=>({...fieldValues, [evt.target.name]:evt.target.value})
-        setFormInput(newInput)
+        setMp(newInput)
     }
 
     const handleSubmit=(evt) =>{
         evt.preventDefault();
-        const checkEmptyInput = !Object.values(formInput).every(fieldValue=>fieldValue==="")
+        const checkEmptyInput = !Object.values(mp).every(fieldValue=>fieldValue==="")
         if(checkEmptyInput){
-            dispatch(addMateriaPrima(formInput))
-            createList(formInput)
+            dispatch(addMateriaPrima(mp))
             const emptyInput= {tipo:'', qtd:'', fornecedor:'', custo:''}
-            setFormInput(emptyInput)
+            setMp(emptyInput)
         }
     }
 
@@ -49,13 +37,13 @@ const CadastroMateriaPrima = () => {
             </div>
             <form id="form_produto" class="cadastro_form">
                 <label>Nome da matéria-prima</label>
-                <input type="text" onChange={handleChange} value={formInput.tipo} name="tipo" className="form-control"  placeholder="Nome"/>
+                <input type="text" onChange={handleChange} value={mp.tipo} name="tipo" className="form-control"  placeholder="Nome"/>
                 <label>Quantidade(kg)</label>
-                <input type="number" onChange={handleChange} value={formInput.qtd} name="qtd" className="form-control" placeholder="Quantidade"/>
+                <input type="number" onChange={handleChange} value={mp.qtd} name="qtd" className="form-control" placeholder="Quantidade"/>
                 <label>Fornecedor</label>
-                <input type="text" onChange={handleChange} value={formInput.fornecedor} name="fornecedor" className="form-control"  placeholder="Nome"/>
+                <input type="text" onChange={handleChange} value={mp.fornecedor} name="fornecedor" className="form-control"  placeholder="Nome"/>
                 <label>Preço</label>
-                <input type="number" onChange={handleChange} value={formInput.custo} name="custo" className="form-control" placeholder="Valor"/>
+                <input type="number" onChange={handleChange} value={mp.custo} name="custo" className="form-control" placeholder="Valor"/>
                 <input type="submit" onClick={handleSubmit} class="btn" />
             </form>
         </div>

@@ -1,0 +1,32 @@
+{
+  "produtos": [
+    {
+      "id": 1, 
+      "nomeProduto": "Brinco", 
+      "qtdProduto": 2, 
+      "custoProduto": 25, 
+      "valorProduto": 31,
+      "Produzidos": 0,
+      "Vendidos": 0
+    }
+  ],
+  "mp": [
+    {
+      "id": 10,
+      "tipo": "Fecho",
+      "qtd": 300,
+      "fornecedor": "FechosExpress",
+      "custo": 0.15,
+      "qtdUsos": 0
+    },
+    {
+      "id": 11,
+      "tipo": "Gancho",
+      "qtd": 286,
+      "fornecedor": "GanchosExpress",
+      "custo": 0.10,
+      "qtdUsos": 0
+    }
+  ]
+}
+
