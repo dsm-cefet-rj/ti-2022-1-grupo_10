@@ -35,7 +35,7 @@ function venderReducer (produtos, {nome,qtd}){
     })
 }
 
-function deleteProjetoReducer(state, id){
+function deleteProjetoReducer(state, {id}){
     state.produtos = state.produtos.filter((produto) => produto.id !== id);
 }
 
