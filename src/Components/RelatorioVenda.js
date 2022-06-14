@@ -1,11 +1,10 @@
 import React from "react";
 import ContainerVenda from "./ContainerVenda";
 import { useSelector } from "react-redux";
-import TabelaProdutos from "./TabelaProdutos";
 
 const RelatorioVenda = () =>{
 
-    const produtosState = useSelector(state => state.produtos);
+    const produtosState = useSelector(state => state.produtos);
     const produtos = produtosState.produtos;
     const statusProdutos = produtosState.status;
     const errorProdutos = produtosState.error;

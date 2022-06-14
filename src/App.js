@@ -1,5 +1,4 @@
 // Dependencies
-import React, { useState } from "react";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import './App.css';
 
@@ -35,6 +34,7 @@ const App = () => {
               <Route path="/" element={<Home />} />
               <Route path="/home" element={<Home />} />
               <Route path="/cadastroProduto" element={<CadastroProduto />} />
+              <Route path="/cadastroProduto/:id" element={<CadastroProduto />} />
               <Route path="/cadastroMP" element={<CadastroMateriaPrima />} />
               <Route path="/producao" element={<Producao />} />
               <Route path="/venda" element={<Venda />} />

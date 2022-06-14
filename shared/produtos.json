@@ -1,13 +1,18 @@
 {
   "produtos": [
     {
-      "id": 1, 
-      "nomeProduto": "Brinco", 
-      "qtdProduto": 2, 
-      "custoProduto": 25, 
-      "valorProduto": 31,
-      "Produzidos": 0,
-      "Vendidos": 0
+      "nomeProduto": "colar",
+      "qtdProduto": "10",
+      "custoProduto": "5",
+      "valorProduto": "15",
+      "id": 1
+    },
+    {
+      "nomeProduto": "brinco",
+      "qtdProduto": "10",
+      "custoProduto": "50",
+      "valorProduto": "100",
+      "id": 2
     }
   ],
   "mp": [
@@ -24,9 +29,8 @@
       "tipo": "Gancho",
       "qtd": 286,
       "fornecedor": "GanchosExpress",
-      "custo": 0.10,
+      "custo": 0.1,
       "qtdUsos": 0
     }
   ]
 }
-

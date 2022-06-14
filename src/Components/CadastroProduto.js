@@ -1,37 +1,52 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addProduto } from "../app/produtosSlice";
+import { useParams,useNavigate } from "react-router-dom";
+import { addProdutoServer, updateProdutoServer, selectProdutosById } from "../app/produtosSlice";
 import DropdownMenu from "./DropdownMenu";
 
 
-const CadastroProduto = () => {
+const CadastroProduto = (props) => {
+
+    let navigate = useNavigate();
+    const dispatch = useDispatch();
+    let {id} = useParams();
+    id = parseInt(id);
+    const produtoFound = useSelector(state => selectProdutosById(state, id))
 
     const mps=useSelector(state=>state.mps.mps);
 
-    const dispatch = useDispatch();
+    const [produto, setProduto] = useState(
+        id ? produtoFound ?? {} : {});
 
-    const [formInput, setFormInput] = useState(
-        {
-        nomeProduto:'',
-        qtdProduto:'',
-        custoProduto:'',
-        valorProduto:'',
-        }
-    );
+ 
+    const [actionType, ] = useState(
+        id ? produtoFound 
+                ? 'produtos/updateProdutoServer'
+                : 'produtos/addProdutoServer'
+                : 'produtos/addProdutoServer');
+    
    
     const handleChange=(evt)=>{  
         const newInput = (fieldValues)=>({...fieldValues, [evt.target.name]:evt.target.value})
-        setFormInput(newInput)
+        setProduto(newInput)
     }
     
     const handleSubmit=(evt) =>{
-        evt.preventDefault();
-        const checkEmptyInput = !Object.values(formInput).every(fieldValue=>fieldValue==="")
+        //evt.preventDefault();
+        const checkEmptyInput = !Object.values(produto).every(fieldValue=>fieldValue==="")
         if(checkEmptyInput){
-            dispatch(addProduto(formInput))
+            if(actionType === 'produtos/addProdutoServer'){
+                dispatch(addProdutoServer(produto));
+            }
+            else if (actionType === 'produtos/updateProdutoServer'){
+                dispatch(updateProdutoServer(produto));
+            }
+            navigate('/home');
+            //dispatch(addProdutoServer(formInput))
             const emptyInput= {nomeProduto:'', qtdProduto:'', custoProduto:'', valorProduto:''}
-            setFormInput(emptyInput)
+            setProduto(emptyInput)
         }
+        
     }
 
     return (
@@ -41,13 +56,13 @@ const CadastroProduto = () => {
             </div>
             <form id="form_produto" class="cadastro_form">
                 <label>Nome do produto</label>
-                <input type="text" onChange={handleChange} value={formInput.nomeProduto} name="nomeProduto" className="form-control"  placeholder="Nome"/>
+                <input type="text" onChange={handleChange} value={produto.nomeProduto} name="nomeProduto" className="form-control"  placeholder="Nome"/>
                 <label>Quantidade</label>
-                <input type="number" onChange={handleChange} value={formInput.qtdProduto} name="qtdProduto" className="form-control" placeholder="Quantidade"/>
+                <input type="number" onChange={handleChange} value={produto.qtdProduto} name="qtdProduto" className="form-control" placeholder="Quantidade"/>
                 <label>Custo</label>
-                <input type="number" onChange={handleChange} value={formInput.custoProduto} name="custoProduto" className="form-control" placeholder="Custo"/>
+                <input type="number" onChange={handleChange} value={produto.custoProduto} name="custoProduto" className="form-control" placeholder="Custo"/>
                 <label>Preço</label>
-                <input type="number" onChange={handleChange} value={formInput.valorProduto} name="valorProduto" className="form-control" placeholder="Valor"/>
+                <input type="number" onChange={handleChange} value={produto.valorProduto} name="valorProduto" className="form-control" placeholder="Valor"/>
                 <label>Materias-prima</label>
                 <DropdownMenu arr={mps}/>
                 <input type="submit" onClick={handleSubmit} class="btn" />
