@@ -1,24 +1,27 @@
 import React from "react";
 import { useSelector } from "react-redux";
-
+import { selectAllProdutos } from "../app/produtosSlice";
 import TabelaProdutos from './TabelaProdutos';
 import TabelaMateriaPrima from './TabelaMateriaPrima';
 
 const Home = () => {
 
 
-    const produtosState = useSelector(state => state.produtos);
-    const produtos = produtosState.produtos;
-    const statusProdutos = produtosState.status;
-    const errorProdutos = produtosState.error;
-
+    const produtos = useSelector(selectAllProdutos)
+    const statusProdutos = useSelector(state => state.produtos.status);
+    const errorProdutos = useSelector(state => state.produtos.error);
+    //const produtosState = useSelector(state => state.produtos);
+    //const produtos = produtosState.produtos;
+    //const statusProdutos = produtosState.status;
+    //const errorProdutos = produtosState.error;
+    
     const mpsState = useSelector(state => state.mps);
     const mps = mpsState.mps;
     const statusMps = mpsState.status;
     const errorMps = mpsState.error;
 
     let tabelaProdutos = '';
-    if(statusProdutos === 'loaded'){
+    if(statusProdutos === 'loaded' || statusProdutos === 'saved' || statusProdutos === 'deleted' ){
         tabelaProdutos = 
             <table className="produtos">
                 <td>N.</td>
