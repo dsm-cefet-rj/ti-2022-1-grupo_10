@@ -1,15 +1,17 @@
 import { useDispatch } from "react-redux";
-import { Delete } from "../app/produtosSlice";
+import { deleteProdutoServer } from "../app/produtosSlice";
+import { Link } from 'react-router-dom';
 
 const LinhaProdutos = (produto) => {
+
     const dispatch = useDispatch();
     const handleDelete = () => {
     let payload = {id:produto.produto.id}
-    dispatch(Delete(payload))
+    dispatch(deleteProdutoServer(payload))
     }
     return ( 
         <tr>
-            <td>{produto.produto.id}</td>
+            <td><Link to={`/cadastroProduto/${produto.produto.id}`}><button>{produto.produto.id}</button></Link></td>
             <td>{produto.produto.nomeProduto}</td>
             <td>{produto.produto.custoProduto}</td>
             <td>{produto.produto.valorProduto}</td>
