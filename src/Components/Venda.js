@@ -2,12 +2,6 @@ import React, {useState} from "react";
 import { useDispatch } from "react-redux";
 import { Vender } from "../app/produtosSlice";
 
-
-/*function limite(x){
-    alert ("Quantidade de produtos a ser vendida maior do que a presente no estoque.")    
-    return x
-}*/
-
 const Venda = () => {
 
   const dispatch = useDispatch();

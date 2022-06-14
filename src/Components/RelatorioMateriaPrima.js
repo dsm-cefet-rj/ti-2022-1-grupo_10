@@ -1,11 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import ContainerMateriaPrima from "./ContainerMateriaPrima";
-import TabelaMateriaPrima from "./TabelaMateriaPrima";
 
 const RelatorioMateriaPrima = () => {
 
-    const mpsState = useSelector(state => state.mps);
+    const mpsState = useSelector(state =>state.mps);
     const mps = mpsState.mps;
     const statusMps = mpsState.status;
     const errorMps = mpsState.error;

@@ -74,13 +74,14 @@ export const fetchProdutos = createAsyncThunk('produtos/fetchProdutos',
 async () => {
     return await (await fetch('http://localhost:3333/produtos')).json();
 });
-*/
+
 
 function fullfillProdutosReducer(produtosState, produtosFetched){
     produtosState.status = 'loaded';
     produtosState.produtos = produtosFetched;
 
 }
+*/
 
 function produzirReducer (produtos, {nome,qtd}){
 
