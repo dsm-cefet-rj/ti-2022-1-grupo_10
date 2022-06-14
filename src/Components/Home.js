@@ -13,15 +13,9 @@ const Home = () => {
     const produtos = useSelector(selectAllProdutos)
     const statusProdutos = useSelector(state => state.produtos.status);
     const errorProdutos = useSelector(state => state.produtos.error);
-    useEffect(()=>{store.dispatch(fetchProdutos())
-
-    },[])
-    //const produtosState = useSelector(state => state.produtos);
-    //const produtos = produtosState.produtos;
-    //const statusProdutos = produtosState.status;
-    //const errorProdutos = produtosState.error;
+    useEffect(()=>{store.dispatch(fetchProdutos())},[])
     
-    const mpsState = useSelector(state => state.mps);
+    const mpsState = useSelector(state => state.mps);
     const mps = mpsState.mps;
     const statusMps = mpsState.status;
     const errorMps = mpsState.error;

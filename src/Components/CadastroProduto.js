@@ -18,16 +18,7 @@ const CadastroProduto = (props) => {
     const [produto, setProduto] = useState(
         id ? produtoFound ?? {} : {});
 
-        /*
-    const [formInput, setFormInput] = useState(
-        {
-        nomeProduto:'',
-        qtdProduto:'',
-        custoProduto:'',
-        valorProduto:'',
-        }
-    );
-*/
+ 
     const [actionType, ] = useState(
         id ? produtoFound 
                 ? 'produtos/updateProdutoServer'

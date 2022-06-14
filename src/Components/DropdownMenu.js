@@ -1,6 +1,6 @@
 const DropdownMenu = ({arr}) => {
     return ( 
-        <select>
+        <select multiple='true'>
             {arr.map((materiaPrima,index)=>(
                 <option key={index}>{materiaPrima.tipo}</option>
             ))}
