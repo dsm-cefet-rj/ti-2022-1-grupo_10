@@ -1,8 +1,11 @@
-import React from "react";
+
+import React,{useEffect} from "react";
 import { useSelector } from "react-redux";
 import { selectAllProdutos } from "../app/produtosSlice";
 import TabelaProdutos from './TabelaProdutos';
 import TabelaMateriaPrima from './TabelaMateriaPrima';
+import {store} from '../app/store';
+import { fetchProdutos } from '../app/produtosSlice'; 
 
 const Home = () => {
 
@@ -10,6 +13,9 @@ const Home = () => {
     const produtos = useSelector(selectAllProdutos)
     const statusProdutos = useSelector(state => state.produtos.status);
     const errorProdutos = useSelector(state => state.produtos.error);
+    useEffect(()=>{store.dispatch(fetchProdutos())
+
+    },[])
     //const produtosState = useSelector(state => state.produtos);
     //const produtos = produtosState.produtos;
     //const statusProdutos = produtosState.status;
