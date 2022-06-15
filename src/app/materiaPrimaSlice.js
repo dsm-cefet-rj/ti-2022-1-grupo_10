@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-const initialState = {
-        status: 'not_loaded',
-        mps: [],
-        error: null
+const initialState = {
+        status: 'not_loaded',
+        mps: [],
+        error: null
     };
 
 
