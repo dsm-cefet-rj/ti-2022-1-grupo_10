@@ -18,9 +18,8 @@ const handleproduce = (e)=>{
 }
 
 
-  return (
-    <div id="venda">
-
+return (
+    <div id="produzir">
       <div id="producao">
           <div id="header">
                 <h2>Venda</h2>
@@ -29,19 +28,16 @@ const handleproduce = (e)=>{
             <table class="producao">
                 <tr>
                   <th>Nome do produto</th>
-                </tr>
-                <tr>
-                  <input type="text"onChange={(e)=>setProduto(e.target.value)}></input>              
-                </tr>
-                <tr>
                   <th>Quantidade</th>
                 </tr>
-                <tr>
-                  <input type="number"onChange={(e)=>setQtd(e.target.value)}></input>              
-                </tr>             
-              </table>
-          <button onClick={handleproduce} class="btn_2" id ="vender">Vender</button>
-          
+                <tbody>
+                  <tr>
+                    <th><input type="text"onChange={(e)=>setProduto(e.target.value)}></input></th>            
+                    <th><input type="number"onChange={(e)=>setQtd(e.target.value)}></input></th>
+                </tr>                
+              </tbody>                               
+            </table>
+          <button onClick={handleproduce} class="btn_2" id ="vender">Vender</button>          
       </div>
     </div>  
   )
