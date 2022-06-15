@@ -1,18 +1,26 @@
 import React, {useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addMateriaPrima } from "../app/materiaPrimaSlice";
-import { useParams } from "react-router-dom";
+import { useParams,useNavigate } from "react-router-dom";
+import { addMateriaPrimaServer, updateMateriaPrimaServer, selectMateriasPrimasById } from "../app/materiaPrimaSlice";
+
 
 
 const CadastroMateriaPrima = () => {
 
+    let navigate = useNavigate();
     const dispatch = useDispatch();
-    const mps=useSelector(state=>state.mps.mps);
-    let { id } = useParams();
+    let {id} = useParams();
     id = parseInt(id);
+    const materiaPrimaFound = useSelector(state => selectMateriasPrimasById(state, id))
 
     const [mp, setMp] = useState(
-        id ? mps.filter((p) => p.id === id)[0] ?? {} : {});
+        id ? materiaPrimaFound ?? {} : {});
+
+    const [actionType, ] = useState(
+        id ? materiaPrimaFound 
+            ? 'materiasprimas/updateMateriaPrimaServer'
+            : 'materiasprimas/addMateriaPrimaServer'
+            : 'materiasprimas/addMateriaPrimaServer');
 
 
     const handleChange=(evt)=>{  
@@ -21,10 +29,15 @@ const CadastroMateriaPrima = () => {
     }
 
     const handleSubmit=(evt) =>{
-        evt.preventDefault();
         const checkEmptyInput = !Object.values(mp).every(fieldValue=>fieldValue==="")
         if(checkEmptyInput){
-            dispatch(addMateriaPrima(mp))
+            if(actionType === 'materiasprimas/addMateriaPrimaServer'){
+                dispatch(addMateriaPrimaServer(mp))
+            }
+            else if (actionType === 'materiasprimas/updateMateriaPrimaServer'){
+                dispatch(updateMateriaPrimaServer(mp))
+            }
+            navigate('/home')
             const emptyInput= {tipo:'', qtd:'', fornecedor:'', custo:''}
             setMp(emptyInput)
         }

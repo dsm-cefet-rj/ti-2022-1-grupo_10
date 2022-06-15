@@ -1,34 +1,22 @@
 import React, {useState} from "react";
-import { useDispatch } from "react-redux";
-import { Vender } from "../app/produtosSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {  selectAllProdutos, updateProdutoServer } from "../app/produtosSlice";
 
 const Venda = () => {
 
   const dispatch = useDispatch();
 
-  
+  const produtos = useSelector(selectAllProdutos)
   const [Produto,setProduto]=useState("");
   const [Qtd,setQtd]=useState("");
 
 
 const handleproduce = (e)=>{
-  let payload = {nome:Produto,qtd:Qtd}
-  dispatch(Vender(payload))
-  // const dataselected = tableData.find(item=>item.nomeProduto.includes(Produto))      
-  // const newtabledata = tableData.map((item)=>{
-  //   if (item===dataselected){
-  //       if(item.qtdProduto >= Qtd)
-  //           return {
-  //               ...item,qtdProduto:parseInt(item.qtdProduto)-parseInt(Qtd)       
-  //           }                                                        
-  //           return limite(item)                                           
-  //   }
-  //   return item
-  // }) 
-  // setTableData(newtabledata)
+  let produto = produtos.find((item)=>item.nomeProduto.includes(Produto))
+  produto = {...produto, qtdProduto: parseInt(produto.qtdProduto) - parseInt(Qtd), Vendidos: parseInt(produto.Vendidos) + parseInt(Qtd)}
+  dispatch(updateProdutoServer(produto))
 }
 
-  // console.log(tableData)
 
   return (
     <div id="venda">

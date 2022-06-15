@@ -1,11 +1,23 @@
-const LinhaMateriaPrima = (mp) => {
+import { useDispatch } from "react-redux";
+import { deleteMateriaPrimaServer } from "../app/materiaPrimaSlice";
+import { Link } from 'react-router-dom';
+
+
+const LinhaMateriaPrima = (materiaprima) => {
+
+    const dispatch = useDispatch();
+    const handleDelete = () => {
+        let payload = {id:materiaprima.materiaprima.id}
+        dispatch(deleteMateriaPrimaServer(payload))
+        }
     return ( 
         <tr>
-            <td>{mp.mp.id}</td>
-            <td>{mp.mp.tipo}</td>
-            <td>{mp.mp.fornecedor}</td>
-            <td>{mp.mp.qtd}</td>
-            <td>{mp.mp.custo}</td>
+            <td><Link to={`/cadastroMP/${materiaprima.materiaprima.id}`}><button>{materiaprima.materiaprima.id}</button></Link></td>
+            <td>{materiaprima.materiaprima.tipo}</td>
+            <td>{materiaprima.materiaprima.fornecedor}</td>
+            <td>{materiaprima.materiaprima.qtd}</td>
+            <td>{materiaprima.materiaprima.custo}</td>
+            <button onClick={handleDelete} id ='deletar'>Delete</button>
         </tr>
      );
 }

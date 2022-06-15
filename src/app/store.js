@@ -5,6 +5,6 @@ import materiaPrimaReducer from './materiaPrimaSlice'
 export const store = configureStore({
     reducer: {
         produtos: produtosReducer,
-        mps: materiaPrimaReducer,
+        materiasprimas: materiaPrimaReducer,
     }
 });
