@@ -1,17 +1,17 @@
 import React from "react";
 
-const MateriaPrimaInfo = ({mps}) => {
+const MateriaPrimaInfo = ({materiasprimas}) => {
     return(
         <table className="feedstock-cell">
             <tr>
                 <td>
-                    <p>{mps.tipo}</p>
+                    <p>{materiasprimas.tipo}</p>
                 </td>
                 <td>
-                    <p>{mps.qtd}</p>
+                    <p>{materiasprimas.qtd}</p>
                 </td>
                 <td>
-                    <p>{mps.custo}</p>
+                    <p>{materiasprimas.custo}</p>
                 </td>
             </tr>
         </table>

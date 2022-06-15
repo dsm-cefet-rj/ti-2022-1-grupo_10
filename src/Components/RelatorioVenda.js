@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ContainerVenda from "./ContainerVenda";
 import { useSelector } from "react-redux";
+import { fetchProdutos, selectAllProdutos } from "../app/produtosSlice";
+import { store } from "../app/store";
 
 const RelatorioVenda = () =>{
 
-    const produtosState = useSelector(state => state.produtos);
-    const produtos = produtosState.produtos;
-    const statusProdutos = produtosState.status;
-    const errorProdutos = produtosState.error;
-
+    const produtos = useSelector(selectAllProdutos)
+    const statusProdutos = useSelector(state => state.produtos.status);
+    const errorProdutos = useSelector(state => state.produtos.error);
+    useEffect(()=>{store.dispatch(fetchProdutos())},[]);
+    
     let tabelaProdutos = '';
     if(statusProdutos === 'loaded'){
         tabelaProdutos = 

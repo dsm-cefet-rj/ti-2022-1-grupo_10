@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams,useNavigate } from "react-router-dom";
+import { selectAllMateriasPrimas } from "../app/materiaPrimaSlice";
 import { addProdutoServer, updateProdutoServer, selectProdutosById } from "../app/produtosSlice";
 import DropdownMenu from "./DropdownMenu";
 
@@ -13,7 +14,7 @@ const CadastroProduto = (props) => {
     id = parseInt(id);
     const produtoFound = useSelector(state => selectProdutosById(state, id))
 
-    const mps=useSelector(state=>state.mps.mps);
+    const materiasprimas=useSelector(state => selectAllMateriasPrimas);
 
     const [produto, setProduto] = useState(
         id ? produtoFound ?? {} : {});
@@ -32,7 +33,6 @@ const CadastroProduto = (props) => {
     }
     
     const handleSubmit=(evt) =>{
-        //evt.preventDefault();
         const checkEmptyInput = !Object.values(produto).every(fieldValue=>fieldValue==="")
         if(checkEmptyInput){
             if(actionType === 'produtos/addProdutoServer'){
@@ -42,7 +42,6 @@ const CadastroProduto = (props) => {
                 dispatch(updateProdutoServer(produto));
             }
             navigate('/home');
-            //dispatch(addProdutoServer(formInput))
             const emptyInput= {nomeProduto:'', qtdProduto:'', custoProduto:'', valorProduto:''}
             setProduto(emptyInput)
         }
@@ -63,8 +62,10 @@ const CadastroProduto = (props) => {
                 <input type="number" onChange={handleChange} value={produto.custoProduto} name="custoProduto" className="form-control" placeholder="Custo"/>
                 <label>Preço</label>
                 <input type="number" onChange={handleChange} value={produto.valorProduto} name="valorProduto" className="form-control" placeholder="Valor"/>
-                <label>Materias-prima</label>
-                <DropdownMenu arr={mps}/>
+                {
+                //<label>Materias-prima</label>
+                //<DropdownMenu arr={materiasprimas}/> (não esta funcionando depois de colocar materia prima no adapter "arr.map is not a function")
+                }
                 <input type="submit" onClick={handleSubmit} class="btn" />
             </form>
         </div>

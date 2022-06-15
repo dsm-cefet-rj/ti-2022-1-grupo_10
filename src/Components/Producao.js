@@ -1,31 +1,26 @@
 import React,{useState} from "react";
-import { useDispatch } from "react-redux";
-import { Produzir } from "../app/produtosSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { selectAllProdutos, updateProdutoServer} from "../app/produtosSlice";
+
 
  
 const Producao = () => {
 
   const dispatch = useDispatch();
+  const produtos = useSelector(selectAllProdutos)
+  
 
   const [tasks,setTasks]=useState([
     {
       nome:"nome produto"
     },    
   ]);
+
   
 const handleproduce = ()=>{
-  let payload = {nome:tasks,qtd:Qtd}
-  dispatch(Produzir(payload))
-  // const dataselected = tableData.find((item)=>item.nomeProduto.includes(tasks))
-  // const newtabledata = tableData.map((item,index)=>{
-  //   if (item===dataselected){
-  //     return {
-  //       ...item,qtdProduto:parseInt(item.qtdProduto)+parseInt(Qtd)
-  //     }
-  //   }
-  //   return item
-  // })
-  // setTableData(newtabledata)
+  let produto = produtos.find((item)=>item.nomeProduto.includes(tasks))
+  produto = {...produto, qtdProduto: parseInt(produto.qtdProduto) + parseInt(Qtd), Produzidos: parseInt(produto.Produzidos) + parseInt(Qtd)}
+  dispatch(updateProdutoServer(produto))
 }
 
   const [Qtd,setQtd]=useState("");

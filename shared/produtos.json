@@ -5,17 +5,21 @@
       "qtdProduto": "10",
       "custoProduto": "5",
       "valorProduto": "15",
-      "id": 1
+      "id": 1,
+      "Vendidos": 0,
+      "Produzidos": 0
     },
     {
       "nomeProduto": "brinco",
-      "qtdProduto": "10",
+      "qtdProduto": 8,
       "custoProduto": "50",
       "valorProduto": "100",
-      "id": 2
+      "id": 2,
+      "Vendidos": 4,
+      "Produzidos": 8
     }
   ],
-  "mp": [
+  "materiasprimas": [
     {
       "id": 10,
       "tipo": "Fecho",

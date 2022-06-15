@@ -1,7 +1,7 @@
 import React from "react";
 import InfoMateriaPrima from "./InfoMateriaPrima";
 
-const ContainerMateriaPrima = ({mps}) => {
+const ContainerMateriaPrima = ({materiasprimas}) => {
     return(
         <>
             <table className="feedstock-cell">
@@ -17,8 +17,8 @@ const ContainerMateriaPrima = ({mps}) => {
                     </td>
                 </tr>
             </table>
-            {mps.map((mps)=>(
-                <InfoMateriaPrima mps = {mps}/>
+            {materiasprimas.map((materiasprimas)=>(
+                <InfoMateriaPrima materiasprimas = {materiasprimas}/>
             ))}
         </>
     )

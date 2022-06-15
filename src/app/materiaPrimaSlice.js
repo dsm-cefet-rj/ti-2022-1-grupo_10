@@ -1,44 +1,58 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, createEntityAdapter, createSlice } from '@reduxjs/toolkit'
+import {httpDelete, httpGet, httpPut, httpPost} from '../app/utils'
+import {baseUrl} from '../app/baseUrl'
 
-const initialState = {
-        status: 'not_loaded',
-        mps: [],
-        error: null
-    };
+const materiasprimasAdapter = createEntityAdapter();
 
-
-function addMateriaPrimaReducer(state,mp){
-    let proxId = 1 + state.mps.map(m => m.id).reduce((maxId,currId) => Math.max(maxId,currId));
-    state.mps = state.mps.concat([{...mp, id: proxId, qtdUsos: 0}]);
-}
-
-export const fetchMps = createAsyncThunk('mp/fetchMps',
-async () => {
-    return await (await fetch('http://localhost:3333/mp')).json();
+const initialState = materiasprimasAdapter.getInitialState ({
+    status: 'not_loaded',
+    error: null
 });
 
-function fullfillMpReducer(MpsState, MpsFetched){
-    MpsState.status = 'loaded';
-    MpsState.mps = MpsFetched;
-}
+
+export const fetchMateriasPrimas = createAsyncThunk('materiasprimas/fetchfetchMateriasPrimas', async () => {
+    return await httpGet(`${baseUrl}/materiasprimas`);
+});
+
+export const deleteMateriaPrimaServer = createAsyncThunk('materiasprimas/deleteMateriaPrimaServer', async ({id}) => {
+    await httpDelete(`${baseUrl}/materiasprimas/${id}`);
+    return id;
+});
+
+export const addMateriaPrimaServer = createAsyncThunk('materiasprimas/addMateriaPrimaServer', async (materiaPrima) => {
+    materiaPrima.qtdUsos = 0
+    return await httpPost(`${baseUrl}/materiasprimas`, materiaPrima);
+});
+
+export const updateMateriaPrimaServer = createAsyncThunk('materiasprimas/updateMateriaPrimaServer', async (materiaPrima) => {
+    return await httpPut(`${baseUrl}/materiasprimas/${materiaPrima.id}`, materiaPrima);
+});
 
 
 
 export const materiaPrimaSlice = createSlice(
     {
-        name: 'mps',
+        name: 'materiasprimas',
         initialState: initialState,
-        reducers: {
-            addMateriaPrima: (state,action) => addMateriaPrimaReducer(state,action.payload)
-        },
         extraReducers: {
-            [fetchMps.pending]: (state, action) => {state.status = 'loading'},
-            [fetchMps.fulfilled]: (state, action) => fullfillMpReducer(state, action.payload),
-            [fetchMps.rejected]: (state, action) => {state.status = 'failed'; state.error = action.error.message}
+            [fetchMateriasPrimas.pending]: (state, action) => {state.status = 'loading'},
+            [fetchMateriasPrimas.fulfilled]: (state, action) => {state.status = 'loaded'; materiasprimasAdapter.setAll(state, action.payload);},
+            [fetchMateriasPrimas.rejected]: (state, action) => {state.status = 'failed'; state.error = action.error.message},
+            [deleteMateriaPrimaServer.pending]: (state, action) => {state.status = 'loading'},
+            [deleteMateriaPrimaServer.fulfilled]: (state, action) => {state.status = 'deleted'; materiasprimasAdapter.removeOne(state, action.payload);},
+            [deleteMateriaPrimaServer.pending]: (state, action) => {state.status = 'loading'},
+            [addMateriaPrimaServer.fulfilled]: (state, action) => {state.status = 'saved'; materiasprimasAdapter.addOne(state, action.payload);},
+            [addMateriaPrimaServer.pending]: (state, action) => {state.status = 'loading'},
+            [addMateriaPrimaServer.fulfilled]: (state, action) => {state.status = 'saved'; materiasprimasAdapter.upsertOne(state, action.payload);},
         },
         
     }
 )
 
-export const {addMateriaPrima} = materiaPrimaSlice.actions;
 export default materiaPrimaSlice.reducer;
+
+export const {
+    selectAll: selectAllMateriasPrimas,
+    selectById: selectMateriasPrimasById,
+    selectIds: selectMateriasPrimasIds
+} = materiasprimasAdapter.getSelectors(state => state.materiasprimas)

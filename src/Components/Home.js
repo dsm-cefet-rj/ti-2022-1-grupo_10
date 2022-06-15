@@ -6,6 +6,7 @@ import TabelaProdutos from './TabelaProdutos';
 import TabelaMateriaPrima from './TabelaMateriaPrima';
 import {store} from '../app/store';
 import { fetchProdutos } from '../app/produtosSlice'; 
+import { fetchMateriasPrimas, selectAllMateriasPrimas } from "../app/materiaPrimaSlice";
 
 const Home = () => {
 
@@ -14,11 +15,11 @@ const Home = () => {
     const statusProdutos = useSelector(state => state.produtos.status);
     const errorProdutos = useSelector(state => state.produtos.error);
     useEffect(()=>{store.dispatch(fetchProdutos())},[])
-    
-    const mpsState = useSelector(state => state.mps);
-    const mps = mpsState.mps;
-    const statusMps = mpsState.status;
-    const errorMps = mpsState.error;
+
+    const materiasprimas = useSelector(selectAllMateriasPrimas)
+    const statusMateriasprimas = useSelector(state => state.materiasprimas.status);
+    const errorMateriasprimas = useSelector(state => state.materiasprimas.error);
+    useEffect(()=>{store.dispatch(fetchMateriasPrimas())},[])
 
     let tabelaProdutos = '';
     if(statusProdutos === 'loaded' || statusProdutos === 'saved' || statusProdutos === 'deleted' ){
@@ -36,9 +37,9 @@ const Home = () => {
         tabelaProdutos = <div>Error: {errorProdutos}</div>;
       }
 
-      let tabelaMps = '';
-      if(statusMps === 'loaded'){
-        tabelaMps = 
+      let tabelaMateriasprimas = '';
+      if(statusMateriasprimas === 'loaded' || statusMateriasprimas === 'saved' || statusMateriasprimas === 'deleted' ){
+        tabelaMateriasprimas = 
             <table className="produtos">
                 <thead>
                     <th>N.</th>
@@ -47,12 +48,12 @@ const Home = () => {
                     <th>Custo</th>
                     <th>Quantidade</th>
                 </thead>
-                <TabelaMateriaPrima mps={mps} />
+                <TabelaMateriaPrima materiasprimas={materiasprimas} />
             </table>
-      }else if(statusMps === 'loading'){
-        tabelaMps = <div>Carregando a Matéria Prima...</div>;
-      }else if(statusMps === 'failed'){
-        tabelaMps = <div>Error: {errorMps}</div>;
+      }else if(statusMateriasprimas === 'loading'){
+        tabelaMateriasprimas = <div>Carregando a Matéria Prima...</div>;
+      }else if(statusMateriasprimas === 'failed'){
+        tabelaMateriasprimas = <div>Error: {errorMateriasprimas}</div>;
       }
 
 
@@ -64,7 +65,7 @@ const Home = () => {
                     <h1>Estoqueasy</h1>
                     <h2>Seu negócio</h2>
                     {tabelaProdutos}
-                    {tabelaMps}
+                    {tabelaMateriasprimas}
                 </div>
             </div>
         </div> 
