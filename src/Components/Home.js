@@ -8,6 +8,16 @@ import {store} from '../app/store';
 import { fetchProdutos } from '../app/produtosSlice'; 
 import { fetchMateriasPrimas, selectAllMateriasPrimas } from "../app/materiaPrimaSlice";
 
+/**
+*@module Components/Home
+*/
+
+/**
+ * Neste componente é renderizada a tela de home onde é exibido características básicas sobre os produtos e materias primas cadastrados, há também a opção de deletar ou ir pra tela de edição.
+ * @param {MateriaPrima} materiasprimas - Materia Prima a ser exibida
+ * @param {Produto} produtos - produto a ser exibido
+ */
+
 const Home = () => {
 
 

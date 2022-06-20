@@ -1,5 +1,14 @@
 import React from "react";
 
+/**
+*@module Components/InfoMateriaPrima
+*/
+
+/**
+ * Neste componente é exibida as linhas da tabela no Container de Materia Prima
+ * @param {MateriaPrima} materiasprimas - Materia Prima a ser exibida
+ */
+
 const MateriaPrimaInfo = ({materiasprimas}) => {
     return(
         <table className="feedstock-cell">

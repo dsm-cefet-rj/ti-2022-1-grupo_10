@@ -4,6 +4,16 @@ import { useSelector } from "react-redux";
 import { fetchProdutos, selectAllProdutos } from "../app/produtosSlice";
 import { store } from "../app/store";
 
+
+/**
+*@module Components/RelatorioVenda
+*/
+
+/**
+ * Neste componente é renderizado o relatório dos produtos mais vendidos
+ * @param {Produto} produtos - produto a ser exibido
+ */
+
 const RelatorioVenda = () =>{
 
     const produtos = useSelector(selectAllProdutos)

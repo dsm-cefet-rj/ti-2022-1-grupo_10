@@ -4,6 +4,16 @@ import { useSelector } from "react-redux";
 import { fetchProdutos, selectAllProdutos } from "../app/produtosSlice";
 import { store } from "../app/store";
 
+/**
+*@module Components/relatorioProduto
+*/
+
+/**
+ * Neste componente é renderizado o relatório dos produtos mais produzidos, além disso há botões que ordenam a partir do nome ou da quantidade
+ * @param {Produto} produtos - produto a ser exibido
+ */
+
+
 const useSortableData = (items, config = null) => {
   const [sortConfig, setSortConfig] = React.useState(config);
 

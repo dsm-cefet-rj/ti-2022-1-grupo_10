@@ -1,6 +1,15 @@
 import React from "react";
 import InfoVenda from "./InfoVenda";
 
+/**
+*@module Components/ContainerVenda
+*/
+
+/**
+ * Neste componente é feito o Container onde se encontra o header da tabela a ser exibida no Relatório de Vendas
+ * @param {Produto} produtos - produto a ser exibido
+ */
+
 const ContainerVenda = ({produtos}) =>{
     return(
         <>

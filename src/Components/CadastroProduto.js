@@ -3,6 +3,28 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams,useNavigate } from "react-router-dom";
 import { addProdutoServer, updateProdutoServer, selectProdutosById } from "../app/produtosSlice";
 
+/**
+*@module Components/CadastroProduto
+*/
+
+/**
+*@typedef Produto
+*@type {object}
+*@property {number} id - identificador
+*@property {string} nomeProduto - Nome do Produto
+*@property {string} qtdProduto - Quantidade de produtos (é uma string mas é tratada como number )
+*@property {string} custoProduto - custo para produzir o produto (é uma string mas é tratada como number )
+*@property {string} valorProduto - Preço de venda do produto
+*@property {number} Vendidos - vezes que foi vendido
+*@property {number} Produzidos - vezes que foi produzido
+*/
+
+/**
+ * Neste componente é feito o cadastro ou edição de um produto
+ * @param {Produto} produto - produto que esta sendo cadastrado ou editado
+ */
+
+
 const CadastroProduto = (props) => {
 
     let navigate = useNavigate();

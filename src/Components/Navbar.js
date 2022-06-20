@@ -2,6 +2,15 @@ import { useState } from "react";
 import {NavLink} from "react-router-dom";
 import "../styles/navbar.css";
 
+/**
+*@module Components/Navbar
+*/
+
+/**
+ * Neste Componente é renderizado para todas as rotas do site a barra de navegação com responsividade pra mobile e salvamento de estado da rota atual
+ * 
+ */
+
 export default function Navbar() {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
 

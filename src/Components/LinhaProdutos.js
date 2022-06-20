@@ -2,6 +2,15 @@ import { useDispatch } from "react-redux";
 import { deleteProdutoServer } from "../app/produtosSlice";
 import { Link } from 'react-router-dom';
 
+/**
+*@module Components/LinhaProdutos
+*/
+
+/**
+ * Neste componente é exibida as linhas de produtos do componente Home e renderizado o botão de edição e deleção.
+ * @param {Produto} produto.produto - produto a ser exibido
+ */
+
 const LinhaProdutos = (produto) => {
 
     const dispatch = useDispatch();

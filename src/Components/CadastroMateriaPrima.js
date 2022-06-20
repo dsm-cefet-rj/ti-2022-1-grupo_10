@@ -4,6 +4,27 @@ import { useParams,useNavigate } from "react-router-dom";
 import { addMateriaPrimaServer, updateMateriaPrimaServer, selectMateriasPrimasById } from "../app/materiaPrimaSlice";
 
 
+/**
+*@module Components/CadastroMateriaPrima
+*/
+
+/**
+*@typedef MateriaPrima
+*@type {object}
+*@property {number} id - identificador
+*@property {string} tipo - tipo da Materia Prima
+*@property {number} qtd - Quantidade de materia prima
+*@property {string} fornecedor - Nome de onde é comprada a materia prima
+*@property {number} custo - Preço da materia prima
+*@property {number} qtdUsos - Quantidade de vezes que foi utilizada a materia prima na realização de um produto
+*/
+
+/**
+ * Neste componente é feito o cadastro ou edição de uma matéria prima
+ * @param {MateriaPrima} mp - Materia Prima a ser utilizada ou Cadastrada
+ */
+
+
 
 const CadastroMateriaPrima = () => {
 

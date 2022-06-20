@@ -2,6 +2,15 @@ import { useDispatch } from "react-redux";
 import { deleteMateriaPrimaServer } from "../app/materiaPrimaSlice";
 import { Link } from 'react-router-dom';
 
+/**
+*@module Components/LinhaMateriaPrima
+*/
+
+/**
+ * Neste componente é exibida as linhas de materias primas do componente Home e renderizado o botão de edição e deleção.
+ * @param {MateriaPrima} materiaprima.materiaprima - materia prima a ser exibida
+ */
+
 
 const LinhaMateriaPrima = (materiaprima) => {
 

@@ -2,6 +2,17 @@ import React, {useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {  selectAllProdutos, updateProdutoServer } from "../app/produtosSlice";
 
+/**
+*@module Components/Venda
+*/
+
+/**
+ * Neste componente é feito a venda de um produto, diminuindo a quantidade em estoque e aumentando a variavel "Vendidos"
+ * @param {Produto} produto - produto a ser vendido
+ * @param {string} Produto - nome do produto a ser vendido
+ * @param {string} Qtd - quantidade a ser vendida
+ */
+
 const Venda = () => {
 
   const dispatch = useDispatch();

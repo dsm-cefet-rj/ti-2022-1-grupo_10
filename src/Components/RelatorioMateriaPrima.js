@@ -4,6 +4,16 @@ import { fetchMateriasPrimas, selectAllMateriasPrimas } from "../app/materiaPrim
 import { store } from "../app/store";
 import ContainerMateriaPrima from "./ContainerMateriaPrima";
 
+/**
+*@module Components/RelatorioMateriaPrima
+*/
+
+/**
+ * Neste componente é renderizado o relatório das matérias primas mais utilizadas
+ * @param {MateriaPrima} materiaprimas - materia prima a ser exibida
+ */
+
+
 const RelatorioMateriaPrima = () => {
 
   

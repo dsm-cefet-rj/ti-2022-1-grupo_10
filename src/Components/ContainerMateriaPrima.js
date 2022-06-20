@@ -1,6 +1,15 @@
 import React from "react";
 import InfoMateriaPrima from "./InfoMateriaPrima";
 
+/**
+*@module Components/ContainerMateriaPrima
+*/
+
+/**
+ * Neste componente é feito o Container onde se encontra o header da tabela a ser exibida no Relatório de Matéria Prima
+ * @param {MateriaPrima} materiasprimas - Materia Prima a ser exibida
+ */
+
 const ContainerMateriaPrima = ({materiasprimas}) => {
     return(
         <>

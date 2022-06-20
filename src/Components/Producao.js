@@ -2,6 +2,16 @@ import React,{useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAllProdutos, updateProdutoServer} from "../app/produtosSlice";
 
+/**
+*@module Components/Producao
+*/
+
+/**
+ * Neste componente é feito a produção de um produto, aumentando a quantidade em estoque e a variavel "Produzidos"
+ * @param {Produto} produto - produto a ser produzido
+ * @param {string} tasks - nome do produto a ser produzido
+ * @param {string} Qtd - quantidade a ser produzida
+ */
 
  
 const Producao = () => {
