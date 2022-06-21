@@ -1,12 +1,12 @@
-class MateriaPrima{
-    // constructor
-    constructor(id, tipo, qtd, fornecedor, custo){
+class MateriaPrima {
+
+    constructor(id, tipo, qtd, fornecedor, custo, usados){
         this.id = id;
         this.tipo = tipo;
         this.qtd = qtd;
         this.fornecedor = fornecedor;
         this.custo = custo;
-        this.qtdUsos = 0;
+        this.usados = usados;
     }
 }
 

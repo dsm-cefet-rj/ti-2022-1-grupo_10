@@ -1,32 +1,18 @@
 class Produto {
-    // getters
-    get lucro(){
-        return this.preco-this.custo;
-    }
 
-    // methods
-    aumentaVendas(){
-        this.qtdVendas++;
-    }
-
-    produzir(){
-        this.qtd++;
-        this.mpUseArr.forEach(this.checkUsingMateriaPrima);
-    }
-
-    checkUsingMateriaPrima(materiaPrima){
-        materiaPrima.qtd--;        
+    get lucro() {
+        return this.custo * this.preco;
     }
     
-    // constructor
-    constructor(tipo, qtd, custo, preco, mpUseArr /* array de mp's usadas: string */, mpArr /* array de mp's cadastradas: object */){
+    constructor(id, tipo, qtd, custo, preco, produzidos, vendidos, mpList) {
+        this.id = id;
         this.tipo = tipo;
         this.qtd = qtd;
         this.custo = custo;
         this.preco = preco;
-        this.mpUseArr = mpUseArr;
-        this.mpArr = mpArr;
-        this.qtdVendas = 0;
+        this.produzidos = produzidos;
+        this.vendidos = vendidos;
+        this.mpList = mpList;
     }
 }
 
