@@ -10,7 +10,8 @@ node_modules/
 
 # production
 /build
-**/backend/public/
+/backend/node_modules
+**/backend/public
 
 
 # misc
