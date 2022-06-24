@@ -12,7 +12,7 @@ node_modules/
 /build
 
 #backend
-backend/public/
+public/
 
 # misc
 .DS_Store
