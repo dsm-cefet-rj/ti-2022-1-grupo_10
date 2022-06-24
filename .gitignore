@@ -11,7 +11,7 @@ node_modules/
 # production
 /build
 /backend/node_modules
-**/backend/public
+/backend/public
 
 
 # misc
