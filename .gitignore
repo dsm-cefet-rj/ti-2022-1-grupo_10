@@ -12,7 +12,8 @@ node_modules/
 /build
 
 #backend
-public/
+**/backend/public/
+
 
 # misc
 .DS_Store
