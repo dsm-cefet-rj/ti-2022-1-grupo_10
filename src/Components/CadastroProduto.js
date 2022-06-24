@@ -30,7 +30,7 @@ const CadastroProduto = (props) => {
     let navigate = useNavigate();
     const dispatch = useDispatch();
     let {id} = useParams();
-    id = parseInt(id);
+    
     const produtoFound = useSelector(state => selectProdutosById(state, id))
 
     const [produto, setProduto] = useState(

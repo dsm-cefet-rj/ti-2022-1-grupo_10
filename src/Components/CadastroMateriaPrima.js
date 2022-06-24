@@ -31,7 +31,7 @@ const CadastroMateriaPrima = () => {
     let navigate = useNavigate();
     const dispatch = useDispatch();
     let {id} = useParams();
-    id = parseInt(id);
+    
     const materiaPrimaFound = useSelector(state => selectMateriasPrimasById(state, id))
 
     const [mp, setMp] = useState(

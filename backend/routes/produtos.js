@@ -1,67 +1,69 @@
 var express = require('express');
 var router = express.Router();
 const bodyParser = require('body-parser');
+const Produtos = require('../models/produtos');
 
 router.use(bodyParser.json());
 
-let produtos = [
-  {
-    "nomeProduto": "colar",
-    "qtdProduto": "10",
-    "custoProduto": "5",
-    "valorProduto": "15",
-    "id": 1,
-    "Vendidos": 0,
-    "Produzidos": 0
-  },
-  {
-    "nomeProduto": "brinco",
-    "qtdProduto": 8,
-    "custoProduto": "50",
-    "valorProduto": "100",
-    "id": 2,
-    "Vendidos": 4,
-    "Produzidos": 8
-  }
-]
 
 /* GET users listing. */
 router.route('/')
-.get((req, res, next) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'application/json');
-  res.json(produtos);
+.get(async (req, res, next) => {
+
+  try{
+    const produtosBanco = await Produtos.find({}).maxTime(5000);
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'application/json');
+    res.json(produtosBanco);
+  }catch(err){
+    next(err);
+  }
 })
 .post((req, res, next) => {
-
-  let proxId = 1 + produtos.map(p => p.id).reduce((x, y) => Math.max(x,y));
-  let produto = {...req.body, id: proxId};
-  produtos.push(produto);
-
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'application/json');
-  res.json(produto);
+  Produtos.create(req.body)
+  .then((produto) => {
+      console.log('Produto criado ', produto);
+      res.statusCode = 200;
+      res.setHeader('Content-Type', 'application/json');
+      res.json(produto);
+  }, (err) => next(err))
+  .catch((err) => next(err));
 })
 
 router.route('/:id')
+.get((req, res, next) => {
+
+  Produtos.findById(req.params.id)
+    .then((resp) => {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json(resp);
+    }, (err) => next(err))
+    .catch((err) => next(err));
+
+
+})
 .delete((req, res, next) => {
 
-  produtos = produtos.filter(function(value, index, arr){ 
-    return value.id != req.params.id;
-  });
-
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'application/json');
-  res.json(req.params.id);
+  Produtos.findByIdAndRemove(req.params.id)
+  .then((resp) => {
+      res.statusCode = 200;
+      res.setHeader('Content-Type', 'application/json');
+      res.json(resp.id);
+  }, (err) => next(err))
+  .catch((err) => next(err));
 })
 .put((req, res, next) => {
 
-  let index = produtos.map(p => p.id).indexOf(req.params.id);
-  produtos.splice(index, 1, req.body);
-
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'application/json');
-  res.json(req.body);
+  Produtos.findByIdAndUpdate(req.params.id, {
+    $set: req.body
+  }, { new: true })
+  .then((produto) => {
+      res.statusCode = 200;
+      res.setHeader('Content-Type', 'application/json');
+      res.json(produto);
+  }, (err) => next(err))
+  .catch((err) => next(err));
 })
 
 module.exports = router;
