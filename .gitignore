@@ -10,9 +10,9 @@ node_modules/
 
 # production
 /build
-/backend/node_modules
-/backend/public
 
+#backend
+backend/public/
 
 # misc
 .DS_Store
