@@ -9,7 +9,7 @@ var materiasprimasRouter = require('./routes/materiasprimas');
 
 const mongoose = require('mongoose');
 
-const url = 'mongodb://localhost:27017/estoqueasy';
+const url = 'mongodb://localhost:27017/BackEnd';
 
 const connect = mongoose.connect(url);
 
