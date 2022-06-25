@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const bodyParser = require('body-parser');
-const Produtos = require('../models/produtos');
+const Produtos = require('../models/produtoSchema');
 
 router.use(bodyParser.json());
 

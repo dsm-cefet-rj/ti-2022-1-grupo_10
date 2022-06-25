@@ -1,61 +1,68 @@
 var express = require('express');
 var router = express.Router();
+const bodyParser = require('body-parser');
+const MateriaPrima = require('../models/materiaPrimaSchema');
 
-let materiasprimas = [
-    {
-      "id": 10,
-      "tipo": "Fecho",
-      "qtd": 300,
-      "fornecedor": "FechosExpress",
-      "custo": 0.15,
-      "qtdUsos": 0
-    },
-    {
-      "id": 11,
-      "tipo": "Gancho",
-      "qtd": 286,
-      "fornecedor": "GanchosExpress",
-      "custo": 0.1,
-      "qtdUsos": 0
-    }
-  ]
+router.use(bodyParser.json());
+
 /* GET users listing. */
 router.route('/')
-.get((req, res, next) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'application/json');
-  res.json(materiasprimas);
+.get(async (req, res, next) => {
+
+  try{
+    const mpsBanco = await MateriaPrima.find({}).maxTime(5000);
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'application/json');
+    res.json(mpsBanco);
+  }catch(err){
+    next(err);
+  }
 })
 .post((req, res, next) => {
-
-  let proxId = 1 + materiasprimas.map(p => p.id).reduce((x, y) => Math.max(x,y));
-  let materiaprima = {...req.body, id: proxId};
-  materiasprimas.push(materiaprima);
-
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'application/json');
-  res.json(materiaprima);
+  MateriaPrima.create(req.body)
+  .then((materiaprima) => {
+      console.log('Materia prima criada ', materiaprima);
+      res.statusCode = 200;
+      res.setHeader('Content-Type', 'application/json');
+      res.json(produto);
+  }, (err) => next(err))
+  .catch((err) => next(err));
 })
 
 router.route('/:id')
+.get((req, res, next) => {
+
+  MateriaPrima.findById(req.params.id)
+    .then((resp) => {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json(resp);
+    }, (err) => next(err))
+    .catch((err) => next(err));
+
+
+})
 .delete((req, res, next) => {
 
-    materiasprimas = materiasprimas.filter(function(value, index, arr){ 
-    return value.id != req.params.id;
-  });
-
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'application/json');
-  res.json(req.params.id);
+  MateriaPrima.findByIdAndRemove(req.params.id)
+  .then((resp) => {
+      res.statusCode = 200;
+      res.setHeader('Content-Type', 'application/json');
+      res.json(resp.id);
+  }, (err) => next(err))
+  .catch((err) => next(err));
 })
 .put((req, res, next) => {
 
-  let index = materiasprimas.map(p => p.id).indexOf(req.params.id);
-  materiasprimas.splice(index, 1, req.body);
-
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'application/json');
-  res.json(req.body);
+  MateriaPrima.findByIdAndUpdate(req.params.id, {
+    $set: req.body
+  }, { new: true })
+  .then((materiaprima) => {
+      res.statusCode = 200;
+      res.setHeader('Content-Type', 'application/json');
+      res.json(produto);
+  }, (err) => next(err))
+  .catch((err) => next(err));
 })
 
 module.exports = router;
