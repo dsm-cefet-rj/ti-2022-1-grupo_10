@@ -24,8 +24,10 @@ const Venda = () => {
 
 const handleproduce = (e)=>{
   let produto = produtos.find((item)=>item.nomeProduto.includes(Produto))
+  if(Qtd <= produto.qtdProduto){
   produto = {...produto, qtdProduto: parseInt(produto.qtdProduto) - parseInt(Qtd), Vendidos: parseInt(produto.Vendidos) + parseInt(Qtd)}
   dispatch(updateProdutoServer(produto))
+  }
 }
 
 
