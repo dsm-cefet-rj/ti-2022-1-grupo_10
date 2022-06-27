@@ -12,7 +12,7 @@ const materiaPrimaSchema = new Schema({
         required: true,
     },
     fornecedor: {
-        type: Number,
+        type: String,
         required: false,
     },
     custo: {
