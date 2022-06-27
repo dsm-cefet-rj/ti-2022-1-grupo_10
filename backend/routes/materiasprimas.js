@@ -24,7 +24,7 @@ router.route('/')
       console.log('Materia prima criada ', materiaprima);
       res.statusCode = 200;
       res.setHeader('Content-Type', 'application/json');
-      res.json(produto);
+      res.json(materiaprima);
   }, (err) => next(err))
   .catch((err) => next(err));
 })
@@ -60,7 +60,7 @@ router.route('/:id')
   .then((materiaprima) => {
       res.statusCode = 200;
       res.setHeader('Content-Type', 'application/json');
-      res.json(produto);
+      res.json(materiaprima);
   }, (err) => next(err))
   .catch((err) => next(err));
 })
