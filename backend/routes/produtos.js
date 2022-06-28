@@ -31,18 +31,28 @@ router.route('/')
 })
 
 router.route('/:id')
-.get((req, res, next) => {
+.get(async(req, res, next) => {
+  let err;
+  res.setHeader('Content-Type', 'application/json');
+  try{
+    const resp = await Produtos.findById(req.params.id);
+    if (resp!=null){
+      res.statusCode=200;
+      res.json(resp);
+    }
+    else{
+      err={}
+      res.statusCode=404;
+      res.json({});
+    }
+    }
+    catch(errParam){
+    console.log(errParam);
+    res.statusCode = 404;
+    res.json({});
+    }})
 
-  Produtos.findById(req.params.id)
-    .then((resp) => {
-        res.statusCode = 200;
-        res.setHeader('Content-Type', 'application/json');
-        res.json(resp);
-    }, (err) => next(err))
-    .catch((err) => next(err));
 
-
-})
 .delete((req, res, next) => {
 
   Produtos.findByIdAndRemove(req.params.id)
