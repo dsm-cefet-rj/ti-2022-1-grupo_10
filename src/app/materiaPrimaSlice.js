@@ -10,22 +10,23 @@ const initialState = materiasprimasAdapter.getInitialState ({
 });
 
 
-export const fetchMateriasPrimas = createAsyncThunk('materiasprimas/fetchfetchMateriasPrimas', async () => {
-    return await httpGet(`${baseUrl}/materiasprimas`);
+export const fetchMateriasPrimas = createAsyncThunk('materiasprimas/fetchfetchMateriasPrimas', async (_, {getState}) => {
+    console.log(getState());
+    return await httpGet(`${baseUrl}/materiasprimas`, {headers: {Authorization: 'Bearer ' + getState().logins.currentToken}});
 });
 
-export const deleteMateriaPrimaServer = createAsyncThunk('materiasprimas/deleteMateriaPrimaServer', async ({id}) => {
-    await httpDelete(`${baseUrl}/materiasprimas/${id}`);
+export const deleteMateriaPrimaServer = createAsyncThunk('materiasprimas/deleteMateriaPrimaServer', async ({id}, {getState}) => { 
+    await httpDelete(`${baseUrl}/materiasprimas/${id}`, {headers: {Authorization: 'Bearer ' + getState().logins.currentToken}});
     return id;
 });
 
-export const addMateriaPrimaServer = createAsyncThunk('materiasprimas/addMateriaPrimaServer', async (materiaPrima) => {
+export const addMateriaPrimaServer = createAsyncThunk('materiasprimas/addMateriaPrimaServer', async (materiaPrima, {getState}) => {
     materiaPrima.qtdUsos = 0
-    return await httpPost(`${baseUrl}/materiasprimas`, materiaPrima);
+    return await httpPost(`${baseUrl}/materiasprimas`, materiaPrima, {headers: {Authorization: 'Bearer ' + getState().logins.currentToken}});
 });
 
-export const updateMateriaPrimaServer = createAsyncThunk('materiasprimas/updateMateriaPrimaServer', async (materiaPrima) => {
-    return await httpPut(`${baseUrl}/materiasprimas/${materiaPrima.id}`, materiaPrima);
+export const updateMateriaPrimaServer = createAsyncThunk('materiasprimas/updateMateriaPrimaServer', async (materiaPrima, {getState}) => {
+    return await httpPut(`${baseUrl}/materiasprimas/${materiaPrima.id}`, materiaPrima, {headers: {Authorization: 'Bearer ' + getState().logins.currentToken}});
 });
 
 

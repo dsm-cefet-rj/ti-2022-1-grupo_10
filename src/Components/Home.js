@@ -51,13 +51,11 @@ const Home = () => {
       if(statusMateriasprimas === 'loaded' || statusMateriasprimas === 'saved' || statusMateriasprimas === 'deleted' ){
         tabelaMateriasprimas = 
             <table className="produtos">
-                <thead>
-                    <th>N.</th>
-                    <th>Nome da Matéria-prima</th>
-                    <th>Fornecedor</th>
-                    <th>Custo</th>
-                    <th>Quantidade</th>
-                </thead>
+                    <td>N.</td>
+                    <td>Nome da Matéria-prima</td>
+                    <td>Fornecedor</td>
+                    <td>Custo</td>
+                    <td>Quantidade</td>
                 <TabelaMateriaPrima materiasprimas={materiasprimas} />
             </table>
       }else if(statusMateriasprimas === 'loading'){

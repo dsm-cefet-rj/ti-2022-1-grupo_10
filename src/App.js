@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import './App.css';
 
 // Components
+import LoginForm from './users/LoginForm';
 import CadastroMateriaPrima from './Components/CadastroMateriaPrima';
 import CadastroProduto from './Components/CadastroProduto';
 import Home from "./Components/Home";
@@ -34,7 +35,7 @@ const App = () => {
           <Router>
             <Navbar/>        
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<LoginForm />} />
               <Route path="/home" element={<Home />} />
               <Route path="/cadastroProduto" element={<CadastroProduto />} />
               <Route path="/cadastroProduto/:id" element={<CadastroProduto />} />

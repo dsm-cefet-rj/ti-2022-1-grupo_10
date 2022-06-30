@@ -2,12 +2,16 @@ var express = require('express');
 var router = express.Router();
 const bodyParser = require('body-parser');
 const MateriaPrima = require('../models/materiaPrimaSchema');
+var authenticate = require('../authenticate');
+const cors = require('./cors');
 
 router.use(bodyParser.json());
 
 /* GET users listing. */
 router.route('/')
-.get(async (req, res, next) => {
+.options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
+.get(cors.corsWithOptions, authenticate.verifyUser, async (req, res, next) => {
+  console.log(req.user);
 
   try{
     const mpsBanco = await MateriaPrima.find({}).maxTime(5000);
@@ -18,7 +22,7 @@ router.route('/')
     next(err);
   }
 })
-.post((req, res, next) => {
+.post(cors.corsWithOptions, authenticate.verifyUser, (req, res, next) => {
   MateriaPrima.create(req.body)
   .then((materiaprima) => {
       console.log('Materia prima criada ', materiaprima);
@@ -30,7 +34,8 @@ router.route('/')
 })
 
 router.route('/:id')
-.get(async(req, res, next) => {
+.options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
+.get(cors.corsWithOptions, authenticate.verifyUser, async(req, res, next) => {
   let err;
   res.setHeader('Content-Type', 'application/json');
   try{
@@ -51,7 +56,7 @@ router.route('/:id')
     res.json({});
     }})
 
-.delete((req, res, next) => {
+.delete(cors.corsWithOptions, authenticate.verifyUser, (req, res, next) => {
 
   MateriaPrima.findByIdAndRemove(req.params.id)
   .then((resp) => {
@@ -61,7 +66,7 @@ router.route('/:id')
   }, (err) => next(err))
   .catch((err) => next(err));
 })
-.put((req, res, next) => {
+.put(cors.corsWithOptions, authenticate.verifyUser, (req, res, next) => {
 
   MateriaPrima.findByIdAndUpdate(req.params.id, {
     $set: req.body

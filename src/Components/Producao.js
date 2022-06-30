@@ -1,5 +1,6 @@
 import React,{useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { selectAllProdutos, updateProdutoServer} from "../app/produtosSlice";
 
 /**
@@ -18,6 +19,7 @@ const Producao = () => {
 
   const dispatch = useDispatch();
   const produtos = useSelector(selectAllProdutos)
+  const navigate = useNavigate();
   
 
   const [tasks,setTasks]=useState([
@@ -31,6 +33,7 @@ const handleproduce = ()=>{
   let produto = produtos.find((item)=>item.nomeProduto.includes(tasks))
   produto = {...produto, qtdProduto: parseInt(produto.qtdProduto) + parseInt(Qtd), Produzidos: parseInt(produto.Produzidos) + parseInt(Qtd)}
   dispatch(updateProdutoServer(produto))
+  navigate('/relatorioProduto')
 }
 
   const [Qtd,setQtd]=useState("");

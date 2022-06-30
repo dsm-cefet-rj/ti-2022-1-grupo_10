@@ -10,23 +10,24 @@ const initialState = produtosAdapter.getInitialState ({
 });
 
 
-export const fetchProdutos = createAsyncThunk('produtos/fetchProdutos', async () => {
-    return await httpGet(`${baseUrl}/produtos`);
+export const fetchProdutos = createAsyncThunk('produtos/fetchProdutos', async (_, {getState}) => {
+    console.log(getState());
+    return await httpGet(`${baseUrl}/produtos`, {headers: {Authorization: 'Bearer ' + getState().logins.currentToken}});
 });
 
-export const deleteProdutoServer = createAsyncThunk('produtos/deleteProdutoServer', async ({id}) => {
-    await httpDelete(`${baseUrl}/produtos/${id}`);
+export const deleteProdutoServer = createAsyncThunk('produtos/deleteProdutoServer', async ({id}, {getState} ) => { 
+    await httpDelete(`${baseUrl}/produtos/${id}`, {headers: {Authorization: 'Bearer ' + getState().logins.currentToken}});
     return id;
 });
 
-export const addProdutoServer = createAsyncThunk('produtos/addProdutoServer', async (produto) => {
+export const addProdutoServer = createAsyncThunk('produtos/addProdutoServer', async (produto, {getState}) => {
     produto.Produzidos = 0
     produto.Vendidos = 0
-    return await httpPost(`${baseUrl}/produtos`, produto);
+    return await httpPost(`${baseUrl}/produtos`, produto, {headers: {Authorization: 'Bearer ' + getState().logins.currentToken}});
 });
 
-export const updateProdutoServer = createAsyncThunk('produtos/updateProdutoServer', async (produto) => {
-    return await httpPut(`${baseUrl}/produtos/${produto.id}`, produto);
+export const updateProdutoServer = createAsyncThunk('produtos/updateProdutoServer', async (produto, {getState}) => {
+    return await httpPut(`${baseUrl}/produtos/${produto.id}`, produto, {headers: {Authorization: 'Bearer ' + getState().logins.currentToken}});
 });
 
 

@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import {  selectAllProdutos, updateProdutoServer } from "../app/produtosSlice";
 
 /**
@@ -16,6 +17,7 @@ import {  selectAllProdutos, updateProdutoServer } from "../app/produtosSlice";
 const Venda = () => {
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const produtos = useSelector(selectAllProdutos)
   const [Produto,setProduto]=useState("");
@@ -27,6 +29,7 @@ const handleproduce = (e)=>{
   if(Qtd <= produto.qtdProduto){
   produto = {...produto, qtdProduto: parseInt(produto.qtdProduto) - parseInt(Qtd), Vendidos: parseInt(produto.Vendidos) + parseInt(Qtd)}
   dispatch(updateProdutoServer(produto))
+  navigate('/relatorioVenda')
   }
 }
 
