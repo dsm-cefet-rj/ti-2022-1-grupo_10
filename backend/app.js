@@ -10,6 +10,7 @@ var authenticate = require('./authenticate');
 var indexRouter = require('./routes/index');
 var produtosRouter = require('./routes/produtos');
 var materiasprimasRouter = require('./routes/materiasprimas');
+var fornecedoresRouter = require('./routes/fornecedores');
 var usersRouter = require('./routes/users');
 
 var config = require('./config');
@@ -45,5 +46,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/produtos', produtosRouter);
 app.use('/materiasprimas', materiasprimasRouter);
+app.use('/fornecedores', fornecedoresRouter);
 
 module.exports = app;
