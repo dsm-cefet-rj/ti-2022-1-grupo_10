@@ -26,7 +26,7 @@ connect.then((db) => {
 
 var app = express();
 
-app.use(session({ secret: 'shhhhh' }));
+app.use(session({ secret: 'shhhhh' })); // diferente do git do Diogo, estava dando erro sem a sessão
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

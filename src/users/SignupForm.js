@@ -1,28 +1,28 @@
 import React, {useState, useEffect} from 'react';
-import { useParams, useNavigate, NavLink } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux';
 import { useForm } from "react-hook-form";
-import {loginServer} from './LoginSlice';
+import {signupServer} from './SignupSlice';
 
-export default function LoginForm(props){
+export default function SignupForm(props){
 
     const navigate = useNavigate();
     const dispatch = useDispatch()
-    const status = useSelector(state => state.logins.status);
+    const status = useSelector(state => state.signups.status);
 
     const { register, formState: { errors }, handleSubmit } = useForm(/*{
             resolver: yupResolver(projetoSchema)
         }*/);
 
-    function onSubmit(login){
-        console.log(login);
-        dispatch(loginServer(login));
+    function onSubmit(signup){
+        console.log(signup);
+        dispatch(signupServer(signup));
     }
 
 
     useEffect(() => {
-        if (status === 'logged_in' ) {
-            navigate('/home');
+        if (status === 'signup_sucessful' ) {
+            navigate('/');
         }
     }, [status])
 
@@ -30,12 +30,12 @@ export default function LoginForm(props){
 
 
     return(<>
-            <h1>Login</h1>
+            <h1>Signup</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
             <label>
-                Login:
+                Usuário:
                 <input type="text" name="username" id="username" {...register('username')} />
-                &nbsp;<span id="username_err_msg">{errors.login?.message}</span>
+                &nbsp;<span id="username_err_msg">{errors.signup?.message}</span>
             </label>
             <br/>
             <label>
@@ -45,10 +45,7 @@ export default function LoginForm(props){
             </label>
             <br/>
             <br/>   
-            <button type="submit" id="Login" name="btn_login" variant="contained" color="primary">Login</button>
-            <li>
-                <NavLink to="/signup"> Criar conta </NavLink>
-            </li>
+            <button type="submit" id="Signup" name="btn_signup" variant="contained" color="primary">Criar Conta</button>
             </form>
           </>
     );

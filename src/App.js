@@ -18,6 +18,7 @@ import { Provider } from 'react-redux';
 import {store} from './app/store';
 import { fetchProdutos } from './app/produtosSlice';
 import { fetchMateriasPrimas } from './app/materiaPrimaSlice';
+import SignupForm from "./users/SignupForm";
 
 store.dispatch(fetchProdutos());
 store.dispatch(fetchMateriasPrimas());
@@ -36,6 +37,7 @@ const App = () => {
             <Navbar/>        
             <Routes>
               <Route path="/" element={<LoginForm />} />
+              <Route path="/signup" element={<SignupForm />} />
               <Route path="/home" element={<Home />} />
               <Route path="/cadastroProduto" element={<CadastroProduto />} />
               <Route path="/cadastroProduto/:id" element={<CadastroProduto />} />

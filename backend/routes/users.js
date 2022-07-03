@@ -9,6 +9,7 @@ const cors = require('./cors');
 
 router.use(bodyParser.json());
 
+router.route('/signup').options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
 router.post('/signup', cors.corsWithOptions, (req, res, next) => {
     User.register(new User({username: req.body.username}), req.body.password, 
     (err, user) => {
