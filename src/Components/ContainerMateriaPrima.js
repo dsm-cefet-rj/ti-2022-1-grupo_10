@@ -22,7 +22,7 @@ const ContainerMateriaPrima = ({materiasprimas}) => {
                         <p>Quantidade no estoque</p>
                     </td>
                     <td>
-                        <p>Preco</p>
+                        <p>Vezes utilizado</p>
                     </td>
                 </tr>
             </table>

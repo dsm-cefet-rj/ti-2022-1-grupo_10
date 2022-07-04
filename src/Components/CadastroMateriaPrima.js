@@ -68,6 +68,7 @@ const CadastroMateriaPrima = () => {
         <div id="cadastro">
             <div id="header">
                 <h2>Cadastro de matéria-prima</h2>
+                <p>Alerta: não cadastre materias primas com o mesmo nome</p>
             </div>
             <form id="form_produto" class="cadastro_form">
                 <label>Nome da matéria-prima</label>

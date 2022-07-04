@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams,useNavigate } from "react-router-dom";
+import { selectAllMateriasPrimas } from "../app/materiaPrimaSlice";
 import { addProdutoServer, updateProdutoServer, selectProdutosById } from "../app/produtosSlice";
 
 /**
@@ -32,6 +33,7 @@ const CadastroProduto = (props) => {
     let {id} = useParams();
     
     const produtoFound = useSelector(state => selectProdutosById(state, id))
+    const insumos = useSelector(selectAllMateriasPrimas)
 
     const [produto, setProduto] = useState(
         id ? produtoFound ?? {} : {});
@@ -44,9 +46,10 @@ const CadastroProduto = (props) => {
                 : 'produtos/addProdutoServer');
     
    
-    const handleChange=(evt)=>{  
+    const handleChange=(evt)=>{
         const newInput = (fieldValues)=>({...fieldValues, [evt.target.name]:evt.target.value})
         setProduto(newInput)
+ 
     }
     
     const handleSubmit=(evt) =>{
@@ -58,8 +61,9 @@ const CadastroProduto = (props) => {
             else if (actionType === 'produtos/updateProdutoServer'){
                 dispatch(updateProdutoServer(produto));
             }
+            console.log(produto)
             navigate('/home');
-            const emptyInput= {nomeProduto:'', qtdProduto:'', custoProduto:'', valorProduto:''}
+            const emptyInput= {nomeProduto:'', qtdProduto:'', custoProduto:'', valorProduto:'', Insumos: ''}
             setProduto(emptyInput)
         }
         
@@ -79,6 +83,13 @@ const CadastroProduto = (props) => {
                 <input type="number" onChange={handleChange} value={produto.custoProduto} name="custoProduto" className="form-control" placeholder="Custo"/>
                 <label>Preço</label>
                 <input type="number" onChange={handleChange} value={produto.valorProduto} name="valorProduto" className="form-control" placeholder="Valor"/>
+                <label>Insumos</label>
+                <input list = "Insumos" onChange={handleChange} value={produto.Insumos} name="Insumos" className="form-control" placeholder="Insumo"/>
+                <datalist id = "Insumos">
+                    {insumos.map((insumos,index)=>(
+                        <option value = {insumos.tipo}/>
+                     ))}
+                </datalist>
                 <input type="submit" onClick={handleSubmit} class="btn" />
             </form>
         </div>

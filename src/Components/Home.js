@@ -35,10 +35,11 @@ const Home = () => {
     if(statusProdutos === 'loaded' || statusProdutos === 'saved' || statusProdutos === 'deleted' ){
         tabelaProdutos = 
             <table className="produtos">
-                <td>N.</td>
+                <td>Edições</td>
                 <td>Nome do Produto</td>
                 <td>Custo</td>
                 <td>Preço</td>
+                <td>Deleções</td>
                 <TabelaProdutos produtos={produtos} />
             </table>
       }else if(statusProdutos === 'loading'){
@@ -51,11 +52,12 @@ const Home = () => {
       if(statusMateriasprimas === 'loaded' || statusMateriasprimas === 'saved' || statusMateriasprimas === 'deleted' ){
         tabelaMateriasprimas = 
             <table className="produtos">
-                    <td>N.</td>
-                    <td>Nome da Matéria-prima</td>
+                    <td>Edições</td>
+                    <td>Nome do Insumo</td>
                     <td>Fornecedor</td>
                     <td>Custo</td>
                     <td>Quantidade</td>
+                    <td>Deleções</td>
                 <TabelaMateriaPrima materiasprimas={materiasprimas} />
             </table>
       }else if(statusMateriasprimas === 'loading'){

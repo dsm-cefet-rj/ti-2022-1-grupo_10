@@ -39,7 +39,7 @@ router.route('/:id')
   let err;
   res.setHeader('Content-Type', 'application/json');
   try{
-    const resp = await Produtos.findById(req.params.id);
+    const resp = await Produtos.findById(req.params.id).populate('Insumos', 'tipo')
     if (resp!=null){
       res.statusCode=200;
       res.json(resp);

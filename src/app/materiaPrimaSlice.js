@@ -21,7 +21,7 @@ export const deleteMateriaPrimaServer = createAsyncThunk('materiasprimas/deleteM
 });
 
 export const addMateriaPrimaServer = createAsyncThunk('materiasprimas/addMateriaPrimaServer', async (materiaPrima, {getState}) => {
-    materiaPrima.qtdUsos = 0
+    materiaPrima.usos = 0
     return await httpPost(`${baseUrl}/materiasprimas`, materiaPrima, {headers: {Authorization: 'Bearer ' + getState().logins.currentToken}});
 });
 

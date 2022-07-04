@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { selectAllMateriasPrimas, updateMateriaPrimaServer } from "../app/materiaPrimaSlice";
 import { selectAllProdutos, updateProdutoServer} from "../app/produtosSlice";
 
 /**
@@ -19,6 +20,7 @@ const Producao = () => {
 
   const dispatch = useDispatch();
   const produtos = useSelector(selectAllProdutos)
+  const insumos = useSelector(selectAllMateriasPrimas)
   const navigate = useNavigate();
   
 
@@ -32,8 +34,17 @@ const Producao = () => {
 const handleproduce = ()=>{
   let produto = produtos.find((item)=>item.nomeProduto.includes(tasks))
   produto = {...produto, qtdProduto: parseInt(produto.qtdProduto) + parseInt(Qtd), Produzidos: parseInt(produto.Produzidos) + parseInt(Qtd)}
-  dispatch(updateProdutoServer(produto))
-  navigate('/relatorioProduto')
+  let insumo = insumos.find((item)=>item.tipo.includes(produto.Insumos))
+  const quantidadeInsumo = parseInt(insumo.qtd)
+  if (quantidadeInsumo < Qtd){
+    alert("Materia prima " + insumo.tipo + " Insuficiente")
+  }
+  else{
+    insumo = {...insumo, qtd: quantidadeInsumo - parseInt(Qtd), usos: parseInt(insumo.usos) + parseInt(Qtd)}
+    dispatch(updateProdutoServer(produto))
+    dispatch(updateMateriaPrimaServer(insumo))
+    navigate('/relatorioProduto')
+  }
 }
 
   const [Qtd,setQtd]=useState("");
@@ -52,7 +63,13 @@ const handleproduce = ()=>{
           </tr>
           <tbody>
             <tr>
-              <th><input type="text"onChange={(e)=>setTasks(e.target.value)}></input></th>
+              <th><input list = "Produtos" onChange={(e)=>setTasks(e.target.value)} name="Insumos"/>
+                <datalist id = "Produtos">
+                    {produtos.map((produtos,index)=>(
+                        <option key={index} value = {produtos.nomeProduto}/>
+                     ))}
+                </datalist>
+                </th>
               <th><input type="number"onChange={(e)=>setQtd(e.target.value)}></input></th>
             </tr>
           </tbody>

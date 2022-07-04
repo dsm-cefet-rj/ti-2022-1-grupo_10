@@ -26,6 +26,10 @@ const produtoSchema = new Schema({
     Produzidos: {
         type: Number,
         required: false,
+    },
+    Insumos: {
+        type: mongoose.Schema.Types.String, 
+        ref: 'MateriaPrima' 
     }
 })
 

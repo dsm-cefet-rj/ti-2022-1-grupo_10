@@ -20,11 +20,11 @@ const LinhaProdutos = (produto) => {
     }
     return ( 
         <tr>
-            <td><Link to={`/cadastroProduto/${produto.produto.id}`}><button>{produto.produto.id}</button></Link></td>
+            <td><Link to={`/cadastroProduto/${produto.produto.id}`}><button>Editar</button></Link></td>
             <td>{produto.produto.nomeProduto}</td>
             <td>{produto.produto.custoProduto}</td>
             <td>{produto.produto.valorProduto}</td>
-            <button onClick={handleDelete} id ='deletar'>Delete</button>
+            <td><button onClick={handleDelete} id ='deletar'>Delete</button></td>
         </tr>
      );
 }

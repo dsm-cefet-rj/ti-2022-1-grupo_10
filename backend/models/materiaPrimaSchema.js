@@ -19,10 +19,10 @@ const materiaPrimaSchema = new Schema({
         type: String,
         required: true,
     },
-    usados: {
+    usos: {
         type: Number,
         required: false,
-    }
+    },
 })
 
 materiaPrimaSchema.plugin(normalize);

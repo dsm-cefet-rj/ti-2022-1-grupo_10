@@ -20,7 +20,7 @@ const MateriaPrimaInfo = ({materiasprimas}) => {
                     <p>{materiasprimas.qtd}</p>
                 </td>
                 <td>
-                    <p>{materiasprimas.custo}</p>
+                    <p>{materiasprimas.usos}</p>
                 </td>
             </tr>
         </table>

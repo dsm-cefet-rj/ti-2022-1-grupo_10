@@ -21,12 +21,12 @@ const LinhaMateriaPrima = (materiaprima) => {
         }
     return ( 
         <tr>
-            <td><Link to={`/cadastroMP/${materiaprima.materiaprima.id}`}><button>{materiaprima.materiaprima.id}</button></Link></td>
+            <td><Link to={`/cadastroMP/${materiaprima.materiaprima.id}`}><button>Editar</button></Link></td>
             <td>{materiaprima.materiaprima.tipo}</td>
             <td>{materiaprima.materiaprima.fornecedor}</td>
             <td>{materiaprima.materiaprima.qtd}</td>
             <td>{materiaprima.materiaprima.custo}</td>
-            <button onClick={handleDelete} id ='deletar'>Delete</button>
+            <td><button onClick={handleDelete} id ='deletar'>Delete</button></td>
         </tr>
      );
 }
