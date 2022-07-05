@@ -27,7 +27,7 @@ router.post('/signup', cors.corsWithOptions, (req, res, next) => {
     });
 });
   router.route('/login').options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
-  router.post('/login', cors.corsWithOptions, passport.authenticate('local'), (req, res) => {
+  router.post('/login', cors.corsWithOptions, passport.authenticate('local', { session: false }), (req, res) => {
     
     var token = authenticate.getToken({_id: req.user._id});
     res.statusCode = 200;
