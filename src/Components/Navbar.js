@@ -50,6 +50,9 @@ export default function Navbar() {
             <NavLink to="/cadastroMP"> Insumo </NavLink>
           </li>
           <li>
+            <NavLink to="/cadastroFornecedor"> Fornecedor </NavLink>
+          </li>
+          <li>
             <NavLink to="/producao"> Produção </NavLink>
           </li>
           <li>

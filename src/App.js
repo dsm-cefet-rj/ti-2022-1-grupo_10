@@ -19,6 +19,7 @@ import {store} from './app/store';
 import { fetchProdutos } from './app/produtosSlice';
 import { fetchMateriasPrimas } from './app/materiaPrimaSlice';
 import SignupForm from "./users/SignupForm";
+import CadastroFornecedor from "./Components/CadastroFornecedor";
 
 store.dispatch(fetchProdutos());
 store.dispatch(fetchMateriasPrimas());
@@ -43,6 +44,7 @@ const App = () => {
               <Route path="/cadastroProduto/:id" element={<CadastroProduto />} />
               <Route path="/cadastroMP" element={<CadastroMateriaPrima />} />
               <Route path="/cadastroMP/:id" element={<CadastroMateriaPrima />} />
+              <Route path="/cadastroFornecedor" element={<CadastroFornecedor />} />
               <Route path="/producao" element={<Producao />} />
               <Route path="/venda" element={<Venda />} />
               <Route path="/relatorioProduto" element={<RelatorioProduto />} />
