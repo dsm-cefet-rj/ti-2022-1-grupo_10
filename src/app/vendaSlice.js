@@ -1,6 +1,6 @@
 // imports
 import { createAsyncThunk, createEntityAdapter, createSlice } from '@reduxjs/toolkit'
-import {httpDelete, httpGet, httpPut, httpPost} from '../app/utils'
+import {httpGet, httpPost} from '../app/utils'
 import {baseUrl} from '../app/baseUrl'
 
 

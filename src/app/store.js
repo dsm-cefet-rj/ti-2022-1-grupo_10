@@ -9,6 +9,7 @@ export const store = configureStore({
         produtos: produtosReducer,
         materiasprimas: materiaPrimaReducer,
         logins: loginReducer,
-        signups: signupReducer
+        signups: signupReducer,
+        vendas: vendaReducer
     }
 });
