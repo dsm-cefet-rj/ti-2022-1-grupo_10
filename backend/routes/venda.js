@@ -28,7 +28,7 @@ router.route('/')
       console.log('venda criada ', venda);
       res.statusCode = 200;
       res.setHeader('Content-Type', 'application/json');
-      res.json(fornecedor);
+      res.json(venda);
   }, (err) => next(err))
   .catch((err) => next(err));
 })

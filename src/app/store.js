@@ -3,6 +3,7 @@ import produtosReducer from "./produtosSlice"
 import materiaPrimaReducer from './materiaPrimaSlice'
 import loginReducer from '../users/LoginSlice'
 import signupReducer from '../users/SignupSlice'
+import vendaReducer from './vendaSlice';
 
 export const store = configureStore({
     reducer: {
