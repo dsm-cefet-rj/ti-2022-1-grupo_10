@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { addFornecedorServer } from "../app/fornecedorSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import { addFornecedorServer, selectFornecedoresById, updateFornecedorServer } from "../app/fornecedorSlice";
 
 /**
 *@module Components/CadastroFornecedor
@@ -27,7 +27,18 @@ const CadastroFornecedor = () => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const [fornecedor, setFornecedor] = useState({})
+    
+    let { id } = useParams();
+    const fornecedorFound = useSelector(state => selectFornecedoresById(state, id))
+    
+    const [fornecedor, setFornecedor] = useState(
+        id ? fornecedorFound ?? {} : {}
+    )
+    const [actionType, ] = useState(
+        id ? fornecedorFound 
+                ? 'fornecedores/updateFornecedorServer'
+                : 'fornecedores/addFornecedorServer'
+                : 'fornecedores/addFornecedorServer');
 
     const handleChange = (event) => {
         const newInput = (fieldValues)=>({...fieldValues, [event.target.name]:event.target.value});
@@ -35,10 +46,19 @@ const CadastroFornecedor = () => {
     }
 
     const handleSubmit = () => {
-        dispatch(addFornecedorServer(fornecedor));
-        navigate('/home');
-        const emptyInput= {nomeFornecedor:'', estadoFornecedor:'', bairroFornecedor:''}
-        setFornecedor(emptyInput);
+
+        const checkEmptyInput = !Object.values(fornecedor).every(fieldValue=>fieldValue==="")
+        if(checkEmptyInput){
+            if(actionType === 'fornecedores/addFornecedorServer'){
+                dispatch(addFornecedorServer(fornecedor));
+            }
+            else if (actionType === 'fornecedores/updateFornecedorServer'){
+                dispatch(updateFornecedorServer(fornecedor));
+            }
+            navigate('/home');
+            const emptyInput= {nomeFornecedor:'', estadoFornecedor:'', bairroFornecedor:''}
+            setFornecedor(emptyInput);
+        }
     }
 
     return (

@@ -10,7 +10,7 @@ const initialState = fornecedoresAdapter.getInitialState ({
 });
 
 
-export const fetchFornecedor = createAsyncThunk('fornecedores/fetchfetchFornecedores', async (_, {getState}) => {
+export const fetchFornecedor = createAsyncThunk('fornecedores/fetchFornecedor', async (_, {getState}) => {
     console.log(getState());
     return await httpGet(`${baseUrl}/fornecedores`, {headers: {Authorization: 'Bearer ' + getState().logins.currentToken}});
 });
