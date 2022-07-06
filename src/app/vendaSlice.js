@@ -9,15 +9,15 @@ const initialState = vendaAdapter.getInitialState({status: 'not_loaded', error: 
 
 
 // http methods
-export const fetchVendas = createAsyncThunk('vendas/fetchVendas', async (_, {getState}) => {
+export const fetchVendas = createAsyncThunk('venda/fetchVendas', async (_, {getState}) => {
     console.log(getState());
-    return await httpGet(`${baseUrl}/vendas`, {headers: {Authorization: 'Bearer ' + getState().logins.currentToken}})
+    return await httpGet(`${baseUrl}/venda`, {headers: {Authorization: 'Bearer ' + getState().logins.currentToken}})
 })
 
 
-export const addVendaServer = createAsyncThunk('vendas/addVendaServer', async (venda, {getState}) => {
+export const addVendaServer = createAsyncThunk('venda/addVendaServer', async (venda, {getState}) => {
     console.log(getState());
-    return await httpPost(`${baseUrl}/vendas`, venda, {headers: {Authorization: 'Bearer ' + getState().logins.currentToken}})
+    return await httpPost(`${baseUrl}/venda`, venda, {headers: {Authorization: 'Bearer ' + getState().logins.currentToken}})
 })
 
 
