@@ -20,9 +20,11 @@ import { fetchProdutos } from './app/produtosSlice';
 import { fetchMateriasPrimas } from './app/materiaPrimaSlice';
 import SignupForm from "./users/SignupForm";
 import CadastroFornecedor from "./Components/CadastroFornecedor";
+import { fetchVendas } from "./app/vendaSlice";
 
 store.dispatch(fetchProdutos());
 store.dispatch(fetchMateriasPrimas());
+store.dispatch(fetchVendas());
 
 //PARA DAR RUN NO JSON-SERVER USE npm run json-server
 
