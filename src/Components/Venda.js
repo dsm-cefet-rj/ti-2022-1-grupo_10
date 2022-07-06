@@ -1,9 +1,8 @@
-import { STATES } from "mongoose";
 import React, {useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {  selectAllProdutos, updateProdutoServer } from "../app/produtosSlice";
-import { addVendaServer, selectAllVendas } from "../app/vendaSlice";
+import { addVendaServer } from "../app/vendaSlice";
 
 /**
 *@module Components/Venda
@@ -28,7 +27,7 @@ const Venda = () => {
 
 const handleproduce = (e)=>{
   let produto = produtos.find((item)=>item.nomeProduto.includes(Produto))
-  if(Qtd <= produto.qtdProduto){
+  if(parseInt(Qtd) <= produto.qtdProduto){
     produto = {...produto, qtdProduto: parseInt(produto.qtdProduto) - parseInt(Qtd), Vendidos: parseInt(produto.Vendidos) + parseInt(Qtd)}
     dispatch(updateProdutoServer(produto))
     let venda = {produto: produto.nomeProduto, qtd: parseInt(Qtd), lucro: (produto.valorProduto - produto.custoProduto) * parseInt(Qtd)};
