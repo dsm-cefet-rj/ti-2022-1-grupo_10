@@ -9,11 +9,11 @@ const vendaSchema = new Schema({
     required: true,
 },
   qtd: {
-    type: number,
+    type: Number,
     required: true,
 },
   lucro: {
-    type: number,
+    type: Number,
     required: false,
   }
 })

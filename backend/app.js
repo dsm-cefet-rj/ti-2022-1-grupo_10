@@ -12,6 +12,7 @@ var produtosRouter = require('./routes/produtos');
 var materiasprimasRouter = require('./routes/materiasprimas');
 var fornecedoresRouter = require('./routes/fornecedores');
 var usersRouter = require('./routes/users');
+var vendaRouter = require('./routes/venda');
 
 var config = require('./config');
 
@@ -47,5 +48,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/produtos', produtosRouter);
 app.use('/materiasprimas', materiasprimasRouter);
 app.use('/fornecedores', fornecedoresRouter);
-
+app.use('/venda', vendaRouter);
 module.exports = app;
