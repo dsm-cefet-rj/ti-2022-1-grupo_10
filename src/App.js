@@ -45,6 +45,7 @@ const App = () => {
               <Route path="/cadastroMP" element={<CadastroMateriaPrima />} />
               <Route path="/cadastroMP/:id" element={<CadastroMateriaPrima />} />
               <Route path="/cadastroFornecedor" element={<CadastroFornecedor />} />
+              <Route path="/cadastroFornecedor/:id" element={<CadastroFornecedor />} />
               <Route path="/producao" element={<Producao />} />
               <Route path="/venda" element={<Venda />} />
               <Route path="/relatorioProduto" element={<RelatorioProduto />} />
