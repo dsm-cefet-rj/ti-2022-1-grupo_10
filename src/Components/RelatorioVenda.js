@@ -3,6 +3,7 @@ import ContainerVenda from "./ContainerVenda";
 import { useSelector } from "react-redux";
 import { fetchProdutos, selectAllProdutos } from "../app/produtosSlice";
 import { store } from "../app/store";
+import { useNavigate } from "react-router-dom";
 
 
 /**
@@ -15,7 +16,7 @@ import { store } from "../app/store";
  */
 
 const RelatorioVenda = () =>{
-
+    const navigate = useNavigate()
     const produtos = useSelector(selectAllProdutos)
     const statusProdutos = useSelector(state => state.produtos.status);
     const errorProdutos = useSelector(state => state.produtos.error);
@@ -32,11 +33,15 @@ const RelatorioVenda = () =>{
       }else if(statusProdutos === 'failed'){
         tabelaProdutos = <div>Error: {errorProdutos}</div>;
       }
+      const handleNavigate = ()=>{
+        navigate('/relatorioDasVendas')
+      }
 
     return (
         <>
             <div id="relatorio">
-                <h1>VENDAS</h1>
+                <h1>Produtos Vendidos</h1>
+                <button type="menu" onClick={handleNavigate} class="btn_3">Ir para vendas</button>
                 {tabelaProdutos}
             </div>
         </>

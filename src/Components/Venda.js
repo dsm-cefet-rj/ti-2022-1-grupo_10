@@ -34,6 +34,9 @@ const handleproduce = (e)=>{
     dispatch(addVendaServer(venda));
     navigate('/relatorioVenda')
   }
+  else{
+    alert("Estoque insuficiente")
+  }
 }
 
 
@@ -51,7 +54,14 @@ return (
                 </tr>
                 <tbody>
                   <tr>
-                    <th><input type="text"onChange={(e)=>setProduto(e.target.value)}></input></th>            
+                    <th>
+                        <input list = "Produtos" onChange={(e)=>setProduto(e.target.value)} name="Produtos"/>
+                        <datalist id = "Produtos">
+                            {produtos.map((produtos,index)=>(
+                                <option key={index} value = {produtos.nomeProduto}/>
+                            ))}
+                        </datalist>
+                    </th>           
                     <th><input type="number"onChange={(e)=>setQtd(e.target.value)}></input></th>
                 </tr>                
               </tbody>                               

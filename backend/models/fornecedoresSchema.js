@@ -14,6 +14,10 @@ const fornecedoresSchema = new Schema({
     bairroFornecedor: {
         type: String,
         required: true,
+    },
+    urlFornecedor: {
+        type: String,
+        required: true,
     }
 })
 

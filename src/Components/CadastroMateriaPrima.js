@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams,useNavigate } from "react-router-dom";
+import { selectAllFornecedores } from "../app/fornecedorSlice";
 import { addMateriaPrimaServer, updateMateriaPrimaServer, selectMateriasPrimasById } from "../app/materiaPrimaSlice";
 
 
@@ -33,6 +34,7 @@ const CadastroMateriaPrima = () => {
     let {id} = useParams();
     
     const materiaPrimaFound = useSelector(state => selectMateriasPrimasById(state, id))
+    const fornecedores = useSelector(selectAllFornecedores)
 
     const [mp, setMp] = useState(
         id ? materiaPrimaFound ?? {} : {});
@@ -76,7 +78,12 @@ const CadastroMateriaPrima = () => {
                 <label>Quantidade(kg)</label>
                 <input type="number" onChange={handleChange} value={mp.qtd} name="qtd" className="form-control" placeholder="Quantidade"/>
                 <label>Fornecedor</label>
-                <input type="text" onChange={handleChange} value={mp.fornecedor} name="fornecedor" className="form-control"  placeholder="Nome"/>
+                <input list = "Fornecedor" onChange={handleChange} value={mp.fornecedor} name="fornecedor" className="form-control" placeholder="Fornecedor"/>
+                <datalist id = "Fornecedor">
+                    {fornecedores.map((fornecedores,index)=>(
+                        <option value = {fornecedores.nomeFornecedor}/>
+                     ))}
+                </datalist>
                 <label>Preço</label>
                 <input type="number" onChange={handleChange} value={mp.custo} name="custo" className="form-control" placeholder="Valor"/>
                 <input type="submit" onClick={handleSubmit} class="btn" />

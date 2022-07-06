@@ -12,8 +12,8 @@ const materiaPrimaSchema = new Schema({
         required: true,
     },
     fornecedor: {
-        type: String,
-        required: false,
+        type: mongoose.Schema.Types.String, 
+        ref: 'Fornecedores' 
     },
     custo: {
         type: String,

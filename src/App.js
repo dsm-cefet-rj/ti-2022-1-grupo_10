@@ -14,6 +14,7 @@ import RelatorioMateriaPrima from "./Components/RelatorioMateriaPrima";
 import RelatorioProduto from "./Components/RelatorioProduto";
 import RelatorioVenda from "./Components/RelatorioVenda";
 import Venda from "./Components/Venda";
+import RelatorioDasVendas from "./Components/RelatorioDasVendas";
 import { Provider } from 'react-redux';
 import {store} from './app/store';
 import { fetchProdutos } from './app/produtosSlice';
@@ -53,6 +54,7 @@ const App = () => {
               <Route path="/relatorioProduto" element={<RelatorioProduto />} />
               <Route path="/relatorioMP" element={<RelatorioMateriaPrima />} />
               <Route path="/relatorioVenda" element={<RelatorioVenda />} />
+              <Route path="/relatorioDasVendas" element ={<RelatorioDasVendas />}/>
             </Routes>
           </Router>
         </main>

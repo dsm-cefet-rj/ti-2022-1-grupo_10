@@ -73,6 +73,8 @@ const CadastroFornecedor = () => {
                 <input type="text" onChange={handleChange} value={fornecedor.estadoFornecedor} name="estadoFornecedor" className="form-control" placeholder="Estado"/>
                 <label>Bairro</label>
                 <input type="text" onChange={handleChange} value={fornecedor.bairroFornecedor} name="bairroFornecedor" className="form-control"  placeholder="Bairro"/>
+                <label>Url do Fornecedor</label>
+                <input type="url" onChange={handleChange} value={fornecedor.urlFornecedor} name="urlFornecedor" className="form-control"  placeholder="http://fornecedor.com"/>
                 <input type="submit" onClick={handleSubmit} class="btn" />
             </form>
         </div>

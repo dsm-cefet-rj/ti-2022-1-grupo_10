@@ -34,13 +34,12 @@ export const vendaSlice = createSlice(
         }
     }
 )
-
+export default vendaSlice.reducer;
 
 export const {
     selectAll: selectAllVendas,
     selectById: selectVendasById,
     selectIds: selectVendasIds
-} = vendaAdapter.getSelectors(state => state.venda);
+} = vendaAdapter.getSelectors(state => state.vendas);
 
 
-export default vendaSlice.reducer;
