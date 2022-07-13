@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { selectAllMateriasPrimas, updateMateriaPrimaServer } from "../app/materiaPrimaSlice";
 import { selectAllProdutos, updateProdutoServer} from "../app/produtosSlice";
-import Alert from 'react-bootstrap/Alert'
 import { selectAllFornecedores } from "../app/fornecedorSlice";
+import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 /**
 *@module Components/Producao
@@ -26,7 +27,6 @@ const Producao = () => {
   const fornecedores = useSelector(selectAllFornecedores)
   const navigate = useNavigate();
 
-  const [show, setShow] = useState(false);
   const [urlFornecedor, setUrlFornecedor] = useState("")
   const [insumoAlerta, setInsumoAlerta] = useState("")
 
@@ -46,8 +46,9 @@ const handleproduce = ()=>{
     let fornecedor = fornecedores.find((item=>item.nomeFornecedor.includes(insumo.fornecedor)))
     setUrlFornecedor(fornecedor.urlFornecedor)
     setInsumoAlerta(insumo.tipo)
-    setShow(true)
-    console.log(urlFornecedor)
+    toast(({ closeToast }) => 
+      <div>Insumo {insumoAlerta} insuficiente <a href={urlFornecedor}>clique aqui para comprar mais</a></div>
+    );
   }
   else{
     insumo = {...insumo, qtd: quantidadeInsumo - parseInt(Qtd), usos: parseInt(insumo.usos) + parseInt(Qtd)}
@@ -66,7 +67,7 @@ const handleproduce = ()=>{
           <h2>Produção</h2>
         </div>
         <h1>Clique produzir para salvar no Estoqueasy</h1>
-        <Alert show = {show} variant="warning">Matéria prima {insumoAlerta} insuficiente<Alert.Link href= {urlFornecedor}>clique aqui pra comprar mais</Alert.Link></Alert>
+        <ToastContainer />
         <table class="producao">
           <tr>
             <th>Nome do produto</th>

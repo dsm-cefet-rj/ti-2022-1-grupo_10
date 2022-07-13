@@ -3,6 +3,8 @@ import { useParams, useNavigate, NavLink } from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux';
 import { useForm } from "react-hook-form";
 import {loginServer} from './LoginSlice';
+import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 export default function LoginForm(props){
 
@@ -24,12 +26,34 @@ export default function LoginForm(props){
         if (status === 'logged_in' ) {
             navigate('/home');
         }
+        else if (status === 'failed'){
+            toast.error('Algo deu errado!', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
+        }
     }, [status])
 
 
 
 
     return(<>
+            <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
             <h1>Login</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
             <label>

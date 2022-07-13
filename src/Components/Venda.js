@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {  selectAllProdutos, updateProdutoServer } from "../app/produtosSlice";
 import { addVendaServer } from "../app/vendaSlice";
+import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 /**
 *@module Components/Venda
@@ -35,13 +37,32 @@ const handleproduce = (e)=>{
     navigate('/relatorioVenda')
   }
   else{
-    alert("Estoque insuficiente")
+    toast.error('Estoque insuficiente!', {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
   }
 }
 
 
 return (
     <div id="produzir">
+      <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
       <div id="producao">
           <div id="header">
                 <h2>Venda</h2>

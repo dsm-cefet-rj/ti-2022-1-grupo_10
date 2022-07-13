@@ -9,6 +9,8 @@ import {store} from '../app/store';
 import { fetchProdutos } from '../app/produtosSlice'; 
 import { fetchMateriasPrimas, selectAllMateriasPrimas } from "../app/materiaPrimaSlice";
 import { fetchFornecedor, selectAllFornecedores } from "../app/fornecedorSlice";
+import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 /**
 *@module Components/Home
@@ -53,7 +55,19 @@ const Home = () => {
       }else if(statusProdutos === 'loading'){
         tabelaProdutos = <div>Carregando os Produtos...</div>;
       }else if(statusProdutos === 'failed'){
-        tabelaProdutos = <div>Error: {errorProdutos}</div>;
+        toast.error('Não foi possível obter produtos ou você não está autorizado', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            containerId: 'Produtos'
+            });
+            toast.clearWaitingQueue({ containerId: "Produtos" });
+        
+        tabelaProdutos = <div>Houve algum erro...</div>;
       }
 
       let tabelaMateriasprimas = '';
@@ -71,11 +85,22 @@ const Home = () => {
       }else if(statusMateriasprimas === 'loading'){
         tabelaMateriasprimas = <div>Carregando a Matéria Prima...</div>;
       }else if(statusMateriasprimas === 'failed'){
-        tabelaMateriasprimas = <div>Error: {errorMateriasprimas}</div>;
+        toast.error('Não foi possível obter Insumos ou você não está autorizado', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            containerId: 'Insumos'
+            });
+            toast.clearWaitingQueue({ containerId: "Insumos" });
+        
       }
           //Alterado por Marcos
       let tabelaFornecedores = '';
-      // if(statusFornecedores === 'loaded' || statusFornecedores === 'saved' || statusFornecedores === 'deleted' ){
+      if(statusFornecedores === 'loaded' || statusFornecedores === 'saved' || statusFornecedores === 'deleted' ){
         tabelaFornecedores = 
             <table className="produtos">
                     <td>Edições</td>
@@ -85,12 +110,22 @@ const Home = () => {
                     <td>Deleções</td>
                 <TabelaFornecedor fornecedores={fornecedores} />
             </table>
-      // }else if(statusFornecedores === 'loading'){
-      //   tabelaFornecedores = <div>Carregando os fornecedores...</div>;
-      // }else if(statusFornecedores === 'failed'){
-      //   tabelaFornecedores = <div>Error: {errorFornecedores}</div>;
-      // }
-          //Fim da alteração
+         }else if(statusFornecedores === 'loading'){
+            tabelaFornecedores = <div>Carregando os fornecedores...</div>;
+         }else if(statusFornecedores === 'failed'){
+            toast.error('Não foi possível obter fornecedores ou você não está autorizado', {
+                position: "top-left",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                containerId: 'Fornecedores'
+                });
+            toast.clearWaitingQueue({ containerId: "Fornecedores" });                
+         }
+            //fim da alteração
 
     
     return (
@@ -99,6 +134,48 @@ const Home = () => {
                 <div id="home-texto_2">
                     <h1>Estoqueasy</h1>
                     <h2>Seu negócio</h2>
+                    <ToastContainer
+                        enableMultiContainer 
+                        containerId={'Produtos'}
+                        position="top-right"
+                        autoClose={5000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        limit={1}
+                    />
+                    <ToastContainer
+                        enableMultiContainer 
+                        containerId={'Insumos'}
+                        position="top-center"
+                        autoClose={5000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        limit={1}
+                    />
+                    <ToastContainer
+                        enableMultiContainer 
+                        containerId={'Fornecedores'}
+                        position="top-left"
+                        autoClose={5000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        limit={1}
+                    />
                     {tabelaProdutos}
                     {tabelaMateriasprimas}
                     {tabelaFornecedores}

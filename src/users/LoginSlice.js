@@ -22,6 +22,7 @@ export const loginSlice = createSlice({
     extraReducers: {
        [loginServer.pending]: (state, action) => {state.status = 'trying_login'},
        [loginServer.fulfilled]: (state, action) => {state.status = 'logged_in'; loginAdapter.addOne(state, action.payload); state.currentToken = action.payload.token },
+       [loginServer.rejected]: (state, action) => {state.status = 'failed'; state.error = action.error.message}
     },
 })
 
