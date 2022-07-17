@@ -15,7 +15,7 @@ import { addMateriaPrimaServer, updateMateriaPrimaServer, selectMateriasPrimasBy
 *@property {number} id - identificador
 *@property {string} tipo - tipo da Materia Prima
 *@property {number} qtd - Quantidade de materia prima
-*@property {string} fornecedor - Nome de onde é comprada a materia prima
+*@property {string} fornecedor - Nome do fornecedor de onde é comprada a materia prima
 *@property {number} custo - Preço da materia prima
 *@property {number} qtdUsos - Quantidade de vezes que foi utilizada a materia prima na realização de um produto
 */

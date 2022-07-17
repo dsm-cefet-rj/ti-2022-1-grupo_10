@@ -2,6 +2,15 @@ import { createAsyncThunk, createEntityAdapter, createSlice } from '@reduxjs/too
 import {httpDelete, httpGet, httpPut, httpPost} from './utils'
 import {baseUrl} from './baseUrl'
 
+/**
+*@module app/fornecedorSlice
+*/
+
+/**
+ * Aqui é feito o slice contendo os diferentes reducers a serem utilizados para qualquer interação com a entidade fornecedores
+ * @param {Fornecedor} fornecedor - entidade que será trabalhada neste slice
+ */
+
 const fornecedoresAdapter = createEntityAdapter();
 
 const initialState = fornecedoresAdapter.getInitialState ({

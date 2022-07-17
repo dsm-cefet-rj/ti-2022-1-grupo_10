@@ -14,11 +14,12 @@ import { addFornecedorServer, selectFornecedoresById, updateFornecedorServer } f
 *@property {string} nomeFornecedor - nome fornecedor
 *@property {string} estadoFornecedor - estado de onde é o fornecedor
 *@property {string} bairroFornecedor - bairro do fornecedor
+*@property {string} urlFornecedor - URL do site de vendas do fornecedor
 */
 
 /**
  * Neste componente é feito o cadastro ou edição de uma matéria prima
- * @param {Fornecedor} fornecedor - Materia Prima a ser utilizada ou Cadastrada
+ * @param {Fornecedor} fornecedor - fornecedor a ser atualizado ou cadastrado
  */
 
 

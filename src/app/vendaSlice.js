@@ -3,6 +3,16 @@ import { createAsyncThunk, createEntityAdapter, createSlice } from '@reduxjs/too
 import {httpGet, httpPost} from '../app/utils'
 import {baseUrl} from '../app/baseUrl'
 
+/**
+*@module app/vendaSlice
+
+*/
+
+/**
+ * Aqui é feito o slice contendo os diferentes reducers a serem utilizados para qualquer interação com a entidade Venda
+ * @param {Venda} venda - entidade que será trabalhada neste slice
+ */
+
 
 const vendaAdapter = createEntityAdapter();
 const initialState = vendaAdapter.getInitialState({status: 'not_loaded', error: null});

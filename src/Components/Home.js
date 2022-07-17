@@ -17,10 +17,11 @@ import "react-toastify/dist/ReactToastify.css";
 */
 
 /**
- * Neste componente é renderizada a tela de home onde é exibido características básicas sobre os produtos e materias primas cadastrados, há também a opção de deletar ou ir pra tela de edição.
- * @param {MateriaPrima} materiasprimas - Materia Prima a ser exibida
- * @param {Produto} produtos - produto a ser exibido
- * @param {Fornecedor} fornecedores - fornecedor a ser exibido
+ * Neste componente é renderizada a tela de home onde é exibido características básicas sobre os produtos, materias primas e fornecedores cadastrados, há também a opção de deletar ou ir pra tela de edição.
+ * Caso o usuário não esteja autenticado ou desconectado do banco de dados, será gerada uma notificação de erro
+ * @param {MateriaPrima} materiasprimas - Materia Prima a ser exibida, contendo seu nome, fornecedor, custo e quantidade em estoque
+ * @param {Produto} produtos - produto a ser exibido, contendo seu nome, custo de produção e preço
+ * @param {Fornecedor} fornecedores - fornecedor a ser exibido contendo seu nome, estado e bairro
  */
 
 const Home = () => {

@@ -7,7 +7,7 @@ import InfoMateriaPrima from "./InfoMateriaPrima";
 
 /**
  * Neste componente é feito o Container onde se encontra o header da tabela a ser exibida no Relatório de Matéria Prima
- * @param {MateriaPrima} materiasprimas - Materia Prima a ser exibida
+ * @param {MateriaPrima} materiasprimas - Materia Prima a ser exibida contendo o nome do insumo a quantidade atual no estoque e o número de vezes utilizado
  */
 
 const ContainerMateriaPrima = ({materiasprimas}) => {

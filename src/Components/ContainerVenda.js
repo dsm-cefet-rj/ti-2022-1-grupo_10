@@ -7,7 +7,7 @@ import InfoVenda from "./InfoVenda";
 
 /**
  * Neste componente é feito o Container onde se encontra o header da tabela a ser exibida no Relatório de Vendas
- * @param {Produto} produtos - produto a ser exibido
+ * @param {Produto} produtos - produto a ser exibido contendo nome do produto, quantidade de vezes vendido e estoque atual
  */
 
 const ContainerVenda = ({produtos}) =>{

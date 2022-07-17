@@ -7,12 +7,12 @@ import { fetchVendas, selectAllVendas } from "../app/vendaSlice";
 
 
 /**
-*@module Components/RelatorioVenda
+*@module Components/RelatorioDasVendas
 */
 
 /**
- * Neste componente é renderizado o relatório dos produtos mais vendidos
- * @param {Venda} vendas - venda a ser exibido
+ * Neste componente é renderizado o relatório das vendas que foram realizadas pelo usuário
+ * @param {Venda} vendas - venda a ser exibida
  */
 
 const RelatorioDasVendas = () =>{

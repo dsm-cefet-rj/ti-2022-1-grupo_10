@@ -23,12 +23,19 @@ import SignupForm from "./users/SignupForm";
 import CadastroFornecedor from "./Components/CadastroFornecedor";
 import { fetchVendas } from "./app/vendaSlice";
 
+
 store.dispatch(fetchProdutos());
 store.dispatch(fetchMateriasPrimas());
 store.dispatch(fetchVendas());
 
-//PARA DAR RUN NO JSON-SERVER USE npm run json-server
 
+/**
+*@module App
+*/
+
+/**
+* Este é o componente central do front end, onde é criado as diferentes rotas para outros componentes e renderizada a barra de navegação
+*/
 
 const App = () => {
   

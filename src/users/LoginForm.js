@@ -6,6 +6,16 @@ import {loginServer} from './LoginSlice';
 import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
+
+/**
+*@module users/LoginForm
+*/
+
+/**
+ * neste componente é feito o formulário de login do site, contendo validação através de token jwt e caso um não exista usuário ou conexão com o banco de dados será feito uma notificação de erro
+ * @param {Login} login - informação de usuário e senha a ser passado para validação de conexão ao site
+ */
+
 export default function LoginForm(props){
 
     const navigate = useNavigate();

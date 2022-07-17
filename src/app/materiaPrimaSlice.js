@@ -2,6 +2,15 @@ import { createAsyncThunk, createEntityAdapter, createSlice } from '@reduxjs/too
 import {httpDelete, httpGet, httpPut, httpPost} from '../app/utils'
 import {baseUrl} from '../app/baseUrl'
 
+/**
+*@module app/materiaPrimaSlice
+*/
+
+/**
+ * Aqui é feito o slice contendo os diferentes reducers a serem utilizados para qualquer interação com a entidade Materia Prima
+ * @param {MateriaPrima} materiaPrima - entidade que será trabalhada neste slice
+ */
+
 const materiasprimasAdapter = createEntityAdapter();
 
 const initialState = materiasprimasAdapter.getInitialState ({

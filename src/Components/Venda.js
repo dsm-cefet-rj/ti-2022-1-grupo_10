@@ -11,10 +11,20 @@ import "react-toastify/dist/ReactToastify.css";
 */
 
 /**
- * Neste componente é feito a venda de um produto, diminuindo a quantidade em estoque e aumentando a variavel "Vendidos"
+*@typedef Venda
+*@type {object}
+*@property {number} id - identificador
+*@property {string} produto - produto que foi vendido
+*@property {number} qtd - Quantidade que foi vendida
+*@property {number} lucro - lucro obtido na venda fazendo o cálculo a partir do custo de produção e de venda do produto
+*/
+
+/**
+ * Neste componente é feito a venda de um produto, diminuindo a quantidade em estoque, aumentando a variavel "Vendidos" de produto e adicionando uma venda na entidade de Vendas
  * @param {Produto} produto - produto a ser vendido
  * @param {string} Produto - nome do produto a ser vendido
  * @param {string} Qtd - quantidade a ser vendida
+ * @param {Venda} venda - venda a ser registrada no banco de dados
  */
 
 const Venda = () => {

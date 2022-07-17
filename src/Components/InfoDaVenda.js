@@ -1,12 +1,12 @@
 import React from "react";
 
 /**
-*@module Components/InfoVenda
+*@module Components/InfoDaVenda
 */
 
 /**
  * Neste componente é exibida as linhas da tabela no Container de Vendas
- * @param {Produto} produtos - produto a ser exibido
+ * @param {Venda} venda - venda a ser exibida
  */
 
 const VendaInfo = ({venda}) =>{

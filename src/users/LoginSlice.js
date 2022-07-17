@@ -2,6 +2,15 @@ import {createSlice, createAsyncThunk, createEntityAdapter} from '@reduxjs/tool
 import {httpPost} from '../app/utils'
 import {baseUrl} from '../app/baseUrl'
 
+/**
+*@module users/LoginSlice
+*/
+
+/**
+ * Aqui é feito o slice contendo os diferentes reducers a serem utilizados para qualquer interação com a entidade Usuário
+ * @param {Login} login - entidade que será trabalhada neste slice
+ */
+
 const loginAdapter = createEntityAdapter();
 
 const initialState = loginAdapter.getInitialState({

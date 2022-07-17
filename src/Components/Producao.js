@@ -14,6 +14,8 @@ import "react-toastify/dist/ReactToastify.css";
 /**
  * Neste componente é feito a produção de um produto, aumentando a quantidade em estoque e a variavel "Produzidos"
  * @param {Produto} produto - produto a ser produzido
+ * @param {MateriaPrima} insumo - insumo a ser utilizado na produção
+ * @param {Fornecedor} fornecedor - caso o insumo esteja em quantidade menor será gerado uma notificação contendo o link de compra do fornecedor relacionado
  * @param {string} tasks - nome do produto a ser produzido
  * @param {string} Qtd - quantidade a ser produzida
  */

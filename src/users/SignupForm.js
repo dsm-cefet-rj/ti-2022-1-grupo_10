@@ -4,6 +4,17 @@ import {useDispatch, useSelector} from 'react-redux';
 import { useForm } from "react-hook-form";
 import {signupServer} from './SignupSlice';
 
+/**
+*@module users/SignupForm
+ */
+
+/**
+ * neste componente é feito o formulário de registro do site, portanto, onde será criado a conta do usuário
+ * @param {Login} login - entidade a ser utilizada
+ * @param {string} Usuário - nome do Usuário a ser cadastrado
+ * @param {string} Senha - senha do usuário que será encriptada no banco de dados
+ */
+
 export default function SignupForm(props){
 
     const navigate = useNavigate();

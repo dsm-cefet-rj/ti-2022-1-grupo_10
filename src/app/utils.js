@@ -1,3 +1,12 @@
+
+/**
+*@module app/utils
+*/
+
+/**
+* Aqui contêm um componente de configuração de métodos html como post, get, put e delete para serem utilizados nos slices
+*/
+
 async function client(endpoint, { body, ...customConfig } = {}) {
     const headers = { 'Content-Type': 'application/json' }
   

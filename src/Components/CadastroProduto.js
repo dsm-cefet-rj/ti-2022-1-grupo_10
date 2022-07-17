@@ -18,6 +18,7 @@ import { addProdutoServer, updateProdutoServer, selectProdutosById } from "../ap
 *@property {string} valorProduto - Preço de venda do produto
 *@property {number} Vendidos - vezes que foi vendido
 *@property {number} Produzidos - vezes que foi produzido
+*@property {string} Insumos - Matéria prima que será utilizada na produção deste produto
 */
 
 /**
