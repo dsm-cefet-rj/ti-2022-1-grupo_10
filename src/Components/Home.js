@@ -78,8 +78,8 @@ const Home = () => {
                     <td>Edições</td>
                     <td>Nome do Insumo</td>
                     <td>Fornecedor</td>
-                    <td>Custo</td>
                     <td>Quantidade</td>
+                    <td>Preço</td>
                     <td>Deleções</td>
                 <TabelaMateriaPrima materiasprimas={materiasprimas} />
             </table>
