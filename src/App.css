@@ -45,8 +45,6 @@ main {
 
 }
 
-
-
 .btn {
     padding: 0.5rem 2rem;
     border: 1px solid #533d09;
@@ -63,6 +61,24 @@ main {
 }
 
 .btn:hover {
+  background: #f4f4f4;
+}
+
+.btn_4 {
+    padding: 0.5rem 2rem;
+    border: 1px solid #533d09;
+    color: #533d09;
+    font-size: 14px;
+    line-height: 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: .1em;
+    transition: background 300ms ease;
+    margin-bottom: 20px;
+}
+
+.btn_4:hover {
   background: #f4f4f4;
 }
 
