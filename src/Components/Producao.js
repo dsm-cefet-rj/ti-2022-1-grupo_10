@@ -46,10 +46,8 @@ const handleproduce = ()=>{
   
   if (quantidadeInsumo < Qtd){
     let fornecedor = fornecedores.find((item=>item.nomeFornecedor.includes(insumo.fornecedor)))
-    setUrlFornecedor(fornecedor.urlFornecedor)
-    setInsumoAlerta(insumo.tipo)
     toast(({ closeToast }) => 
-      <div>Insumo {insumoAlerta} insuficiente <a href={urlFornecedor}>clique aqui para comprar mais</a></div>
+      <div>Insumo {insumo.tipo} insuficiente <a href={fornecedor.urlFornecedor}>clique aqui para comprar mais</a></div>
     );
   }
   else{

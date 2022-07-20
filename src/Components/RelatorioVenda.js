@@ -31,7 +31,7 @@ const RelatorioVenda = () =>{
       }else if(statusProdutos === 'loading'){
         tabelaProdutos = <div>Carregando os Produtos...</div>;
       }else if(statusProdutos === 'failed'){
-        tabelaProdutos = <div>Error: {errorProdutos}</div>;
+        tabelaProdutos = <div>Algo deu errado, dê login novamente ou peça ajuda de algum funcionário</div>;
       }
       const handleNavigate = ()=>{
         navigate('/relatorioDasVendas')

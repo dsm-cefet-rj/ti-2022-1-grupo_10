@@ -31,7 +31,7 @@ const RelatorioMateriaPrima = () => {
       }else if(statusMateriasprimas === 'loading'){
         tabelaMateriasprimas = <div>Carregando a Matéria Prima...</div>;
       }else if(statusMateriasprimas === 'failed'){
-        tabelaMateriasprimas = <div>Error: {errorMateriasprimas}</div>;
+        tabelaMateriasprimas = <div>Algo deu errado, dê login novamente ou peça ajuda de algum funcionário</div>;
       }
 
     return(

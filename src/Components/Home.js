@@ -68,7 +68,7 @@ const Home = () => {
             });
             toast.clearWaitingQueue({ containerId: "Produtos" });
         
-        tabelaProdutos = <div>Houve algum erro...</div>;
+        tabelaProdutos = <div>Algo deu errado, dê login novamente ou peça ajuda de algum funcionário</div>;
       }
 
       let tabelaMateriasprimas = '';
